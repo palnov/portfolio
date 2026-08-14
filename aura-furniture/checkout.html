@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформление заказа — AURA</title>
+  <meta name="description" content="Оформите покупку дизайнерской мебели AURA. Персональный менеджер-дизайнер свяжется с вами для согласования деталей заказа.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body style="padding-top: var(--header-height);">
+
+  <!-- HEADER -->
+  <header class="header header-scrolled">
+    <div class="container">
+      <a href="index.html" class="logo" id="logoLink">
+        AURA<span>.</span>
+      </a>
+      
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="index.html#advantages" class="nav-link">Преимущества</a>
+        <a href="index.html#reviews" class="nav-link">Отзывы</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="tel:+79967963333" class="contact-phone">+7 (996) 796-33-33</a>
+        
+        <button class="action-btn call-request-btn" aria-label="Заказать обратный звонок">
+          <svg viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </button>
+        
+        <button class="action-btn" id="cartTriggerBtn" aria-label="Открыть корзину" style="opacity: 0.5; pointer-events: none;">
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+        </button>
+        
+        <div class="burger-menu" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CHECKOUT SECTION -->
+  <main class="checkout-page-wrapper section-padding">
+    <div class="container">
+      
+      <!-- Fallback: Empty Cart State -->
+      <div id="emptyCartState" style="display: none; text-align: center; padding: 6rem 2rem;">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </div>
+        <h1 style="font-family: var(--font-headings); font-weight: 400; font-size: 2.2rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Ваша корзина пуста</h1>
+        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 2.5rem; font-family: var(--font-body); font-weight: 300;">Добавьте премиальную дизайнерскую мебель из каталога AURA, чтобы приступить к оформлению заказа.</p>
+        <a href="catalog.html" class="btn-primary">Перейти в каталог</a>
+      </div>
+
+      <!-- Active Cart Checkout Grid -->
+      <div id="activeCheckoutState" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: start;">
+        
+        <!-- Left Side: Ordering Form -->
+        <div>
+          <span class="badge" style="margin-bottom: 1rem;">Оформление</span>
+          <h1 style="font-family: var(--font-headings); font-weight: 400; font-size: 3.5rem; text-transform: uppercase; line-height: 1.15; margin-bottom: 3rem; letter-spacing: 0.05em;">
+            Заказ Мебели
+          </h1>
+          
+          <form id="checkoutForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div class="form-group">
+                <label class="form-label" for="chName">Ваше имя</label>
+                <input class="form-input" type="text" id="chName" required placeholder="Александр">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="chPhone">Телефон</label>
+                <input class="form-input" type="tel" id="chPhone" required placeholder="+7 (999) 999-99-99">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="chEmail">Email для деталей заказа</label>
+              <input class="form-input" type="email" id="chEmail" required placeholder="alex@premium.ru">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="chAddress">Адрес доставки</label>
+              <input class="form-input" type="text" id="chAddress" required placeholder="г. Москва, Рублево-Успенское шоссе, д. 45">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="chComment">Комментарии к заказу (обивка, цвет, пожелания)</label>
+              <textarea class="form-input" id="chComment" placeholder="Например, хочу диван в обивке Cream Boucle №4 и доставку в субботу."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary form-submit-btn" style="padding: 1.25rem; font-size: 1rem; margin-top: 1rem;">
+              Подтвердить заказ
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Side: Order summary details -->
+        <div style="background-color: var(--bg-secondary); border: 1px solid rgba(212,163,115,0.15); border-radius: var(--radius-lg); padding: 3rem; position: sticky; top: 120px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+          <h3 style="font-family: var(--font-headings); font-weight: 400; font-size: 1.6rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">
+            Детали Заказа
+          </h3>
+          
+          <!-- Checkout items list (hydrated dynamically) -->
+          <div id="checkoutItems" style="margin-bottom: 2rem; display: flex; flex-direction: column;">
+            <!-- Injected by cart.js -->
+          </div>
+
+          <!-- Total Calculation rows -->
+          <div style="display: flex; flex-direction: column; gap: 1rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color); margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary); font-family: var(--font-body); font-weight: 300;">
+              <span>Товары:</span>
+              <span id="checkoutSubtotal" style="color: var(--text-primary); font-weight: 600;">0 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary); font-family: var(--font-body); font-weight: 300;">
+              <span>Доставка консьержем:</span>
+              <span id="checkoutShipping" style="color: var(--text-primary); font-weight: 600;">0 ₽</span>
+            </div>
+          </div>
+
+          <!-- Grand total row -->
+          <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+            <span style="font-family: var(--font-body); font-weight: 500; font-size: 1rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Итого к оплате:</span>
+            <span id="checkoutTotal" style="font-family: var(--font-body); font-weight: 600; font-size: 2.2rem; color: var(--gold);">0 ₽</span>
+          </div>
+
+          <div style="margin-top: 2rem; background-color: rgba(255,255,255,0.01); border: 1px dashed var(--border-color); padding: 1rem 1.25rem; border-radius: 8px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; text-align: center; font-family: var(--font-body); font-weight: 300;">
+            Оплата производится после согласования деталей обивки и заключения договора поставки. Доступна безналичная оплата на расчетный счет или банковской картой.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- CALL REQUEST MODAL (Popup Form) -->
+  <div class="modal-overlay" id="callbackModal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Закрыть окно">×</button>
+      <h3 class="modal-title">Обратный звонок</h3>
+      <p class="modal-subtitle">Оставьте ваши контакты, и дизайнер-консультант свяжется с вами для обсуждения проекта.</p>
+      
+      <form id="callbackForm">
+        <div class="form-group">
+          <label class="form-label" for="cbName2">Ваше имя</label>
+          <input class="form-input" type="text" id="cbName2" required placeholder="Александр">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cbPhone2">Телефон</label>
+          <input class="form-input" type="tel" id="cbPhone2" required placeholder="+7 (999) 999-99-99">
+        </div>
+        <button class="btn-primary form-submit-btn" type="submit">Жду звонка</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CDN scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+  
+  <!-- Custom scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ВЕРЕСК | Премиальный глэмпинг в гармонии с природой</title>
+  <meta name="description" content="Незабываемый премиальный отдых без отказа от привычных удобств и комфорта в 20 минутах езды от города. Скандинавские А-фрейм домики с банными чанами.">
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP CDN dependencies for premium micro-animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">
+        <svg class="logo-svg" viewBox="0 0 24 24">
+          <!-- Elegant pine/fir tree needle graphic design -->
+          <path d="M12 2v20M12 5l6 3M12 9l8 4M12 13l9 4M12 5l-6 3M12 9l-8 4M12 13l-9 4" />
+        </svg>
+        <span class="logo-text">ВЕРЕСК</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#cabins">Дома</a></li>
+        <li><a href="#inclusions">В стоимости</a></li>
+        <li><a href="#activities">Развлечения</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <div class="social-links">
+          <a href="#" class="social-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+        <a href="tel:+79220455466" class="phone-link">+7 (922) 045-54-66</a>
+        <button class="btn-primary" data-open-modal="booking-modal">Забронировать</button>
+      </div>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">База отдыха в Тюмени</span>
+      <h1>Превосходство комфорта в гармонии с природой</h1>
+      <span class="hero-subtitle">отдых в сердце природы</span>
+      <p class="hero-description">
+        Незабываемый семейный или романтический отдых без отказа от привычных удобств и премиального комфорта всего в 20 минутах езды от города.
+      </p>
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn-primary" data-open-modal="booking-modal">Забронировать дом</button>
+        <a href="#cabins" class="btn-secondary">Узнать цены</a>
+      </div>
+
+      <!-- Hero Badges -->
+      <div class="hero-badges">
+        <div class="badge-item glass-panel">
+          <div class="badge-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div>
+            <div class="badge-title">Комфортные дома</div>
+            <div class="badge-desc">А-Фрейм коттеджи среди природных красот со стильным интерьером</div>
+          </div>
+        </div>
+        <div class="badge-item glass-panel">
+          <div class="badge-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </div>
+          <div>
+            <div class="badge-title">Огромный выбор</div>
+            <div class="badge-desc">Активные и расслабляющие развлечения для гостей в любой сезон</div>
+          </div>
+        </div>
+        <div class="badge-item glass-panel">
+          <div class="badge-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M20 12V4H4v8M2 12h20M12 4v18M12 12l4-4M12 12l-4-4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="badge-title">Акции и подарки</div>
+            <div class="badge-desc">Специальные условия для наших именинников и постоянных гостей</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Вереск</h2>
+          <span class="about-script">Дома в сердце природы</span>
+          <p class="about-p">
+            Мы — основатели проекта, состоящего из двух дружных семей, и рады приветствовать вас в нашем уютном уголке. Мы вложили душу в создание этого места, чтобы каждый гость прочувствовал атмосферу тепла и уюта.
+          </p>
+          <p class="about-p">
+            Тур-база <span class="about-highlight">Вереск</span> — идеальное место для семейного отдыха, незабываемых романтических уикендов и тёплых дружеских встреч у костра.
+          </p>
+          <p class="about-p">
+            На большой территории турбазы предлагается множество развлечений, что позволит каждому найти занятие по душе, раствориться в окружающей природе и забыть о повседневных заботах.
+          </p>
+          <a href="#activities" class="btn-secondary" style="margin-top: 15px;">Посмотреть развлечения</a>
+        </div>
+        <div class="about-visual">
+          <img src="assets/hero.png" alt="Вереск домики" class="about-main-img">
+          <div class="video-badge glass-panel" data-open-modal="video-modal">
+            <span class="play-btn">
+              <svg class="svg-icon" viewBox="0 0 24 24">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </span>
+            <span class="video-text">Посмотреть видео</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cabin Showcase Section -->
+  <section id="cabins">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">А-Frame домики</h2>
+        <span class="section-subtitle">от 4 гостей</span>
+      </div>
+
+      <div class="cabin-showcase">
+        <div class="cabin-card glass-panel">
+          <div class="cabin-image-container"></div>
+          <div class="cabin-details">
+            <h3>А-FRAME ДОМИК</h3>
+            <span class="cabin-tag">уют и романтика</span>
+
+            <ul class="pricing-list">
+              <li class="pricing-item">
+                <span class="pricing-label">Понедельник - Четверг</span>
+                <span class="pricing-value">от 8 000 ₽ / сутки</span>
+              </li>
+              <li class="pricing-item">
+                <span class="pricing-label">Пятница - Суббота</span>
+                <span class="pricing-value">от 10 000 ₽ / сутки</span>
+              </li>
+              <li class="pricing-item">
+                <span class="pricing-label">Воскресенье</span>
+                <span class="pricing-value">от 9 000 ₽ / сутки</span>
+              </li>
+              <li class="pricing-item">
+                <span class="pricing-label">Новогодние каникулы</span>
+                <span class="pricing-value">уточняйте у администратора</span>
+              </li>
+            </ul>
+
+            <div class="cabin-extra">
+              * За каждого последующего гостя доплата +500 ₽ (размещение до 6 человек).
+            </div>
+
+            <div class="cabin-actions">
+              <button class="btn-primary" data-open-modal="booking-modal">Забронировать</button>
+              <button class="btn-secondary" data-open-modal="video-modal">Смотреть дом</button>
+            </div>
+
+            <div class="cabin-features">
+              <div class="feature-pill">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                Мангал
+              </div>
+              <div class="feature-pill">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>
+                Лес
+              </div>
+              <div class="feature-pill">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+                Wi-Fi
+              </div>
+              <div class="feature-pill">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Климат
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inclusions Section -->
+  <section id="inclusions" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">В стоимость проживания входит</h2>
+        <span class="section-subtitle">с вниманием к деталям</span>
+      </div>
+
+      <div class="inclusions-grid">
+        <div class="inclusion-card glass-panel">
+          <div class="inclusion-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h4>Все необходимое для детей</h4>
+          <p>По предварительному запросу предоставим стульчик для кормления, манеж, детские качели и настольные игры.</p>
+        </div>
+        <div class="inclusion-card glass-panel">
+          <div class="inclusion-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h4>Администратор на территории</h4>
+          <p>Внимательный сотрудник всегда готов помочь решить любой вопрос для максимального комфорта и вашей безопасности.</p>
+        </div>
+        <div class="inclusion-card glass-panel">
+          <div class="inclusion-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+          <h4>Круглосуточное видеонаблюдение</h4>
+          <p>По всему периметру базы установлены видеокамеры, обеспечивающие полную безопасность гостей.</p>
+        </div>
+        <div class="inclusion-card glass-panel">
+          <div class="inclusion-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 10.05 20M2 8A13 13 0 0 1 14 20M2 20h.01"/>
+            </svg>
+          </div>
+          <h4>Высокоскоростной интернет</h4>
+          <p>Наслаждайтесь дикой природой, оставаясь на связи с миром на высокой скорости без ограничений.</p>
+        </div>
+        <div class="inclusion-card glass-panel">
+          <div class="inclusion-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h4>Индивидуальная мангальная зона</h4>
+          <p>Шампура, решетка для мяса, удобный мангал рядом с каждым домиком бесплатно для наших гостей.</p>
+        </div>
+        <div class="inclusion-card glass-panel">
+          <div class="inclusion-icon-wrap">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <path d="M3 3h18v18H3zM21 9H3M21 15H3M12 3v18"/>
+            </svg>
+          </div>
+          <h4>Ортопедические матрасы</h4>
+          <p>Качественные ортопедические матрасы, тёплые одеяла, ортопедические подушки и чистейшее постельное бельё.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities Tabs Section -->
+  <section id="activities">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Развлечения для вас</h2>
+        <span class="section-subtitle">сделайте свой отдых незабываемым</span>
+      </div>
+
+      <div class="tab-navigation">
+        <button class="tab-btn active" data-tab="winter-activities">Зимний досуг</button>
+        <button class="tab-btn" data-tab="summer-activities">Летний досуг</button>
+        <button class="tab-btn" data-tab="kids-activities">Детям</button>
+      </div>
+
+      <div class="activities-container">
+        <!-- Winter Pane -->
+        <div id="winter-activities" class="tab-pane active">
+          <div class="activity-card" style="background-image: url('assets/hero.png');">
+            <div class="activity-content">
+              <div class="activity-title">Горка на ватрушках</div>
+              <p>Оборудованная безопасная снежная горка на территории базы.</p>
+              <div class="activity-meta">
+                <span class="activity-price">Вход 200 ₽</span>
+                <span class="activity-duration">Ватрушки в аренду</span>
+              </div>
+            </div>
+          </div>
+          <div class="activity-card" style="background-image: url('assets/interior.png');">
+            <div class="activity-content">
+              <div class="activity-title">Баня на дровах</div>
+              <p>Настоящая русская баня с вениками и эфирными маслами.</p>
+              <div class="activity-meta">
+                <span class="activity-price">от 1 200 ₽ / час</span>
+                <span class="activity-duration">Минимум 2 часа</span>
+              </div>
+            </div>
+          </div>
+          <div class="activity-card" style="background-image: url('assets/hottub.png');">
+            <div class="activity-content">
+              <div class="activity-title">Сибирский Банный Чан</div>
+              <p>Расслабление в тёплой воде на открытом морозном воздухе.</p>
+              <div class="activity-meta">
+                <span class="activity-price">от 3 500 ₽</span>
+                <span class="activity-duration">Безлимит на день</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summer Pane -->
+        <div id="summer-activities" class="tab-pane">
+          <div class="activity-card" style="background-image: url('assets/hero.png');">
+            <div class="activity-content">
+              <div class="activity-title">Конные прогулки</div>
+              <p>Увлекательные прогулки на лошадях по красивому сосновому лесу.</p>
+              <div class="activity-meta">
+                <span class="activity-price">от 1 500 ₽</span>
+                <span class="activity-duration">1 час прогулки</span>
+              </div>
+            </div>
+          </div>
+          <div class="activity-card" style="background-image: url('assets/interior.png');">
+            <div class="activity-content">
+              <div class="activity-title">Кострище у домика</div>
+              <p>Вечерние посиделки у огня под гитару и маршмеллоу.</p>
+              <div class="activity-meta">
+                <span class="activity-price">1 000 ₽</span>
+                <span class="activity-duration">Дрова включены</span>
+              </div>
+            </div>
+          </div>
+          <div class="activity-card" style="background-image: url('assets/hottub.png');">
+            <div class="activity-content">
+              <div class="activity-title">Летний бассейн</div>
+              <p>Чистая прохладная вода для знойных летних дней.</p>
+              <div class="activity-meta">
+                <span class="activity-price">Бесплатно</span>
+                <span class="activity-duration">Для всех гостей</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kids Pane -->
+        <div id="kids-activities" class="tab-pane">
+          <div class="activity-card" style="background-image: url('assets/hero.png');">
+            <div class="activity-content">
+              <div class="activity-title">Детские качели</div>
+              <p>Безопасные плетеные качели-гнезда на открытом воздухе.</p>
+              <div class="activity-meta">
+                <span class="activity-price">Бесплатно</span>
+                <span class="activity-duration">Входит в кострище</span>
+              </div>
+            </div>
+          </div>
+          <div class="activity-card" style="background-image: url('assets/interior.png');">
+            <div class="activity-content">
+              <div class="activity-title">Активные игры</div>
+              <p>Бадминтон, фрисби, мячи и развивающие настольные игры.</p>
+              <div class="activity-meta">
+                <span class="activity-price">Бесплатно</span>
+                <span class="activity-duration">По запросу</span>
+              </div>
+            </div>
+          </div>
+          <div class="activity-card" style="background-image: url('assets/hottub.png');">
+            <div class="activity-content">
+              <div class="activity-title">Каток и Снеговики</div>
+              <p>Зимние забавы для малышей с лепкой крепостей и катком.</p>
+              <div class="activity-meta">
+                <span class="activity-price">Бесплатно</span>
+                <span class="activity-duration">В зимнее время</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion & Form Section -->
+  <section id="faq" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="faq-form-grid">
+        <div>
+          <div class="faq-switcher">
+            <button class="faq-switch-btn active" data-faq-pane="faq-questions-pane">Вопрос - Ответ</button>
+            <button class="faq-switch-btn" data-faq-pane="faq-form-pane">Задайте свой вопрос</button>
+          </div>
+
+          <!-- FAQ Pane -->
+          <div id="faq-questions-pane" class="faq-pane active">
+            <div class="accordion-list">
+              <div class="accordion-item active">
+                <div class="accordion-header">
+                  <span class="accordion-title">Какое время заезда и выезда?</span>
+                  <span class="accordion-icon-wrap">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                  </span>
+                </div>
+                <div class="accordion-content">
+                  Заезд осуществляется с 14:00, выезд до 12:00. При необходимости раннего заезда или позднего выезда обратитесь к нашему администратору.
+                </div>
+              </div>
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span class="accordion-title">Можно ли приехать с домашними питомцами?</span>
+                  <span class="accordion-icon-wrap">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                  </span>
+                </div>
+                <div class="accordion-content">
+                  Мы любим животных! Проживание с воспитанными собаками мелких пород возможно по предварительному согласованию за небольшую доплату.
+                </div>
+              </div>
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span class="accordion-title">Что нужно брать с собой из продуктов?</span>
+                  <span class="accordion-icon-wrap">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                  </span>
+                </div>
+                <div class="accordion-content">
+                  У нас есть полноценные кухни со всей посудой, плитой, холодильником и чайником, а также мангал. Вам достаточно взять только любимые продукты для готовки и питьевую воду.
+                </div>
+              </div>
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span class="accordion-title">Есть ли у вас ограничения по шуму?</span>
+                  <span class="accordion-icon-wrap">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                  </span>
+                </div>
+                <div class="accordion-content">
+                  Поскольку «Вереск» — это место для тихого уединения и семейного отдыха, у нас действует «закон тишины» на улице после 22:00. Шуметь на верандах в ночное время запрещено.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Pane -->
+          <div id="faq-form-pane" class="faq-pane">
+            <form class="contact-form">
+              <div class="form-group">
+                <label for="faq-name">Ваше имя</label>
+                <input type="text" id="faq-name" class="form-input" placeholder="Иван" required>
+              </div>
+              <div class="form-group">
+                <label for="faq-phone">Телефон</label>
+                <input type="tel" id="faq-phone" class="form-input" placeholder="+7 (999) 999-99-99" required>
+              </div>
+              <div class="form-group">
+                <label for="faq-msg">Ваш вопрос</label>
+                <textarea id="faq-msg" class="form-input" placeholder="Напишите интересующий вас вопрос..." required></textarea>
+              </div>
+              <label class="checkbox-label">
+                <input type="checkbox" required checked>
+                <span>Я подтверждаю ознакомление с Политикой конфиденциальности и даю согласие на обработку персональных данных.</span>
+              </label>
+              <button type="submit" class="btn-primary" style="margin-top: 10px;">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="faq-visual">
+          <div class="faq-visual-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts & Map Section -->
+  <section id="contacts" class="contacts-map-section">
+    <div class="container">
+      <div class="footer-map-container">
+        <div class="contacts-panel glass-panel" style="border-radius: 0;">
+          <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 5px;">Ждем вас в гости</h2>
+          <span class="section-subtitle" style="font-size: 2rem; margin-bottom: 40px;">Вереск</span>
+
+          <div class="contact-info-block">
+            <div class="contact-info-label">Адрес</div>
+            <div class="contact-info-value">г. Тюмень, Нижнетавдинский район, Геолог-2</div>
+            <div style="font-size: 0.85rem; color: var(--color-gray); margin-top: 5px;">Координаты: 57.363520, 65.754530</div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-label">Телефон</div>
+            <div class="contact-info-value">
+              <a href="tel:+79199302222" style="color: var(--color-gold);">+7 (919) 930-22-22</a>
+            </div>
+          </div>
+
+          <button class="btn-primary" data-open-modal="booking-modal" style="align-self: flex-start;">Забронировать отдых</button>
+        </div>
+
+        <!-- Simulated interactive map using CSS design and links -->
+        <div class="map-embed">
+          <div class="map-fallback">
+            <div class="map-icon-wrap">
+              <svg class="svg-icon" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3 style="margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Интерактивная карта</h3>
+            <p style="color: var(--color-gray); font-size: 0.9rem; max-width: 320px; margin-bottom: 15px;">Мы находимся на живописном берегу озера Сундукуль среди величественного хвойного леса.</p>
+            <a href="https://yandex.ru/maps/?text=57.363520,65.754530" target="_blank" class="btn-secondary map-button">Открыть в Яндекс.Картах</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <a href="#" class="logo" style="transform: scale(0.9);">
+        <svg class="logo-svg" viewBox="0 0 24 24">
+          <path d="M12 2v20M12 5l6 3M12 9l8 4M12 13l9 4M12 5l-6 3M12 9l-8 4M12 13l-9 4" />
+        </svg>
+        <span class="logo-text">ВЕРЕСК</span>
+      </a>
+      <div class="footer-copy">
+        &copy; 2026 Премиум Глэмпинг «Вереск». Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <!-- PREMIUM Interactive Booking Modal -->
+  <div id="booking-modal" class="modal-overlay">
+    <div class="modal-box glass-panel">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title">Онлайн бронирование</h3>
+      <span class="modal-subtitle">А-Фрейм домик</span>
+      
+      <form class="contact-form">
+        <div class="modal-row">
+          <div class="form-group">
+            <label for="booking-checkin">Дата заезда</label>
+            <input type="date" id="booking-checkin" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-checkout">Дата выезда</label>
+            <input type="date" id="booking-checkout" class="form-input" required>
+          </div>
+        </div>
+
+        <div class="modal-row">
+          <div class="form-group">
+            <label for="booking-guests">Количество гостей</label>
+            <div class="number-input-wrapper">
+              <input type="number" id="booking-guests" class="form-input" min="1" max="6" value="4" readonly required>
+              <div class="number-arrow number-arrow-up" id="btn-guests-up">▲</div>
+              <div class="number-arrow number-arrow-down" id="btn-guests-down">▼</div>
+            </div>
+          </div>
+          <div class="form-group" style="justify-content: center; padding-top: 15px;">
+            <label class="checkbox-container">
+              <input type="checkbox" id="booking-tub">
+              <span class="checkmark"></span>
+              Добавить Банный Чан (+3 500 ₽)
+            </label>
+          </div>
+        </div>
+
+        <!-- Live Price Calculation Panel -->
+        <div class="calc-summary">
+          <div class="calc-row">
+            <span>Продолжительность:</span>
+            <span id="calc-nights" style="font-weight: 600;">0 ночей</span>
+          </div>
+          <div class="calc-row">
+            <span>Проживание (базовая цена):</span>
+            <span id="calc-base-price">0 ₽</span>
+          </div>
+          <div class="calc-row">
+            <span>Доплата за гостей (>4 чел):</span>
+            <span id="calc-extra-guests">0 ₽</span>
+          </div>
+          <div class="calc-row">
+            <span>Сибирский банный чан:</span>
+            <span id="calc-tub-price">0 ₽</span>
+          </div>
+          <div class="calc-row calc-total">
+            <span>Итого к оплате:</span>
+            <span id="calc-total-price">0 ₽</span>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 15px;">
+          <label for="booking-name">Ваше имя</label>
+          <input type="text" id="booking-name" class="form-input" placeholder="Александр" required>
+        </div>
+        <div class="form-group">
+          <label for="booking-phone">Телефон для связи</label>
+          <input type="tel" id="booking-phone" class="form-input" placeholder="+7 (999) 999-99-99" required>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 15px; justify-content: center;">Оформить бронирование</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Video Modal Showcase -->
+  <div id="video-modal" class="modal-overlay">
+    <div class="modal-box video-modal-box">
+      <button class="modal-close" style="top:-40px; right:0;">&times;</button>
+      <div class="video-container">
+        <!-- Local visual mockup container representing an atmospheric high quality video walkthrough -->
+        <div style="width: 100%; height: 100%; background: radial-gradient(circle, #202026 0%, #0e0e10 100%); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <svg class="svg-icon" style="width: 64px; height: 64px; margin-bottom: 20px;" viewBox="0 0 24 24">
+            <path d="M12 2L2 22h20L12 2z"/>
+          </svg>
+          <h3 style="color: var(--color-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Видеотур Вереск</h3>
+          <p style="color: var(--color-gray); font-size: 0.9rem;">Романтический отдых, потрескивание дров и парение в чане</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

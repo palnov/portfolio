@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Строительство деревянных домов и бань под ключ из зимнего костромского леса от производителя БРЕВДОМ. Премиальное качество, честные цены.">
+  <title>БРЕВДОМ | Строительство деревянных домов и бань под ключ</title>
+  <link rel="stylesheet" href="style.css?rev=20260713">
+</head>
+<body>
+
+  <!-- Premium Header -->
+  <header id="main-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="header-logo-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5z"/>
+        </svg>
+        <span>БРЕВДОМ</span>
+      </a>
+      <nav id="header-navigation">
+        <ul id="nav-list">
+          <li><a href="#catalog-anchor" id="nav-link-catalog">Проекты</a></li>
+          <li><a href="#features-anchor" id="nav-link-features">Преимущества</a></li>
+          <li><a href="#quality-anchor" id="nav-link-quality">Качество</a></li>
+          <li><a href="#map-anchor" id="nav-link-map">Объекты</a></li>
+          <li><a href="#faq-anchor" id="nav-link-faq">Вопросы</a></li>
+        </ul>
+      </nav>
+      <div class="header-contact" id="header-contact-widget">
+        <div class="contact-phone" id="header-phone-container">
+          <a href="tel:+79159067470" id="header-phone-link">+7 (915) 906-74-70</a>
+          <span id="header-phone-sub">с 9:00 до 21:00 (без вых)</span>
+        </div>
+        <button class="btn btn-primary" id="btn-call-order" onclick="openCallbackModal()">Заказать звонок</button>
+      </div>
+      <button class="menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <p class="mobile-menu__eyebrow">БРЕВДОМ / навигация</p>
+      <a href="#catalog-anchor">Проекты</a>
+      <a href="#features-anchor">Преимущества</a>
+      <a href="#quality-anchor">Качество</a>
+      <a href="#map-anchor">Объекты</a>
+      <a href="#faq-anchor">Вопросы</a>
+      <a class="btn btn-primary mobile-menu__cta" href="tel:+79159067470">Позвонить нам</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+      <div class="container hero-grid" id="hero-layout-grid">
+        <div class="hero-content" id="hero-text-block">
+          <span class="badge" id="hero-top-badge">Зимний костромской лес</span>
+          <h1 id="hero-main-title">Дома и бани из бруса под ключ от производителя</h1>
+          <p id="hero-subtext">Мы строим надежные деревянные дома и бани по вековым плотницким технологиям из отборной северной древесины с гарантией до 15 лет.</p>
+          <div class="hero-cta" id="hero-cta-actions">
+            <a href="#catalog-anchor" class="btn btn-secondary" id="hero-btn-catalog">Смотреть проекты</a>
+            <button class="btn btn-outline" id="hero-btn-quiz" onclick="openQuizModal()">Рассчитать стоимость</button>
+          </div>
+        </div>
+        <div class="hero-banners-container" id="hero-promo-cards">
+          <!-- Interactive Quiz Promo Card -->
+          <div class="hero-card hero-card-quiz" id="promo-quiz-card">
+            <span class="badge" style="background-color: var(--color-primary); color: white;">Тест</span>
+            <h3>Подобрать идеальный проект</h3>
+            <p>Ответьте на 4 простых вопроса, и мы пришлем вам смету подходящих проектов с персональным подарком.</p>
+            <button class="btn btn-secondary btn-sm" id="promo-quiz-action-btn" onclick="openQuizModal()">Подобрать проект &rarr;</button>
+          </div>
+          <!-- Foundation Discount Card -->
+          <div class="hero-card hero-card-discount" id="promo-discount-card">
+            <span class="badge" style="background-color: var(--color-secondary); color: var(--color-dark);">Акция</span>
+            <h3>Скидка 100% на фундамент</h3>
+            <p>При заказе строительства дома из профилированного бруса до конца этого месяца — свайно-винтовой фундамент бесплатно!</p>
+            <a href="#catalog-anchor" class="btn btn-outline btn-sm" id="promo-discount-action-btn">Узнать подробнее</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features section-padding" id="features-anchor">
+      <div class="container">
+        <div class="text-center section-header" id="features-header-block">
+          <span class="badge badge-gold" id="features-top-badge">Наши стандарты</span>
+          <h2>Почему выбирают БРЕВДОМ</h2>
+          <p>Строгий контроль качества на каждом этапе: от заготовки северного костромского леса до сдачи готового объекта.</p>
+        </div>
+        <div class="features-grid" id="features-cards-layout">
+          <div class="feature-card" id="feature-card-1">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg>
+            </div>
+            <h4>Зимний костромской лес</h4>
+            <p>Заготовка древесины ведется строго зимой на севере Костромской области, что гарантирует максимальную плотность и минимальную усадку бруса.</p>
+          </div>
+          <div class="feature-card" id="feature-card-2">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+            <h4>Потомственные плотники</h4>
+            <p>У нас работают профессиональные бригады из Чухломы и Костромы. Опыт мастеров — более 10 лет в деревянном домостроении.</p>
+          </div>
+          <div class="feature-card" id="feature-card-3">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <h4>Низкая предоплата</h4>
+            <p>Фиксируем стоимость проекта в договоре. Первоначальный взнос составляет всего от 1%, остальное — по факту доставки и сборки.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Projects Catalog -->
+    <section class="section-padding" id="catalog-anchor" style="background-color: var(--color-bg-light);">
+      <div class="container">
+        <div class="text-center section-header" id="catalog-header-block">
+          <span class="badge">Каталог</span>
+          <h2>Наши популярные проекты</h2>
+          <p>Выберите готовый проект дома или бани. Любой проект можно изменить под ваши индивидуальные требования абсолютно бесплатно.</p>
+        </div>
+
+        <!-- Custom Filters Bar -->
+        <div class="filters-bar" id="catalog-filters-widget">
+          <div class="filter-group" id="filter-group-category">
+            <label>Тип строения</label>
+            <div class="category-tags" id="category-selector-tags">
+              <div class="category-tag active" data-type="all" id="tag-all-categories">Все</div>
+              <div class="category-tag" data-type="house" id="tag-houses">Дома</div>
+              <div class="category-tag" data-type="bathhouse" id="tag-bathhouses">Бани</div>
+            </div>
+          </div>
+          <div class="filter-group" id="filter-group-area">
+            <label>Площадь, м²</label>
+            <div class="range-inputs">
+              <input type="number" id="area-min" placeholder="От 30" value="30">
+              <span>&mdash;</span>
+              <input type="number" id="area-max" placeholder="До 200" value="200">
+            </div>
+          </div>
+          <div class="filter-group" id="filter-group-price">
+            <label>Цена, млн ₽</label>
+            <div class="range-inputs">
+              <input type="number" id="price-min" placeholder="От 0.5" value="0.5" step="0.1">
+              <span>&mdash;</span>
+              <input type="number" id="price-max" placeholder="До 7.0" value="7.0" step="0.1">
+            </div>
+          </div>
+          <div class="filter-group" id="filter-group-storeys">
+            <label>Этажность</label>
+            <select class="filter-select" id="filter-storeys-select">
+              <option value="all">Любая этажность</option>
+              <option value="1 этаж">1 этаж</option>
+              <option value="2 этажа">2 этажа</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div class="catalog-grid" id="catalog-projects-grid">
+          <!-- Dynamic rendering from app.js -->
+        </div>
+
+        <!-- No Projects Match Banner -->
+        <div class="text-center" id="catalog-empty-state" style="display: none; padding: 40px 0;">
+          <h3 style="margin-bottom: 10px;">Проекты не найдены</h3>
+          <p style="color: var(--color-gray); margin-bottom: 20px;">Попробуйте сбросить фильтры или опишите свои пожелания, и мы разработаем для вас индивидуальный проект.</p>
+          <button class="btn btn-secondary" onclick="resetFilters()">Сбросить фильтры</button>
+        </div>
+
+        <!-- Custom Request Banner -->
+        <div class="custom-cta-banner" id="catalog-custom-banner">
+          <div class="cta-grid">
+            <div class="cta-text">
+              <h3>Не нашли подходящий проект?</h3>
+              <p>Отправьте нам планировку, эскиз от руки или ссылку на понравившийся проект другой компании, и мы бесплатно рассчитаем стоимость строительства из нашего премиум бруса.</p>
+            </div>
+            <div class="cta-action">
+              <button class="btn btn-primary" onclick="openEstimateModal()">Рассчитать свой проект &rarr;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Construction Quality Hotspots -->
+    <section class="section-padding quality-showcase" id="quality-anchor">
+      <div class="container">
+        <div class="text-center section-header" id="quality-header-block">
+          <span class="badge badge-gold">Качество сборки</span>
+          <h2>Технологии долговечности</h2>
+          <p>Интерактивная демонстрация узлов деревянного строения. Нажмите на светящиеся маркеры, чтобы узнать преимущества премиум сборки.</p>
+        </div>
+        <div class="quality-grid">
+          <!-- Interactive Isometric Blueprint Drawing -->
+          <div class="quality-visual" id="quality-hotspots-container">
+            <div class="isometric-house-graphic">
+              <div class="iso-base"></div>
+              <div class="iso-wall-1"></div>
+              <div class="iso-wall-2"></div>
+              <div class="iso-roof-1"></div>
+              <!-- Hotspots -->
+              <div class="iso-hotspot" id="hotspot-1" onclick="showHotspotInfo(1)">1</div>
+              <div class="iso-hotspot" id="hotspot-2" onclick="showHotspotInfo(2)">2</div>
+              <div class="iso-hotspot" id="hotspot-3" onclick="showHotspotInfo(3)">3</div>
+            </div>
+            <!-- Dynamic hotspot info panel -->
+            <div class="iso-info-panel" id="hotspot-info-panel">
+              <div class="iso-info-title" id="hotspot-info-title">Узлы сборки</div>
+              <div id="hotspot-info-text">Нажмите на любой маркер на 3D схеме дома, чтобы увидеть детальное описание наших строительных преимуществ.</div>
+            </div>
+          </div>
+          <!-- Text list of standards -->
+          <div class="quality-list" id="quality-details-list">
+            <div class="quality-item">
+              <div class="quality-number">1</div>
+              <div class="quality-text">
+                <h5>Сборка в «тёплый угол» (ласточкин хвост)</h5>
+                <p>Исключает продувание угловых соединений дома. Не требует использования металлических крепежей, что предотвращает появление мостиков холода.</p>
+              </div>
+            </div>
+            <div class="quality-item">
+              <div class="quality-number">2</div>
+              <div class="quality-text">
+                <h5>Сверление под деревянные нагели</h5>
+                <p>Собираем стены только на сухие березовые нагели с шагом не более 1.5 метров, что гарантирует идеально ровную усадку без перекосов бруса.</p>
+              </div>
+            </div>
+            <div class="quality-item">
+              <div class="quality-number">3</div>
+              <div class="quality-text">
+                <h5>Антисептирование основания</h5>
+                <p>Два нижних венца обвязки и лаги пола обрабатываются трудновымываемым антисептиком марки NEOMID для защиты от гниения и жучков на 25 лет.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline of Steps -->
+    <section class="section-padding" id="timeline-section" style="background-color: var(--color-white);">
+      <div class="container">
+        <div class="text-center section-header" id="steps-header-block">
+          <span class="badge">Этапы</span>
+          <h2>Порядок нашей работы</h2>
+          <p>Комфортный и прозрачный процесс от первой консультации до вручения ключей от вашего нового дома.</p>
+        </div>
+        <div class="steps-grid" id="steps-timeline-layout">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <h4>Выбор проекта</h4>
+            <p>Выбираете готовый проект в каталоге или присылаете свой эскиз. Обсуждаем комплектацию, вносим изменения.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            </div>
+            <h4>Договор</h4>
+            <p>Составляем детальную смету, фиксируем цену и сроки в договоре. Вносите первоначальный взнос всего 1%.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM17 12V9.5h2.5l1.97 2.5H17z"/></svg>
+            </div>
+            <h4>Доставка</h4>
+            <p>Производим стеновой комплект на заводе и доставляем его на ваш участок абсолютно бесплатно.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"/></svg>
+            </div>
+            <h4>Строительство</h4>
+            <p>Опытная бригада плотников собирает сруб на готовый фундамент, монтирует перекрытия, стропильную систему и кровлю.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">5</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <h4>Сдача объекта</h4>
+            <p>Вы принимаете готовую работу, подписываете акт сдачи-приемки, производите окончательный расчет и получаете гарантию.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Styled Interactive Map with Pins -->
+    <section class="section-padding map-section" id="map-anchor">
+      <div class="container">
+        <div class="text-center section-header" id="map-header-block">
+          <span class="badge badge-gold">География строительства</span>
+          <h2>Наши построенные объекты</h2>
+          <p>Мы активно строим по всей Московской области и соседним регионам. Наведите на пины на карте, чтобы посмотреть готовые объекты.</p>
+        </div>
+        <div class="map-wrapper">
+          <div class="map-placeholder" id="interactive-regions-map">
+            <div class="map-graphic">
+              <div class="map-region-label">МОСКВА & МО</div>
+            </div>
+            
+            <!-- Map Hotspots/Pins -->
+            <div class="map-pin" style="top: 25%; left: 45%;" id="map-pin-1">
+              <div class="pin-dot"></div>
+              <div class="pin-pulse"></div>
+              <div class="pin-popover">
+                <div class="popover-title">Дом «ДБ-02 Скандинавский»</div>
+                <div class="popover-meta">Дмитровский район</div>
+                <div>Дом собран в марте 2026 года. Срок сборки — 18 дней. Фундамент ленточный.</div>
+              </div>
+            </div>
+            
+            <div class="map-pin" style="top: 45%; left: 35%;" id="map-pin-2">
+              <div class="pin-dot"></div>
+              <div class="pin-pulse"></div>
+              <div class="pin-popover">
+                <div class="popover-title">Премиум Баня «Боярская»</div>
+                <div class="popover-meta">Одинцовский район</div>
+                <div>Дровяная баня под ключ. Сборка за 10 дней на свайно-винтовой фундамент.</div>
+              </div>
+            </div>
+
+            <div class="map-pin" style="top: 65%; left: 55%;" id="map-pin-3">
+              <div class="pin-dot"></div>
+              <div class="pin-pulse"></div>
+              <div class="pin-popover">
+                <div class="popover-title">Дом «ДБ-01 Дом из бруса»</div>
+                <div class="popover-meta">Раменский район</div>
+                <div>Двухэтажный дом с террасой. Утепленный вариант с металлочерепицей.</div>
+              </div>
+            </div>
+
+            <div class="map-pin" style="top: 38%; left: 68%;" id="map-pin-4">
+              <div class="pin-dot"></div>
+              <div class="pin-pulse"></div>
+              <div class="pin-popover">
+                <div class="popover-title">Усадьба «Таежная»</div>
+                <div class="popover-meta">Ногинский район</div>
+                <div>Коттедж 165 м² из сухого профилированного бруса под усадку. Сборка 30 дней.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding faq-section" id="faq-anchor">
+      <div class="container">
+        <div class="text-center section-header" id="faq-header-block">
+          <span class="badge">Ответы на вопросы</span>
+          <h2>Часто задаваемые вопросы</h2>
+          <p>Собрали для вас подробные ответы на самые популярные вопросы клиентов о строительстве деревянных домов.</p>
+        </div>
+        <div class="faq-container" id="faq-accordions-layout">
+          <div class="faq-item" id="faq-item-1">
+            <button class="faq-trigger" onclick="toggleFaq(1)">
+              <h4>Сколько времени занимает строительство дома из бруса?</h4>
+              <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+            </button>
+            <div class="faq-content">
+              <p>В среднем, сборка небольшого дома или бани (до 80 м²) на готовом фундаменте занимает от 10 до 14 дней. Для больших коттеджей площадью более 150 м² срок сборки составляет около 25–30 дней. Дополнительное время требуется для обустройства фундамента (до 3 дней для ленточного).</p>
+            </div>
+          </div>
+          <div class="faq-item" id="faq-item-2">
+            <button class="faq-trigger" onclick="toggleFaq(2)">
+              <h4>Из чего складывается общая стоимость строительства?</h4>
+              <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+            </button>
+            <div class="faq-content">
+              <p>В базовую стоимость проекта на сайте включены: комплект стен из выбранного бруса, межвенцовый утеплитель (джут), стропильная система, обрешетка, гидроизоляция крыши, черновой пол, перекрытия и бесплатная доставка в пределах Московской области. Итоговую цену вы можете скорректировать, добавив фундамент, финишную кровлю и выбрав тип бруса.</p>
+            </div>
+          </div>
+          <div class="faq-item" id="faq-item-3">
+            <button class="faq-trigger" onclick="toggleFaq(3)">
+              <h4>Что такое «усадка» бруса и сколько она длится?</h4>
+              <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+            </button>
+            <div class="faq-content">
+              <p>Усадка — это естественный процесс высыхания древесины, в ходе которого высота стен уменьшается на 3–7%. Активная фаза усадки длится 6–9 месяцев для зимнего леса. Мы рекомендуем производить чистовую отделку (установку окон, дверей, утепление) именно после завершения этого периода. Для компенсации усадки мы используем регулируемые домкраты на столбах.</p>
+            </div>
+          </div>
+          <div class="faq-item" id="faq-item-4">
+            <button class="faq-trigger" onclick="toggleFaq(4)">
+              <h4>Можно ли строить дом зимой?</h4>
+              <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+            </button>
+            <div class="faq-content">
+              <p>Да, зима — идеальное время для строительства деревянного дома. Зимний лес содержит минимальное количество влаги, сруб усаживается более равномерно, древесина не синеет и не подвержена грибку во время монтажа. Единственное ограничение — заливка монолитного бетонного фундамента (его лучше подготовить до морозов или заказать свайно-винтовой фундамент).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer-section">
+    <div class="container footer-top">
+      <div class="footer-desc" id="footer-info-brand">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5z"/>
+          </svg>
+          <span>БРЕВДОМ</span>
+        </a>
+        <p>Надежное производство и качественная сборка брусовых деревянных домов и бань под ключ. Долговечные строения из отборного леса Костромской области.</p>
+        <div class="social-links" id="footer-social-icons">
+          <a href="#" class="social-link" id="soc-tg" aria-label="Telegram">TG</a>
+          <a href="#" class="social-link" id="soc-wa" aria-label="WhatsApp">WA</a>
+          <a href="#" class="social-link" id="soc-vk" aria-label="VKontakte">VK</a>
+        </div>
+      </div>
+      <!-- Lead Form Box -->
+      <div class="lead-form-box" id="footer-lead-capture">
+        <h3>Остались вопросы?</h3>
+        <p>Введите ваши контакты, специалист перезвонит вам в течение 10 минут и проконсультирует по любым вопросам.</p>
+        <form id="contact-form" onsubmit="handleFormSubmit(event, 'contact-form')">
+          <div class="form-group">
+            <input type="text" class="form-input" id="form-name" placeholder="Как вас зовут?" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-input" id="form-phone" placeholder="Ваш номер телефона" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-input" id="form-question" rows="3" placeholder="Ваш вопрос или пожелание (необязательно)"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-btn" id="form-submit-btn">Отправить заявку &rarr;</button>
+          <p class="form-agreement">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p id="copyright-label">&copy; 2026 БРЕВДОМ. Все права защищены.</p>
+      <div class="footer-nav" id="footer-navigation-links">
+        <a href="#catalog-anchor">Каталог</a>
+        <a href="#features-anchor">Преимущества</a>
+        <a href="#quality-anchor">Технологии</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quiz Modal Dialog -->
+  <div class="modal" id="quiz-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeQuizModal()" aria-label="Close quiz modal">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <h3 style="margin-bottom: 5px;">Подбор идеального проекта</h3>
+      <p style="color: var(--color-gray); font-size: 0.9rem;">Ответьте на несколько вопросов, чтобы получить расчет стоимости</p>
+      
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress" id="quiz-progress-indicator"></div>
+      </div>
+
+      <form id="quiz-form" onsubmit="handleFormSubmit(event, 'quiz-form')">
+        <!-- Step 1 -->
+        <div class="quiz-step active" data-step="1">
+          <h4 style="margin-bottom: 20px;">1. Что планируете строить?</h4>
+          <div class="quiz-options-grid">
+            <div class="quiz-option" onclick="selectQuizOption(1, 'Дом для ПМЖ')">Дом для круглогодичного проживания</div>
+            <div class="quiz-option" onclick="selectQuizOption(1, 'Дачный дом')">Дачный/сезонный дом</div>
+            <div class="quiz-option" onclick="selectQuizOption(1, 'Баня')">Полноценная баня</div>
+            <div class="quiz-option" onclick="selectQuizOption(1, 'Дом-баня')">Гостевой дом-баня</div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz-step" data-step="2">
+          <h4 style="margin-bottom: 20px;">2. Желаемая площадь?</h4>
+          <div class="quiz-options-grid">
+            <div class="quiz-option" onclick="selectQuizOption(2, 'До 60 м²')">До 60 м²</div>
+            <div class="quiz-option" onclick="selectQuizOption(2, '60 - 100 м²')">60 - 100 м²</div>
+            <div class="quiz-option" onclick="selectQuizOption(2, '100 - 150 м²')">100 - 150 м²</div>
+            <div class="quiz-option" onclick="selectQuizOption(2, 'Более 150 м²')">Более 150 м²</div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="quiz-step" data-step="3">
+          <h4 style="margin-bottom: 20px;">3. Сколько этажей?</h4>
+          <div class="quiz-options-grid">
+            <div class="quiz-option" onclick="selectQuizOption(3, '1 этаж')">Один этаж</div>
+            <div class="quiz-option" onclick="selectQuizOption(3, '1.5 этажа (мансарда)')">1.5 этажа (с мансардой)</div>
+            <div class="quiz-option" onclick="selectQuizOption(3, '2 этажа')">Полноценных 2 этажа</div>
+            <div class="quiz-option" onclick="selectQuizOption(3, 'Не определился')">Пока не знаю</div>
+          </div>
+        </div>
+
+        <!-- Step 4 (Contacts) -->
+        <div class="quiz-step" data-step="4">
+          <h4 style="margin-bottom: 15px;">4. Куда прислать расчет и подарок?</h4>
+          <p style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 20px;">Укажите контактные данные, мы свяжемся с вами с готовыми расчетами.</p>
+          <div class="form-group">
+            <input type="text" class="form-input" id="quiz-name" placeholder="Ваше имя" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-input" id="quiz-phone" placeholder="Ваш номер телефона" required>
+          </div>
+        </div>
+
+        <div class="quiz-nav-btns">
+          <button type="button" class="btn btn-outline" id="quiz-prev-btn" style="display: none;" onclick="prevQuizStep()">Назад</button>
+          <button type="button" class="btn btn-secondary" id="quiz-next-btn" onclick="nextQuizStep()">Далее &rarr;</button>
+          <button type="submit" class="btn btn-primary" id="quiz-submit-btn" style="display: none;">Получить смету &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- General Callback Modal -->
+  <div class="modal" id="callback-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeCallbackModal()" aria-label="Close callback modal">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <h3 style="margin-bottom: 10px;" id="modal-callback-title">Заказ звонка</h3>
+      <p style="color: var(--color-gray); font-size: 0.95rem; margin-bottom: 25px;">Оставьте номер телефона, наш менеджер перезвонит для подробной консультации.</p>
+      <form id="modal-callback-form" onsubmit="handleFormSubmit(event, 'modal-callback-form')">
+        <div class="form-group">
+          <input type="text" class="form-input" id="modal-phone-name" placeholder="Как к вам обращаться?" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" class="form-input" id="modal-phone-val" placeholder="Номер телефона" required>
+        </div>
+        <button type="submit" class="btn btn-primary form-btn">Жду звонка &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dynamic Success Alert Notification -->
+  <div id="success-notification" style="display: none; position: fixed; bottom: 30px; right: 30px; background-color: var(--color-primary); color: white; padding: 20px 30px; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-lg); z-index: 9999; align-items: center; gap: 15px; transition: var(--transition-smooth);">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    <div>
+      <h4 style="color: white; margin-bottom: 2px;">Заявка успешно отправлена!</h4>
+      <p style="font-size: 0.85rem; opacity: 0.9;">Наш специалист перезвонит вам в течение 10 минут.</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

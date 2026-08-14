@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #070809;
+    color: #f3f4f6;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom glow effect utilities */
+.glow-green {
+  box-shadow: 0 0 40px 5px rgba(132, 204, 22, 0.15);
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 15px rgba(132, 204, 22, 0.4);
+}
+
+/* Hide scrollbar for clean custom sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom premium backdrop filter */
+.glassmorphism {
+  background: rgba(13, 14, 16, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}

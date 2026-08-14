@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dental Clinic — Идеальная улыбка каждый день</title>
+  <meta name="description" content="Современная премиальная стоматологическая клиника. Безопасное лечение, передовые технологии и индивидуальный подход для вашей здоровой и белоснежной улыбки.">
+  
+  <!-- Подключение шрифтов Google Fonts: Manrope для заголовков, Inter для интерфейса -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="header__container">
+      <a href="#" class="logo" aria-label="Dental Clinic Главная">
+        <!-- SVG Иконка зуба -->
+        <svg class="logo__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C9.5 2 7.5 4 7.5 7c0 3.5 2.5 5.5 4.5 7 2-1.5 4.5-3.5 4.5-7 0-3-2-5-4.5-5z"/>
+          <path d="M12 14c-1.5 2.5-3.5 3.5-3.5 5.5 0 1.5 1 2.5 3.5 2.5s3.5-1 3.5-2.5c0-2-2-3-3.5-5.5z"/>
+        </svg>
+        <span class="logo__text">Dental<span class="logo__text--accent">Clinic</span></span>
+      </a>
+
+      <!-- Основная навигация -->
+      <nav class="nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#" class="nav__link">О клинике</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Услуги</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Врачи</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Цены</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Отзывы</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <!-- Контакты и кнопка -->
+      <div class="header__cta">
+        <a href="tel:+74951234567" class="header__phone" aria-label="Позвонить нам">
+          <svg class="header__phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          +7 (495) 123-45-67
+        </a>
+        <button class="btn btn--primary header__btn" aria-label="Записаться на прием">Записаться</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главный экран (Hero Section) -->
+  <main>
+    <section class="hero" aria-label="Главный экран стоматологии">
+      <div class="hero__container">
+        
+        <!-- Контентная часть -->
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            Премиальный уровень заботы о зубах
+          </div>
+          <h1 class="hero__title">Идеальная улыбка — каждый день</h1>
+          <p class="hero__description">
+            Современная стоматология для здоровых, ровных и белоснежных зубов. Почувствуйте комфорт лечения без боли на передовом оборудовании.
+          </p>
+          
+          <div class="hero__actions">
+            <button class="btn btn--primary btn--large" id="hero-btn-book">Записаться</button>
+            <button class="btn btn--secondary btn--large" id="hero-btn-consult">Консультация</button>
+          </div>
+
+          <!-- Подсказка для пользователя (меняется через JS на мобильных) -->
+          <div class="hero__hint" id="interaction-hint">
+            <svg class="hero__hint-icon animate-pulse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m12 8-4 4 4 4M16 12H8"/>
+            </svg>
+            <span class="hero__hint-text">Наведи на улыбку, чтобы увидеть состояние до лечения</span>
+          </div>
+        </div>
+
+        <!-- Визуальная часть с интерактивным эффектом -->
+        <div class="hero__visual" id="interactive-hero-visual" aria-label="Интерактивное сравнение улыбки до и после лечения">
+          <!-- Нижний слой: плохие зубы -->
+          <img src="images/dirty.png" alt="Улыбка до лечения (проблемные зубы)" class="smile-image smile-image--dirty" loading="eager">
+          
+          <!-- Верхний слой: идеальные белые зубы -->
+          <img src="images/clean.png" alt="Улыбка после лечения (идеальные белые зубы)" class="smile-image smile-image--clean" loading="eager">
+          
+          <!-- Линза-оверлей для визуального эффекта маски -->
+          <div class="mask-lens" id="mask-lens"></div>
+        </div>
+
+      </div>
+
+      <!-- Блок преимуществ внизу секции -->
+      <div class="hero__features">
+        <div class="features-grid">
+          
+          <!-- Преимущество 1 -->
+          <div class="feature-card">
+            <div class="feature-card__icon-wrapper">
+              <!-- Иконка Shield -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Безопасное лечение</h3>
+            <p class="feature-card__text">Строгие стандарты стерилизации и бережные методики анестезии.</p>
+          </div>
+
+          <!-- Преимущество 2 -->
+          <div class="feature-card">
+            <div class="feature-card__icon-wrapper">
+              <!-- Иконка Diamond -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12l4 6-10 13L2 9z"/>
+                <path d="M11 3 8 9l4 13 4-13-3-6"/>
+                <path d="M2 9h20"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Современные технологии</h3>
+            <p class="feature-card__text">Цифровая диагностика и высокоточное оборудование экспертного класса.</p>
+          </div>
+
+          <!-- Преимущество 3 -->
+          <div class="feature-card">
+            <div class="feature-card__icon-wrapper">
+              <!-- Иконка Award / Star -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"/>
+                <path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Опытные специалисты</h3>
+            <p class="feature-card__text">Врачи высшей категории, регулярно повышающие квалификацию.</p>
+          </div>
+
+          <!-- Преимущество 4 -->
+          <div class="feature-card">
+            <div class="feature-card__icon-wrapper">
+              <!-- Иконка Heart -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Индивидуальный подход</h3>
+            <p class="feature-card__text">Составляем персональный план лечения с учетом всех ваших пожеланий.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

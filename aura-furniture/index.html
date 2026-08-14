@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA — Эксклюзивная дизайнерская мебель премиум-класса</title>
+  <meta name="description" content="AURA предлагает коллекцию авторской мебели премиального качества. Натуральный орех, дуб, мрамор, латунь и элитные ткани. Создайте интерьер вашей мечты с плавной эстетикой.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo" id="logoLink">
+        AURA<span>.</span>
+      </a>
+      
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Главная</a>
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="#advantages" class="nav-link">Преимущества</a>
+        <a href="#reviews" class="nav-link">Отзывы</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="tel:+79967963333" class="contact-phone">+7 (996) 796-33-33</a>
+        
+        <button class="action-btn call-request-btn" aria-label="Заказать обратный звонок" id="callbackTrigger">
+          <svg viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </button>
+        
+        <button class="action-btn" id="cartTriggerBtn" aria-label="Открыть корзину">
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+        </button>
+        
+        <div class="burger-menu" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+    <div style="position: absolute; top: -10%; left: 0; width: 100%; height: 120%; z-index: 1;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(13,13,14,0.3) 0%, rgba(13,13,14,0.8) 75%, rgba(13,13,14,1) 100%); z-index: 2;"></div>
+      <img src="images/hero.png" alt="AURA Премиальный Интерьер" class="hero-bg-img" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    
+    <div class="container" style="position: relative; z-index: 3; text-align: center;">
+      <div class="hero-visual-wrapper" style="max-width: 950px; margin: 0 auto;">
+        <span class="badge" style="margin-bottom: 2rem;">Коллекция 2026</span>
+        <h1 class="hero-title" style="font-size: 5.5rem; font-weight: 400; text-transform: uppercase; color: var(--text-primary); margin-bottom: 2rem; line-height: 1.1; letter-spacing: 0.02em;">
+          Искусство жить изысканно
+        </h1>
+        <p class="hero-subtitle" style="font-size: 1.3rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 3.5rem; font-weight: 300; line-height: 1.7; font-family: var(--font-body); letter-spacing: 0.02em;">
+          Премиальная дизайнерская мебель, сочетающая благородство натуральных материалов, выверенную эргономику и безупречный стиль.
+        </p>
+        <div class="hero-cta-btn">
+          <a href="catalog.html" class="btn-primary">Исследовать коллекцию</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES GRID -->
+  <section class="categories-section section-padding" id="categories" style="position: relative;">
+    <!-- Elegant background decorative SVG lines -->
+    <div style="position: absolute; top: 10%; left: 5%; width: 90%; height: 80%; pointer-events: none; opacity: 0.03; z-index: 0;">
+      <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <line x1="0" y1="20" x2="100" y2="20" stroke="var(--gold)" stroke-width="0.1"/>
+        <line x1="0" y1="80" x2="100" y2="80" stroke="var(--gold)" stroke-width="0.1"/>
+        <line x1="30" y1="0" x2="30" y2="100" stroke="var(--gold)" stroke-width="0.1"/>
+        <line x1="70" y1="0" x2="70" y2="100" stroke="var(--gold)" stroke-width="0.1"/>
+      </svg>
+    </div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="section-header-anim" style="text-align: center; margin-bottom: 6rem;">
+        <span class="badge">Каталог</span>
+        <h2 style="font-size: 3.8rem; margin-top: 1rem;">Исключительные категории</h2>
+        <div class="luxury-divider"><span>◇</span></div>
+        <p style="color: var(--text-secondary); max-width: 550px; margin: 0 auto; font-family: var(--font-body); font-weight: 300; font-size: 1.05rem;">
+          Откройте для себя наш ассортимент мебели, разделенный по категориям эстетического превосходства.
+        </p>
+      </div>
+      
+      <!-- Category Grid Box -->
+      <div class="stagger-grid-anim" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+        <!-- Category item 1 -->
+        <a href="catalog.html?category=sofas" style="position: relative; height: 420px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem; transition: border-color var(--transition-normal);">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13,13,14,0.95) 0%, rgba(13,13,14,0.3) 60%, rgba(13,13,14,0) 100%); z-index: 2;"></div>
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" alt="Диваны" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); z-index: 1;">
+          <div style="position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+            <div>
+              <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; font-family: var(--font-body); font-weight: 600;">Премиум посадка</span>
+              <h3 style="font-size: 2.2rem; font-weight: 400; color: #fff; margin-top: 0.25rem;">Диваны</h3>
+            </div>
+            <div style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; background-color: rgba(13,13,14,0.4); backdrop-filter: blur(8px); transition: border-color 0.3s, background-color 0.3s;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Category item 2 -->
+        <a href="catalog.html?category=chairs" style="position: relative; height: 420px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13,13,14,0.95) 0%, rgba(13,13,14,0.3) 60%, rgba(13,13,14,0) 100%); z-index: 2;"></div>
+          <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Кресла" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); z-index: 1;">
+          <div style="position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+            <div>
+              <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; font-family: var(--font-body); font-weight: 600;">Авторские акценты</span>
+              <h3 style="font-size: 2.2rem; font-weight: 400; color: #fff; margin-top: 0.25rem;">Кресла</h3>
+            </div>
+            <div style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; background-color: rgba(13,13,14,0.4); backdrop-filter: blur(8px);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Category item 3 -->
+        <a href="catalog.html?category=tables" style="position: relative; height: 420px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13,13,14,0.95) 0%, rgba(13,13,14,0.3) 60%, rgba(13,13,14,0) 100%); z-index: 2;"></div>
+          <img src="https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=600&q=80" alt="Столы" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); z-index: 1;">
+          <div style="position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+            <div>
+              <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; font-family: var(--font-body); font-weight: 600;">Благородный массив</span>
+              <h3 style="font-size: 2.2rem; font-weight: 400; color: #fff; margin-top: 0.25rem;">Столы</h3>
+            </div>
+            <div style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; background-color: rgba(13,13,14,0.4); backdrop-filter: blur(8px);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES (REDESIGNED: Full-width Parallax Luxury Showcase) -->
+  <section class="advantages-section" id="advantages" style="position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: center; padding: 10rem 0;">
+    <!-- Large Parallax Background Image -->
+    <div style="position: absolute; top: -15%; left: 0; width: 100%; height: 130%; z-index: 1;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(13,13,14,1) 0%, rgba(13,13,14,0.7) 30%, rgba(13,13,14,0.7) 70%, rgba(13,13,14,1) 100%); z-index: 2;"></div>
+      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80" alt="Интерьер AURA" class="hero-bg-img" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    
+    <div class="container" style="position: relative; z-index: 3;">
+      <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 5rem; align-items: center;">
+        
+        <!-- Left Side Editorial Header -->
+        <div style="background-color: rgba(13,13,14,0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(212,163,115,0.15); padding: 4rem; border-radius: var(--radius-lg); box-shadow: 0 30px 60px rgba(0,0,0,0.5);">
+          <span class="badge">Aura Quality</span>
+          <h2 style="font-size: 3.5rem; line-height: 1.1; margin-top: 1.5rem; margin-bottom: 2rem;">Превосходство в каждой детали</h2>
+          <div class="luxury-divider left-align"><span>◇</span></div>
+          <p style="color: var(--text-secondary); margin-bottom: 0; font-size: 1.15rem; line-height: 1.7; font-family: var(--font-body); font-weight: 300;">
+            Каждое изделие AURA создается по индивидуальным меркам из сертифицированных сортов ореха, дикого дуба и итальянского мрамора. Мы превращаем мебельное производство в чистое визуальное искусство.
+          </p>
+        </div>
+        
+        <!-- Right Side Glassmorphic Accordions -->
+        <div class="accordion-wrapper">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-title-box">
+                <span class="accordion-num">01</span>
+                <h3 class="accordion-title">Натуральные премиум-материалы</h3>
+              </div>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <p style="font-family: var(--font-body); font-weight: 300; line-height: 1.7;">Мы используем только сертифицированный массив американского ореха, дикого дуба премиум-сортов, цельный каррарский мрамор и износостойкий бельгийский текстиль букле и шенилл.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-title-box">
+                <span class="accordion-num">02</span>
+                <h3 class="accordion-title">Мануфактурная сборка и 10 лет гарантии</h3>
+              </div>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <p style="font-family: var(--font-body); font-weight: 300; line-height: 1.7;">Каркасы мебели изготавливаются вручную по традиционным столярным технологиям из древесины камерной сушки с металлическим армированием, обеспечивая пожизненную прочность и стойкость к деформациям.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-title-box">
+                <span class="accordion-num">03</span>
+                <h3 class="accordion-title">Доставка премиум-консьержем</h3>
+              </div>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <p style="font-family: var(--font-body); font-weight: 300; line-height: 1.7;">Мы бережно доставляем мебель собственным автотранспортом, заносим в квартиру, собираем на месте силами сертифицированных сборщиков AURA и увозим весь упаковочный материал с собой.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMMERSIVE REVIEWS (FIXED WITH 6 SLIDES) -->
+  <section class="reviews-section section-padding" id="reviews">
+    <div class="container">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 5rem;">
+        <div class="section-header-anim" style="margin-bottom: 0;">
+          <span class="badge">Отзывы</span>
+          <h2 style="font-size: 3.5rem; margin-top: 1rem;">Мнения наших клиентов</h2>
+        </div>
+        <div style="display: flex; gap: 1rem; z-index: 10;">
+          <button class="action-btn slider-prev" aria-label="Предыдущий отзыв">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          </button>
+          <button class="action-btn slider-next" aria-label="Следующий отзыв">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Reviews slider viewport -->
+      <div style="overflow: hidden; width: 100%;">
+        <div class="reviews-track" style="display: flex; gap: 2rem; width: 100%;">
+          
+          <!-- Slide 1 -->
+          <div class="review-card" style="flex-shrink: 0; width: calc(33.333% - 1.33rem); background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; min-width: 320px;">
+            <div>
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.5rem; color: var(--gold); font-size: 0.95rem;">
+                ★★★★★
+              </div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); font-style: italic; margin-bottom: 2rem; font-family: var(--font-headings);">
+                «Заказала диван Aura Modular в фактуре жемчужного букле. Он превзошел все ожидания! Стал центром гостиной. Невероятно мягкий, но при этом держит форму. Отдельное спасибо службе доставки за быструю сборку!»
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-gradient); color: #0d0d0e; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-body); font-size: 0.85rem;">ЕП</div>
+              <div>
+                <h4 style="font-family: var(--font-headings); font-weight: 600; font-size: 1.25rem; letter-spacing: 0.02em;">Елена Петрова</h4>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-body);">Москва, ЖК СберСити</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="review-card" style="flex-shrink: 0; width: calc(33.333% - 1.33rem); background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; min-width: 320px;">
+            <div>
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.5rem; color: var(--gold); font-size: 0.95rem;">
+                ★★★★★
+              </div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); font-style: italic; margin-bottom: 2rem; font-family: var(--font-headings);">
+                «Стол Zen Oak — это истинное произведение искусства. Массив дуба с латунными деталями смотрится потрясающе благородно и солидно. Собирает восхищенные взгляды всех гостей. Спасибо дизайнерам AURA.»
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-gradient); color: #0d0d0e; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-body); font-size: 0.85rem;">МС</div>
+              <div>
+                <h4 style="font-family: var(--font-headings); font-weight: 600; font-size: 1.25rem; letter-spacing: 0.02em;">Михаил Смирнов</h4>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-body);">Санкт-Петербург, ЖК Prime Park</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="review-card" style="flex-shrink: 0; width: calc(33.333% - 1.33rem); background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; min-width: 320px;">
+            <div>
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.5rem; color: var(--gold); font-size: 0.95rem;">
+                ★★★★★
+              </div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); font-style: italic; margin-bottom: 2rem; font-family: var(--font-headings);">
+                «Купил кресло Luna. Изумительно красивый темный орех каркаса. Прекрасно поддерживает спину, сидеть за чтением книги — одно удовольствие. Буду заказывать комод из той же коллекции.»
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-gradient); color: #0d0d0e; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-body); font-size: 0.85rem;">АД</div>
+              <div>
+                <h4 style="font-family: var(--font-headings); font-weight: 600; font-size: 1.25rem; letter-spacing: 0.02em;">Алексей Давыдов</h4>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-body);">Казань, ЖК Savin House</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 (NEW V2) -->
+          <div class="review-card" style="flex-shrink: 0; width: calc(33.333% - 1.33rem); background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; min-width: 320px;">
+            <div>
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.5rem; color: var(--gold); font-size: 0.95rem;">
+                ★★★★★
+              </div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); font-style: italic; margin-bottom: 2rem; font-family: var(--font-headings);">
+                «Комод Tess Sideboard — это лучшее приобретение! Черный благородный ясень идеально вписался в гостиную в стиле лофт-премиум. Качество сборки идеальное, а доводчики работают абсолютно бесшумно.»
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-gradient); color: #0d0d0e; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-body); font-size: 0.85rem;">ВК</div>
+              <div>
+                <h4 style="font-family: var(--font-headings); font-weight: 600; font-size: 1.25rem; letter-spacing: 0.02em;">Виктор Кузнецов</h4>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-body);">Сочи, Апартаменты Reef Park</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 (NEW V2) -->
+          <div class="review-card" style="flex-shrink: 0; width: calc(33.333% - 1.33rem); background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; min-width: 320px;">
+            <div>
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.5rem; color: var(--gold); font-size: 0.95rem;">
+                ★★★★★
+              </div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); font-style: italic; margin-bottom: 2rem; font-family: var(--font-headings);">
+                «Кровать Somnus Velvet с изумрудным бархатным изголовьем — это просто королевское ложе. Очень удобное ортопедическое основание, спим великолепно. Чувствуется истинный люксовый комфорт.»
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-gradient); color: #0d0d0e; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-body); font-size: 0.85rem;">МА</div>
+              <div>
+                <h4 style="font-family: var(--font-headings); font-weight: 600; font-size: 1.25rem; letter-spacing: 0.02em;">Мария Антонова</h4>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-body);">Москва, ЖК Зиларт</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6 (NEW V2) -->
+          <div class="review-card" style="flex-shrink: 0; width: calc(33.333% - 1.33rem); background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; min-width: 320px;">
+            <div>
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.5rem; color: var(--gold); font-size: 0.95rem;">
+                ★★★★★
+              </div>
+              <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); font-style: italic; margin-bottom: 2rem; font-family: var(--font-headings);">
+                «Приобрела торшер Solis Brass с тяжелым мраморным основанием. Днем он смотрится как современная скульптура в интерьере, а вечером дает фантастический теплый свет, создающий камерную обстановку.»
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-gradient); color: #0d0d0e; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-body); font-size: 0.85rem;">КВ</div>
+              <div>
+                <h4 style="font-family: var(--font-headings); font-weight: 600; font-size: 1.25rem; letter-spacing: 0.02em;">Кристина Васильева</h4>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-body);">Екатеринбург, ЖК Кандинский</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">AURA<span>.</span></a>
+          <p class="footer-desc">
+            Изысканная мебель премиум-сегмента для создания интерьеров с яркой индивидуальностью.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.89 1.2-5.33 3.52-.5.35-.96.52-1.37.51-.45-.01-1.32-.26-1.97-.47-.8-.26-1.43-.4-1.38-.85.03-.24.36-.48.99-.74 3.89-1.69 6.49-2.8 7.8-3.32 3.71-1.48 4.48-1.74 4.99-1.75.11 0 .36.03.52.16.14.11.18.26.2.37-.02.09-.01.26-.02.39z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="VK">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.03 12.28h-1.06c-.45 0-.79-.19-1.09-.49-.31-.3-.62-.71-1.01-1.11-.34-.34-.63-.44-.81-.44-.26 0-.48.1-.48.6v.95c0 .32-.1.49-.49.49-1.54 0-3.08-1.01-4.08-2.43-.42-.6-.73-1.27-1.03-2.02-.08-.21.03-.38.29-.38h1.07c.22 0 .36.09.43.25.43 1.05.95 1.77 1.43 1.77.18 0 .33-.07.33-.42V10.1c0-.43-.13-.56-.47-.56-.17 0-.27.05-.39.1.18-.46.61-.75 1.15-.75h.57c.36 0 .49.19.49.56v1.98c0 .24.1.32.19.32.18 0 .37-.08.68-.4.77-.96 1.17-1.89 1.17-1.89s.09-.16.27-.16h1.07c.32 0 .41.13.3.4-.38.86-1.58 2.37-1.58 2.37s-.14.2-.03.35c.1.13.43.43.76.77.63.66 1.09 1.2 1.22 1.58.11.3-.08.47-.41.47z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-col-title">Каталог</h4>
+          <ul class="footer-links">
+            <li><a href="catalog.html?category=sofas">Диваны</a></li>
+            <li><a href="catalog.html?category=chairs">Кресла</a></li>
+            <li><a href="catalog.html?category=tables">Столы</a></li>
+            <li><a href="catalog.html?category=beds">Кровати</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-col-title">Компания</h4>
+          <ul class="footer-links">
+            <li><a href="#advantages">О бренде</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#">Шоурумы</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-col-title">Контакты</h4>
+          <div class="footer-contacts">
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+7 (996) 796-33-33<br><small style="color: var(--text-muted); font-family: var(--font-body);">Ежедневно с 10:00 до 22:00</small></span>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>г. Москва, ул. Большая Никитская, 24/1<br><small style="color: var(--text-muted); font-family: var(--font-body);">Флагманский шоурум AURA</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="copyright">© 2026 AURA Design Furniture. Все права защищены.</p>
+        <ul class="footer-legal-links">
+          <li><a href="#">Политика конфиденциальности</a></li>
+          <li><a href="#">Публичная оферта</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART SIDE DRAWER PANEL -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 class="cart-title">Корзина</h3>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Закрыть корзину">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="cart-items-list" id="cartItemsContainer">
+      <!-- Injected by app.js -->
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span class="cart-total-label">Итого:</span>
+        <span class="cart-total-value" id="cartTotalVal">0 ₽</span>
+      </div>
+      <a href="checkout.html" class="btn-primary cart-checkout-btn">Оформить заказ</a>
+    </div>
+  </div>
+
+  <!-- CALL REQUEST MODAL (Popup Form) -->
+  <div class="modal-overlay" id="callbackModal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Закрыть окно">×</button>
+      <h3 class="modal-title">Обратный звонок</h3>
+      <p class="modal-subtitle">Оставьте ваши контакты, и дизайнер-консультант свяжется с вами для обсуждения проекта.</p>
+      
+      <form id="callbackForm">
+        <div class="form-group">
+          <label class="form-label" for="cbName">Ваше имя</label>
+          <input class="form-input" type="text" id="cbName" required placeholder="Александр">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cbPhone">Телефон</label>
+          <input class="form-input" type="tel" id="cbPhone" required placeholder="+7 (999) 999-99-99">
+        </div>
+        <button class="btn-primary form-submit-btn" type="submit">Жду звонка</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- QUICK BUY MODAL (Popup Form) -->
+  <div class="modal-overlay" id="quickBuyModal">
+    <div class="modal-content" style="max-width: 600px;">
+      <button class="modal-close" aria-label="Закрыть окно">×</button>
+      <h3 class="modal-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Быстрый заказ</h3>
+      <p class="modal-subtitle" style="margin-bottom: 1.5rem;">Покупка в 1 клик. Заполните форму, и мы завершим оформление.</p>
+      
+      <div class="qb-product-snippet" style="display: flex; gap: 1.5rem; background-color: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 2rem; align-items: center;">
+        <div style="width: 70px; height: 70px; border-radius: 4px; overflow: hidden; flex-shrink: 0;">
+          <img id="qbProductImg" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div>
+          <h4 id="qbProductTitle" style="font-family: var(--font-headings); font-weight: 500; font-size: 1.35rem; color: #fff;"></h4>
+          <span id="qbProductPrice" style="color: var(--gold); font-family: var(--font-body); font-weight: 600; font-size: 1.15rem; margin-top: 0.25rem; display: block;"></span>
+        </div>
+      </div>
+
+      <form id="quickBuyForm">
+        <input type="hidden" id="qbProductId">
+        <div class="form-group">
+          <label class="form-label" for="qbName">Ваше имя</label>
+          <input class="form-input" type="text" id="qbName" required placeholder="Александр">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="qbPhone">Телефон для связи</label>
+          <input class="form-input" type="tel" id="qbPhone" required placeholder="+7 (999) 999-99-99">
+        </div>
+        <button class="btn-primary form-submit-btn" type="submit">Оформить покупку</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CDN scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+  
+  <!-- Custom scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/animations.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const nav = document.querySelector('.nav');
+      
+      if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenuBtn.classList.toggle('active');
+          nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+          nav.style.position = 'fixed';
+          nav.style.top = 'var(--header-height)';
+          nav.style.left = '0';
+          nav.style.width = '100%';
+          nav.style.height = 'calc(100vh - var(--header-height))';
+          nav.style.backgroundColor = 'var(--bg-primary)';
+          nav.style.flexDirection = 'column';
+          nav.style.alignItems = 'center';
+          nav.style.justifyContent = 'center';
+          nav.style.gap = '2.5rem';
+          nav.style.zIndex = '999';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

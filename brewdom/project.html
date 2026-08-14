@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Рассчитать стоимость деревянного дома из бруса под ключ. Интерактивный калькулятор комплектации и цены.">
+  <title>Конфигуратор проекта | БРЕВДОМ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Premium Header -->
+  <header id="main-header" class="header-dark">
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="header-logo-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5z"/>
+        </svg>
+        <span>БРЕВДОМ</span>
+      </a>
+      <nav id="header-navigation">
+        <ul id="nav-list">
+          <li><a href="index.html#catalog-anchor">Все проекты</a></li>
+          <li><a href="index.html#features-anchor">Преимущества</a></li>
+          <li><a href="index.html#quality-anchor">Качество сборки</a></li>
+        </ul>
+      </nav>
+      <div class="header-contact">
+        <div class="contact-phone">
+          <a href="tel:+79159067470">+7 (915) 906-74-70</a>
+          <span>с 9:00 до 21:00 (без вых)</span>
+        </div>
+        <button class="btn btn-primary" onclick="openCallbackModal()">Заказать звонок</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Dynamic Hero & Specifications -->
+    <section class="project-detail-hero" id="project-detail-section">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <ul class="project-breadcrumbs" id="detail-breadcrumbs">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="index.html#catalog-anchor">Каталог</a></li>
+          <li id="breadcrumb-current">Загрузка проекта...</li>
+        </ul>
+
+        <!-- Title block -->
+        <div class="project-title-area">
+          <div>
+            <span class="badge badge-gold" id="project-type-badge">Дом из бруса</span>
+            <h1 id="project-main-title">Название проекта</h1>
+            <p style="color: var(--color-gray);" id="project-short-desc">Краткое описание проекта деревянного дома.</p>
+          </div>
+          <button class="btn btn-outline" onclick="shareProject()" style="padding: 10px 20px; font-size: 0.85rem;">Поделиться</button>
+        </div>
+
+        <!-- Gallery and Configurator Main Layout -->
+        <div class="project-main-grid">
+          <!-- Left side: Images and Specs -->
+          <div class="gallery-container">
+            <!-- Gallery Slider -->
+            <div class="main-gallery-slider" id="detail-gallery-slider">
+              <!-- Rendered dynamically -->
+              <button class="slider-nav slider-prev" onclick="prevSlide()" aria-label="Previous slide">&lsaquo;</button>
+              <button class="slider-nav slider-next" onclick="nextSlide()" aria-label="Next slide">&rsaquo;</button>
+            </div>
+            
+            <!-- Gallery Thumbnails -->
+            <div class="gallery-thumbs" id="detail-gallery-thumbs">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Detailed Specifications Grid -->
+            <div class="project-specs-grid" id="detail-specs-layout">
+              <div class="project-spec-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+                <div class="project-spec-info">
+                  <span class="project-spec-lbl">Общая площадь</span>
+                  <span class="project-spec-val" id="spec-val-area">0 м²</span>
+                </div>
+              </div>
+              <div class="project-spec-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM21 9H3M21 15H3M12 3v18"/></svg>
+                <div class="project-spec-info">
+                  <span class="project-spec-lbl">Размеры в плане</span>
+                  <span class="project-spec-val" id="spec-val-size">0х0 м</span>
+                </div>
+              </div>
+              <div class="project-spec-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M3 5h18M9 21V10M15 21V10"/></svg>
+                <div class="project-spec-info">
+                  <span class="project-spec-lbl">Этажность</span>
+                  <span class="project-spec-val" id="spec-val-storeys">0</span>
+                </div>
+              </div>
+              <div class="project-spec-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <div class="project-spec-info">
+                  <span class="project-spec-lbl">Количество комнат</span>
+                  <span class="project-spec-val" id="spec-val-rooms">0</span>
+                </div>
+              </div>
+              <div class="project-spec-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <div class="project-spec-info">
+                  <span class="project-spec-lbl">Санузлы</span>
+                  <span class="project-spec-val" id="spec-val-bathrooms">0</span>
+                </div>
+              </div>
+              <div class="project-spec-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div class="project-spec-info">
+                  <span class="project-spec-lbl">Срок сборки</span>
+                  <span class="project-spec-val" id="spec-val-buildtime">0 дней</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side: Real-time Configurator Card -->
+          <div class="configurator-panel" id="project-configurator-widget">
+            <div class="price-card-box">
+              <div class="price-label">Итоговая стоимость</div>
+              <div style="display: flex; align-items: baseline;">
+                <span class="price-val" id="config-price-total">0 ₽</span>
+                <span class="price-old" id="config-price-old">0 ₽</span>
+              </div>
+              <div class="price-unit" id="config-price-sqm">от 13 500 руб/м²</div>
+            </div>
+
+            <!-- Dynamic Customizations Options -->
+            <form id="project-config-form" onsubmit="handleConfigSubmit(event)">
+              <!-- Timber Type Select -->
+              <div class="config-group" id="config-group-timber">
+                <div class="config-group-title">1. Тип бруса</div>
+                <div class="config-options" id="options-timber-container">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- Foundation Select -->
+              <div class="config-group" id="config-group-foundation">
+                <div class="config-group-title">2. Выберите фундамент</div>
+                <div class="config-options" id="options-foundation-container">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- Roofing Select -->
+              <div class="config-group" id="config-group-roof">
+                <div class="config-group-title">3. Покрытие кровли</div>
+                <div class="config-options" id="options-roof-container">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="config-actions">
+                <button type="submit" class="btn btn-primary" id="btn-config-order">Заказать расчет комплектации</button>
+                <button type="button" class="btn btn-outline" onclick="downloadEstimate()" id="btn-config-pdf">Скачать подробную смету (PDF)</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Interactive Delivery Calculator at bottom of detail page -->
+        <div class="delivery-section" id="project-delivery-calculator">
+          <div class="delivery-box">
+            <div class="delivery-grid">
+              <div class="delivery-form">
+                <h3 style="font-size: 1.6rem;">Калькулятор доставки домокомплекта</h3>
+                <p style="color: var(--color-gray); font-size: 0.95rem;">Укажите удаленность вашего участка от МКАД, чтобы рассчитать точную стоимость транспортировки материалов на объект.</p>
+                <div class="delivery-form-group">
+                  <label for="delivery-distance">Расстояние от МКАД (в км)</label>
+                  <input type="number" id="delivery-distance" value="0" min="0" max="500" oninput="calculateDeliveryCost()">
+                </div>
+              </div>
+              <div class="delivery-result-box">
+                <h4 style="font-size: 1.1rem; color: var(--color-primary);">Стоимость доставки</h4>
+                <div class="delivery-result-val" id="delivery-cost-value">Бесплатно</div>
+                <p style="font-size: 0.8rem; color: var(--color-gray);" id="delivery-cost-subtext">До 50 км от МКАД доставка осуществляется за счет компании!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer-section">
+    <div class="container footer-top">
+      <div class="footer-desc">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5z"/>
+          </svg>
+          <span>БРЕВДОМ</span>
+        </a>
+        <p>Надежное производство и качественная сборка брусовых деревянных домов и бань под ключ. Долговечные строения из отборного леса Костромской области.</p>
+      </div>
+      <div class="lead-form-box">
+        <h3>Оставить заявку на проект</h3>
+        <p>Наш архитектор перезвонит вам, ответит на любые конструктивные вопросы и внесет изменения в планировку.</p>
+        <form id="project-detail-form" onsubmit="handleFormSubmit(event, 'project-detail-form')">
+          <div class="form-group">
+            <input type="text" class="form-input" id="detail-form-name" placeholder="Как вас зовут?" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-input" id="detail-form-phone" placeholder="Ваш номер телефона" required>
+          </div>
+          <button type="submit" class="btn btn-primary form-btn">Консультация архитектора &rarr;</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 БРЕВДОМ. Все права защищены.</p>
+      <div class="footer-nav">
+        <a href="index.html#catalog-anchor">Каталог</a>
+        <a href="index.html#features-anchor">Преимущества</a>
+        <a href="index.html#quality-anchor">Технологии</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- General Callback Modal -->
+  <div class="modal" id="callback-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeCallbackModal()" aria-label="Close callback modal">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <h3 style="margin-bottom: 10px;">Заказ звонка</h3>
+      <p style="color: var(--color-gray); font-size: 0.95rem; margin-bottom: 25px;">Оставьте номер телефона, наш менеджер перезвонит для подробной консультации.</p>
+      <form id="modal-callback-form" onsubmit="handleFormSubmit(event, 'modal-callback-form')">
+        <div class="form-group">
+          <input type="text" class="form-input" id="modal-phone-name" placeholder="Как к вам обращаться?" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" class="form-input" id="modal-phone-val" placeholder="Номер телефона" required>
+        </div>
+        <button type="submit" class="btn btn-primary form-btn">Жду звонка &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dynamic Success Alert Notification -->
+  <div id="success-notification" style="display: none; position: fixed; bottom: 30px; right: 30px; background-color: var(--color-primary); color: white; padding: 20px 30px; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-lg); z-index: 9999; align-items: center; gap: 15px; transition: var(--transition-smooth);">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    <div>
+      <h4 style="color: white; margin-bottom: 2px;">Заявка успешно отправлена!</h4>
+      <p style="font-size: 0.85rem; opacity: 0.9;">Наш специалист перезвонит вам в течение 10 минут.</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

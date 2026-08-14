@@ -1,0 +1,654 @@
+/* ==========================================================================
+   CSS Переменные и Дизайн-Система
+   ========================================================================== */
+:root {
+  /* Цветовая палитра (Премиальная медицинская эстетика) */
+  --color-primary: #0284c7;       /* Голубой акцентный */
+  --color-primary-dark: #0369a1;  /* Темно-голубой для ховеров */
+  --color-primary-light: #e0f2fe; /* Очень светло-голубой для подложек */
+  --color-primary-hover: #f0f9ff; /* Легкий налет для ховеров */
+  
+  --color-text-main: #0f172a;     /* Темно-сланцевый для заголовков и лого */
+  --color-text-muted: #475569;    /* Сланцевый для описаний и подписей */
+  --color-border: #e2e8f0;        /* Границы и разделители */
+  --color-bg-main: #ffffff;       /* Чистый белый фон */
+  --color-bg-soft: #f8fafc;       /* Фоновый оттенок сланца */
+  
+  /* Эффекты свечения и тени */
+  --shadow-premium: 0 20px 40px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.02);
+  --shadow-hover: 0 30px 60px rgba(2, 132, 199, 0.12), 0 1px 3px rgba(2, 132, 199, 0.04);
+  --shadow-btn: 0 8px 20px rgba(2, 132, 199, 0.2);
+  
+  /* Переменные интерактивной маски (управляются через JS) */
+  --x: 50%;
+  --y: 50%;
+  --r: 110px;          /* Радиус маски на десктопе */
+  --mask-opacity: 0;   /* Прозрачность маски (0 - скрыта, 1 - активна) */
+}
+
+/* ==========================================================================
+   Базовый Сброс и Типографика
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Компоненты: Кнопки
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  outline: none;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-bg-main);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn);
+}
+
+.btn--primary:focus-visible {
+  outline: 3px solid rgba(2, 132, 199, 0.4);
+  outline-offset: 2px;
+}
+
+.btn--secondary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg-main);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn);
+}
+
+.btn--secondary:focus-visible {
+  outline: 3px solid rgba(2, 132, 199, 0.4);
+  outline-offset: 2px;
+}
+
+.btn--large {
+  padding: 1rem 2.25rem;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Шапка (Header)
+   ========================================================================== */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.header__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Логотип */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  outline: none;
+}
+
+.logo__icon {
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo__icon {
+  transform: rotate(10deg) scale(1.05);
+}
+
+.logo__text {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--color-text-main);
+  letter-spacing: -0.5px;
+}
+
+.logo__text--accent {
+  color: var(--color-primary);
+}
+
+/* Навигация */
+.nav__list {
+  display: flex;
+  list-style: none;
+  gap: 2.25rem;
+}
+
+.nav__link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  transition: color 0.25s ease;
+  position: relative;
+  padding: 6px 0;
+  outline: none;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.nav__link:hover {
+  color: var(--color-primary);
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* CTA и телефон */
+.header__cta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header__phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  transition: color 0.25s ease;
+  outline: none;
+}
+
+.header__phone-icon {
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.header__phone:hover {
+  color: var(--color-primary);
+}
+
+.header__phone:hover .header__phone-icon {
+  transform: scale(1.1) rotate(-10deg);
+}
+
+.header__phone:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.header__btn {
+  padding: 0.65rem 1.5rem;
+}
+
+/* ==========================================================================
+   Главный Экран (Hero Section)
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: radial-gradient(circle at 10% 20%, #f0f9ff 0%, #ffffff 70%);
+  padding-top: 80px; /* Компенсация высоты шапки */
+  overflow: hidden;
+}
+
+.hero__container {
+  flex-grow: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Левая колонка контента */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: 0.5rem 1.15rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.05);
+}
+
+.hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+.hero__title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text-main);
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.hero__description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 2.25rem;
+  max-width: 520px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Подсказка о взаимодействии */
+.hero__hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px dashed rgba(2, 132, 199, 0.3);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__hint-icon {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Интерактивная Зона (Маска "До/После")
+   ========================================================================== */
+.hero__visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-premium);
+  background-color: var(--color-bg-soft);
+  cursor: none; /* Скрываем дефолтный курсор для плавного оверлея линзы */
+  touch-action: none; /* Отключаем скролл на тачпадах при перетаскивании маски */
+  transition: box-shadow 0.5s ease;
+  will-change: box-shadow;
+}
+
+.hero__visual:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.smile-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Нижний слой: плохие зубы (dirty) */
+.smile-image--dirty {
+  z-index: 1;
+}
+
+/* Верхний слой: здоровые зубы (clean) */
+.smile-image--clean {
+  z-index: 2;
+  /* Динамическая радиальная маска.
+     Когда var(--mask-opacity) плавно растет, радиус маски раскрывается */
+  -webkit-mask-image: radial-gradient(
+    circle calc(var(--r) * var(--mask-opacity)) at var(--x) var(--y),
+    transparent 0%,
+    transparent calc(var(--r) * var(--mask-opacity) - 1px),
+    #000000 calc(var(--r) * var(--mask-opacity) + 1px)
+  );
+  mask-image: radial-gradient(
+    circle calc(var(--r) * var(--mask-opacity)) at var(--x) var(--y),
+    transparent 0%,
+    transparent calc(var(--r) * var(--mask-opacity) - 1px),
+    #000000 calc(var(--r) * var(--mask-opacity) + 1px)
+  );
+  will-change: mask-image, -webkit-mask-image;
+}
+
+/* Физическая рамка-лупа */
+.mask-lens {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 25px rgba(2, 132, 199, 0.45), 
+    inset 0 0 15px rgba(2, 132, 199, 0.2);
+  pointer-events: none;
+  user-select: none;
+  /* Выравниваем центр линзы по координатам var(--x), var(--y) */
+  transform: translate(calc(var(--x) - var(--r)), calc(var(--y) - var(--r)));
+  opacity: var(--mask-opacity);
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   Преимущества (Bottom Section)
+   ========================================================================== */
+.hero__features {
+  background-color: var(--color-bg-main);
+  border-top: 1px solid var(--color-border);
+  padding: 3rem 2rem;
+  width: 100%;
+}
+
+.features-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.feature-card__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: 14px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card:hover .feature-card__icon-wrapper {
+  transform: scale(1.12) translateY(-2px);
+  background-color: var(--color-primary);
+  color: var(--color-bg-main);
+}
+
+.feature-card__title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text-main);
+  letter-spacing: -0.2px;
+}
+
+.feature-card__text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Анимации
+   ========================================================================== */
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(2, 132, 199, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
+  }
+}
+
+.animate-pulse {
+  animation: pulse-icon 2s infinite ease-in-out;
+}
+
+@keyframes pulse-icon {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-4px);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Адаптивность (Media Queries)
+   ========================================================================== */
+
+/* Ноутбуки и средние экраны */
+@media (max-width: 1200px) {
+  .hero__title {
+    font-size: 3rem;
+  }
+  .features-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Планшеты (горизонтальные и вертикальные) */
+@media (max-width: 1024px) {
+  .hero__container {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .nav__list {
+    gap: 1.25rem;
+  }
+  .header__phone {
+    font-size: 0.9rem;
+  }
+}
+
+/* Мобильные экраны / Вертикальные планшеты */
+@media (max-width: 768px) {
+  /* Скрываем навигацию в шапке */
+  .nav {
+    display: none;
+  }
+  
+  .header__container {
+    padding: 0 1.25rem;
+  }
+  
+  .header__cta {
+    gap: 1.25rem;
+  }
+  
+  .hero__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3.5rem;
+    justify-items: center;
+    padding: 6rem 1.25rem 3rem;
+  }
+  
+  .hero__content {
+    align-items: center;
+  }
+  
+  .hero__title {
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .hero__description {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero__actions {
+    width: 100%;
+    max-width: 380px;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero__actions .btn {
+    width: 100%;
+  }
+  
+  /* Интерактивная маска на мобильных */
+  .hero__visual {
+    max-width: 480px;
+    cursor: default; /* Обычный курсор для тача */
+    --r: 80px;       /* Уменьшенный радиус на мобильных */
+  }
+  
+  .hero__features {
+    padding: 2.5rem 1.25rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+  
+  .feature-card {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  .header__btn {
+    display: none; /* Оставляем только логотип и телефон для чистоты */
+  }
+  
+  .hero__title {
+    font-size: 2.15rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .hero__visual {
+    --r: 70px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 1.25rem;
+    background-color: var(--color-bg-soft);
+    border-radius: 16px;
+    border: 1px solid rgba(226, 232, 240, 0.4);
+  }
+}

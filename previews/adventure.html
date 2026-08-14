@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WILDLINE — концепт бренда камерных путешествий по лесам, горам и рекам.">
+  <title>WILDLINE — выйти за карту</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10151b;
+      --ink-soft: #17212a;
+      --paper: #eef1e8;
+      --orange: #ff7950;
+      --lime: #d9f36d;
+      --blue: #94bbd2;
+      --moss: #798c68;
+      --muted: #a2aca8;
+      --dark-muted: #5c6864;
+      --line: rgba(238, 241, 232, .18);
+      --line-dark: rgba(16, 21, 27, .16);
+      --mono: 'DM Mono', monospace;
+      --sans: 'Manrope', Arial, sans-serif;
+      font-family: var(--sans);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--ink); color: var(--paper); overflow-x: hidden; }
+    body, button, input { font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+
+    .site-nav { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 72px; padding: 0 clamp(20px, 5vw, 76px); border-bottom: 1px solid var(--line); background: rgba(16, 21, 27, .76); backdrop-filter: blur(20px); font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .brand { font-weight: 700; letter-spacing: .08em; }
+    .brand i { display: inline-block; width: 7px; height: 7px; margin-left: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 16px rgba(255,121,80,.9); }
+    .site-nav__links { display: flex; align-items: center; gap: clamp(12px, 2.4vw, 34px); color: var(--muted); }
+    .site-nav__links a { transition: color .25s ease; }
+    .site-nav__links a:hover { color: var(--lime); }
+    .site-nav__meta { color: var(--muted); white-space: nowrap; }
+    .nav-toggle { display: none; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--paper); cursor: pointer; }
+    .nav-toggle span { display: block; width: 15px; height: 1px; margin: 4px auto; background: currentColor; transition: transform .25s ease, opacity .25s ease; }
+
+    .hero { position: relative; min-height: min(900px, 94vh); display: grid; align-items: end; padding: clamp(120px, 16vh, 180px) clamp(20px, 8vw, 130px) clamp(46px, 7vw, 84px); isolation: isolate; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(16,21,27,.94) 0%, rgba(16,21,27,.62) 42%, rgba(16,21,27,.12) 78%), url('assets/adventure/mountain-ridge.png') center / cover no-repeat; transform: scale(1.02); }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, var(--ink) 0%, transparent 34%, rgba(16,21,27,.05) 100%); }
+    .hero__layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 40px; align-items: end; max-width: 1320px; width: 100%; margin: 0 auto; }
+    .hero__copy { max-width: 850px; }
+    .eyebrow, .section-label { color: var(--lime); font: 10px var(--mono); letter-spacing: .18em; text-transform: uppercase; }
+    .hero h1 { max-width: 900px; margin: 24px 0 28px; font-size: clamp(56px, 10vw, 145px); line-height: .8; letter-spacing: -.12em; }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero p:not(.eyebrow) { max-width: 440px; margin: 0; color: #c4ceca; font-size: 15px; line-height: 1.72; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 48px; padding: 0 18px; border: 1px solid transparent; font-size: 11px; letter-spacing: .04em; transition: transform .3s ease, background .3s ease, border-color .3s ease, color .3s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .button--orange { background: var(--orange); color: var(--ink); }
+    .button--ghost { border-color: var(--line); color: var(--paper); }
+    .button--ghost:hover { border-color: var(--lime); color: var(--lime); }
+    .hero__side { padding: 22px; border: 1px solid rgba(217,243,109,.3); background: rgba(16,21,27,.52); backdrop-filter: blur(14px); }
+    .hero__side-top { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 66px; color: var(--lime); font: 10px var(--mono); letter-spacing: .12em; }
+    .hero__side-top span:last-child { color: var(--muted); }
+    .hero__side strong { display: block; max-width: 220px; margin-bottom: 14px; font-size: 22px; line-height: 1; letter-spacing: -.07em; }
+    .hero__side p { color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+    .manifesto { padding: clamp(84px, 11vw, 155px) clamp(20px, 8vw, 130px); background: var(--paper); color: var(--ink); }
+    .section-inner { width: 100%; max-width: 1320px; margin: 0 auto; }
+    .manifesto__heading { display: flex; align-items: end; justify-content: space-between; gap: 45px; }
+    .manifesto h2 { max-width: 840px; margin: 18px 0 0; font-size: clamp(40px, 6.5vw, 88px); line-height: .86; letter-spacing: -.11em; }
+    .manifesto h2 em { color: var(--moss); font-style: normal; }
+    .manifesto__heading > p { max-width: 330px; margin: 0; color: var(--dark-muted); font-size: 13px; line-height: 1.7; }
+    .manifesto__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 70px; background: var(--line-dark); }
+    .stat { min-height: 150px; padding: 24px; background: var(--paper); border-top: 2px solid transparent; transition: border-color .3s ease, transform .3s ease; }
+    .stat:hover { border-color: var(--orange); transform: translateY(-5px); }
+    .stat strong { display: block; margin-bottom: 12px; font-size: 34px; line-height: .9; letter-spacing: -.1em; }
+    .stat span { color: var(--dark-muted); font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+
+    .routes { padding: clamp(84px, 11vw, 155px) clamp(20px, 8vw, 130px); background: var(--ink-soft); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 42px; margin-bottom: 56px; }
+    .section-heading h2 { max-width: 800px; margin: 18px 0 0; font-size: clamp(39px, 6vw, 82px); line-height: .88; letter-spacing: -.1em; }
+    .section-heading h2 em { color: var(--orange); font-style: normal; }
+    .section-heading > p { max-width: 340px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .route-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
+    .route-card { position: relative; grid-column: span 4; min-height: 470px; overflow: hidden; background: #202a2d; }
+    .route-card:nth-child(2) { grid-column: span 5; }
+    .route-card:nth-child(3) { grid-column: span 3; }
+    .route-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.16,1,.3,1); }
+    .route-card:hover img { transform: scale(1.07); }
+    .route-card::after { content: ""; position: absolute; inset: 43% 0 0; background: linear-gradient(transparent, rgba(7,11,15,.88)); }
+    .route-card__body { position: absolute; z-index: 1; right: 20px; bottom: 18px; left: 20px; }
+    .route-card__meta { display: flex; justify-content: space-between; gap: 12px; color: var(--lime); font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .route-card__body h3 { max-width: 300px; margin: 12px 0 8px; font-size: 24px; line-height: .95; letter-spacing: -.07em; }
+    .route-card__body p { max-width: 300px; margin: 0; color: #bcc6c2; font-size: 12px; line-height: 1.55; }
+    .route-card__link { display: inline-flex; margin-top: 18px; color: var(--orange); font: 10px var(--mono); letter-spacing: .08em; }
+
+    .feature-route { padding: clamp(84px, 11vw, 150px) clamp(20px, 8vw, 130px); background: var(--paper); color: var(--ink); }
+    .feature-route__layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(30px, 7vw, 100px); align-items: center; }
+    .feature-route__image { position: relative; min-height: 550px; overflow: hidden; background: #aeb8b1; }
+    .feature-route__image img { width: 100%; height: 100%; min-height: 550px; object-fit: cover; }
+    .feature-route__image::after { content: "ROUTE 01 / 04 DAYS"; position: absolute; right: 18px; bottom: 16px; color: #fff; font: 9px var(--mono); letter-spacing: .12em; }
+    .feature-route__copy h2 { max-width: 630px; margin: 18px 0 22px; font-size: clamp(40px, 5.5vw, 78px); line-height: .86; letter-spacing: -.1em; }
+    .feature-route__copy h2 em { color: var(--moss); font-style: normal; }
+    .feature-route__copy > p { max-width: 480px; color: var(--dark-muted); font-size: 14px; line-height: 1.75; }
+    .route-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 42px; background: var(--line-dark); }
+    .route-fact { padding: 20px; background: var(--paper); border-top: 1px solid var(--line-dark); }
+    .route-fact strong { display: block; margin-bottom: 7px; color: var(--moss); font-size: 20px; letter-spacing: -.07em; }
+    .route-fact span { color: var(--dark-muted); font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+
+    .formats { padding: clamp(84px, 11vw, 145px) clamp(20px, 8vw, 130px); background: var(--ink); }
+    .format-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 58px; background: var(--line); }
+    .format-card { min-height: 255px; padding: 24px; background: var(--ink); border-top: 2px solid transparent; transition: border-color .3s ease, background .3s ease, transform .3s ease; }
+    .format-card:hover { border-color: var(--lime); background: #182128; transform: translateY(-5px); }
+    .format-card__num { color: var(--orange); font: 10px var(--mono); }
+    .format-card h3 { margin: 62px 0 10px; font-size: 19px; letter-spacing: -.06em; }
+    .format-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+    .invite { padding: clamp(92px, 12vw, 160px) clamp(20px, 8vw, 130px); background: var(--orange); color: var(--ink); }
+    .invite__layout { display: grid; grid-template-columns: 1fr .7fr; gap: 70px; align-items: end; }
+    .invite h2 { max-width: 850px; margin: 18px 0 0; font-size: clamp(48px, 7.5vw, 110px); line-height: .82; letter-spacing: -.12em; }
+    .invite .eyebrow { color: #6f2b18; }
+    .invite__copy > p { max-width: 340px; margin: 0 0 28px; color: rgba(16,21,27,.72); font-size: 13px; line-height: 1.7; }
+    .invite .button { background: var(--ink); color: var(--lime); }
+
+    .site-footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px clamp(20px, 8vw, 130px); border-top: 1px solid var(--line); color: var(--muted); font: 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .site-footer b { color: var(--orange); font-weight: 400; }
+
+    @media (max-width: 980px) {
+      .site-nav { gap: 12px; padding-left: 20px; padding-right: 20px; }
+      .site-nav__links { gap: 12px; font-size: 9px; }
+      .site-nav__meta { display: none; }
+      .hero__layout, .feature-route__layout, .invite__layout { grid-template-columns: 1fr; }
+      .hero__side { max-width: 430px; }
+      .manifesto__stats { grid-template-columns: repeat(2, 1fr); }
+      .route-card, .route-card:nth-child(2), .route-card:nth-child(3) { grid-column: span 4; }
+      .format-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-route__image { min-height: 430px; }
+      .feature-route__image img { min-height: 430px; }
+    }
+
+    @media (max-width: 700px) {
+      .site-nav { min-height: 64px; }
+      .site-nav__links { position: absolute; top: 64px; right: 12px; left: 12px; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 18px; border: 1px solid var(--line); background: rgba(16,21,27,.98); }
+      .site-nav__links.open { display: flex; }
+      .site-nav__links a { padding: 12px 0; border-bottom: 1px solid rgba(238,241,232,.1); }
+      .site-nav__links a:last-child { border-bottom: 0; }
+      .nav-toggle { display: block; }
+      .nav-toggle.active span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+      .nav-toggle.active span:nth-child(2) { opacity: 0; }
+      .nav-toggle.active span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+      .hero { min-height: 760px; padding: 110px 20px 42px; }
+      .hero::before { background-position: 64% center; }
+      .hero h1 { font-size: clamp(52px, 15vw, 82px); }
+      .hero__actions { align-items: stretch; flex-direction: column; max-width: 300px; }
+      .hero__actions .button { width: 100%; }
+      .manifesto, .routes, .feature-route, .formats, .invite { padding-left: 20px; padding-right: 20px; }
+      .manifesto__heading, .section-heading { display: block; }
+      .manifesto__heading > p, .section-heading > p { margin-top: 20px; }
+      .manifesto h2, .section-heading h2 { font-size: 45px; }
+      .manifesto__stats { grid-template-columns: 1fr 1fr; margin-top: 46px; }
+      .route-grid { grid-template-columns: 1fr 1fr; }
+      .route-card, .route-card:nth-child(2), .route-card:nth-child(3) { grid-column: span 1; min-height: 360px; }
+      .route-card:first-child { grid-column: span 2; }
+      .route-facts { grid-template-columns: 1fr 1fr; }
+      .format-grid { grid-template-columns: 1fr; }
+      .format-card { min-height: 205px; }
+      .format-card h3 { margin-top: 45px; }
+      .invite h2 { font-size: 56px; }
+      .site-footer { display: block; padding: 20px; line-height: 1.7; }
+      .site-footer span { display: block; margin-top: 7px; }
+    }
+
+    @media (max-width: 390px) {
+      .manifesto__stats, .route-grid, .route-facts { grid-template-columns: 1fr; }
+      .route-card:first-child { grid-column: span 1; }
+      .route-card, .route-card:nth-child(2), .route-card:nth-child(3) { min-height: 330px; }
+      .hero h1 { font-size: 49px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <a class="brand" href="#top">WILDLINE <i></i></a>
+    <nav class="site-nav__links" id="adventure-nav-links" aria-label="Навигация по странице">
+      <a href="#routes">Маршруты</a>
+      <a href="#format">Формат</a>
+      <a href="#featured">Поход месяца</a>
+      <a href="#invite">Запросить маршрут</a>
+    </nav>
+    <span class="site-nav__meta">field notes / 10</span>
+    <button class="nav-toggle" id="adventure-nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero__layout">
+        <div class="hero__copy">
+          <p class="eyebrow">камерные путешествия для тех, кто слышит тишину</p>
+          <h1>Выйти<br>за <em>карту.</em></h1>
+          <p>WILDLINE собирает небольшие группы и ведёт их туда, где день измеряется не уведомлениями, а километрами, высотой и первым светом.</p>
+          <div class="hero__actions">
+            <a class="button button--orange" href="#routes">Выбрать маршрут <span>↘</span></a>
+            <a class="button button--ghost" href="#featured">Поход месяца <span>↗</span></a>
+          </div>
+        </div>
+        <aside class="hero__side">
+          <div class="hero__side-top"><span>01 / field note</span><span>05:18</span></div>
+          <strong>Иногда достаточно уйти на четыре дня, чтобы вернуться собой.</strong>
+          <p>Без гонки за галочками. Только маршрут, команда и место, которое хочется запомнить телом.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="section-inner">
+        <div class="manifesto__heading">
+          <div><p class="section-label" style="color:#6f834e">02 / our direction</p><h2>Не туры.<br><em>Перезагрузка.</em></h2></div>
+          <p>Мы проектируем путешествия так, чтобы в них хватало воздуха: темп, ночёвки, сложность и люди всегда подобраны с вниманием.</p>
+        </div>
+        <div class="manifesto__stats">
+          <div class="stat"><strong>6–10</strong><span>человек в группе</span></div>
+          <div class="stat"><strong>2–7</strong><span>дней вне города</span></div>
+          <div class="stat"><strong>∞</strong><span>историй у костра</span></div>
+          <div class="stat"><strong>0</strong><span>лишней суеты</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="routes" id="routes">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div><p class="section-label">03 / choose your line</p><h2>Маршруты,<br>которые <em>зовут.</em></h2></div>
+          <p>Три состояния, три темпа. Можно начать с леса, а закончить на гребне — команда и проводник будут рядом.</p>
+        </div>
+        <div class="route-grid">
+          <article class="route-card"><img src="assets/adventure/forest-trail.png" alt="Хайкинг по лесной тропе"><div class="route-card__body"><div class="route-card__meta"><span>01 / лес</span><span>2 дня</span></div><h3>Тихий лес</h3><p>Мшистые тропы, тёплый костёр и утро, которое начинается с тумана.</p><a class="route-card__link" href="#invite">Смотреть маршрут ↗</a></div></article>
+          <article class="route-card"><img src="assets/adventure/mountain-ridge.png" alt="Хайкинг по горному хребту"><div class="route-card__body"><div class="route-card__meta"><span>02 / горы</span><span>4 дня</span></div><h3>Выше облаков</h3><p>Каменный хребет, рассвет над долиной и ощущение, что горизонт стал ближе.</p><a class="route-card__link" href="#featured">Открыть поход ↗</a></div></article>
+          <article class="route-card"><img src="../adventure/generation-298daaae-7eec-4068-b648-1884175c8cd0.png" alt="Визуальный концепт путешествия"><div class="route-card__body"><div class="route-card__meta"><span>03 / wild card</span><span>6 дней</span></div><h3>Без сигнала</h3><p>Длинный маршрут для тех, кто хочет выключить всё лишнее и идти дальше.</p><a class="route-card__link" href="#invite">Запросить даты ↗</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-route" id="featured">
+      <div class="section-inner feature-route__layout">
+        <div class="feature-route__image"><img src="assets/adventure/mountain-ridge.png" alt="Путешественник на горном гребне"></div>
+        <div class="feature-route__copy">
+          <p class="section-label" style="color:#6f834e">04 / featured expedition</p>
+          <h2>Северный<br>хребет <em>/ 04.</em></h2>
+          <p>Четыре дня в горах: стартуем с лесной долины, поднимаемся к каменному плато и встречаем рассвет над облаками. Ночуем в тёплых палатках, идём налегке и оставляем место для тишины.</p>
+          <div class="route-facts">
+            <div class="route-fact"><strong>42 км</strong><span>дистанция</span></div>
+            <div class="route-fact"><strong>+1 160 м</strong><span>набор высоты</span></div>
+            <div class="route-fact"><strong>июль</strong><span>ближайший выезд</span></div>
+            <div class="route-fact"><strong>6 мест</strong><span>в группе</span></div>
+          </div>
+          <div class="hero__actions"><a class="button button--orange" href="#invite">Получить программу <span>↗</span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="formats" id="format">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div><p class="section-label">05 / how we go</p><h2>Всё важное<br>уже <em>продумано.</em></h2></div>
+          <p>Вам остаётся выбрать настроение и приехать к точке старта. Остальное берёт на себя команда WILDLINE.</p>
+        </div>
+        <div class="format-grid">
+          <article class="format-card"><span class="format-card__num">01 / темп</span><h3>Группа без гонки</h3><p>Планируем переходы так, чтобы успевать смотреть по сторонам и слышать себя.</p></article>
+          <article class="format-card"><span class="format-card__num">02 / безопасность</span><h3>Проводник рядом</h3><p>Маршрут, связь, аптечка и резервные сценарии подготовлены до первого шага.</p></article>
+          <article class="format-card"><span class="format-card__num">03 / быт</span><h3>Тёплые ночёвки</h3><p>Снаряжение, костёр, вода и хороший ужин — чтобы силы оставались на впечатления.</p></article>
+          <article class="format-card"><span class="format-card__num">04 / память</span><h3>Фото без постановки</h3><p>Возвращаем не только координаты, но и живые кадры, в которых вы действительно там.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite" id="invite">
+      <div class="section-inner invite__layout">
+        <div><p class="eyebrow">06 / write to the field team</p><h2>Выберите,<br>куда <em>дальше.</em></h2></div>
+        <div class="invite__copy"><p>Расскажите, какой формат вам ближе: лес на выходные, горный маршрут или большой поход без сигнала. Мы предложим дату, уровень сложности и честную программу.</p><a class="button" href="mailto:hello@wildline.travel">Запросить маршрут <span>↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>WILDLINE / ADVENTURE CLUB</span><span>go where the map gets quiet <b>↗</b></span></footer>
+
+  <script>
+    const navToggle = document.querySelector('#adventure-nav-toggle');
+    const navLinks = document.querySelector('#adventure-nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('active', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+      navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }));
+    }
+  </script>
+</body>
+</html>

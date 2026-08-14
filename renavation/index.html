@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA — Элитный ремонт и отделка квартир под ключ</title>
+    <meta name="description" content="AURA — премиальный ремонт и дизайнерская отделка квартир в Москве. Бескомпромиссное качество, авторский надзор и внимание к каждой детали.">
+    <!-- Google Fonts: Cormorant Garamond (Serif) & Manrope (Sans-serif) with Cyrillic support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Premium Luxury Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo" id="logo">
+                <span class="logo-text">AURA</span>
+                <span class="logo-sub">INTERIORS</span>
+            </a>
+            <nav class="nav" id="nav-menu">
+                <a href="#hero-scrollytelling" class="nav-link">Главная</a>
+                <a href="#philosophy" class="nav-link">Философия</a>
+                <a href="#portfolio" class="nav-link">Портфолио</a>
+                <a href="#process" class="nav-link">Процесс</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </nav>
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-outline" id="header-cta-btn">Обсудить проект</a>
+            </div>
+            <button class="burger" id="burger-menu" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Scrollytelling Hero Section -->
+    <section class="hero-scroll" id="hero-scrollytelling">
+        <div class="canvas-container">
+            <!-- Fullscreen canvas for image frames -->
+            <canvas id="scrollytelling-canvas"></canvas>
+            <div class="canvas-overlay"></div>
+        </div>
+
+        <!-- Storytelling content overlays that fade on scroll -->
+        <div class="story-container">
+            <div class="story-slide active" data-slide="0">
+                <div class="story-content">
+                    <h1 class="story-title animate-title">Пространство как произведение искусства</h1>
+                    <p class="story-desc animate-desc">Создаем безупречные интерьеры для тех, кто ценит совершенство в каждой детали.</p>
+                </div>
+            </div>
+            <div class="story-slide" data-slide="1">
+                <div class="story-content">
+                    <h2 class="story-title">Бескомпромиссная инженерия</h2>
+                    <p class="story-desc">Используем передовые технологии и скрытые системы кондиционирования, вентиляции и автоматизации для вашего абсолютного комфорта.</p>
+                </div>
+            </div>
+            <div class="story-slide" data-slide="2">
+                <div class="story-content">
+                    <h2 class="story-title">Премиальные материалы</h2>
+                    <p class="story-desc">Мрамор редких пород, натуральный шпон дерева, экологичные покрытия высшего класса и мебель от ведущих европейских брендов.</p>
+                </div>
+            </div>
+            <div class="story-slide" data-slide="3">
+                <div class="story-content">
+                    <h2 class="story-title">Воплощение роскоши</h2>
+                    <p class="story-desc">Мы берем на себя полную реализацию — от первой линии чертежа до финального взмаха кисти и расстановки предметов декора.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luxury scroll indicator -->
+        <div class="scroll-indicator" id="scroll-indicator">
+            <span class="scroll-text">Листайте вниз</span>
+            <div class="scroll-line-wrap">
+                <span class="scroll-line"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section philosophy" id="philosophy">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">ЦЕННОСТИ И СТАНДАРТЫ</span>
+                <h2 class="section-title">Философия совершенства</h2>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="philosophy-grid">
+                <!-- Card 1 -->
+                <div class="ph-card" id="ph-card-1">
+                    <div class="ph-card-icon">
+                        <!-- Custom SVG 1: Elegantly stylized architectural compass & ruler -->
+                        <svg class="svg-anim" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="draw-path" d="M50 15 L20 80 M50 15 L80 80" stroke="#C5A880" stroke-width="2" stroke-linecap="round" />
+                            <path class="draw-path" d="M30 60 L70 60" stroke="#C5A880" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="50" cy="15" r="4" stroke="#C5A880" stroke-width="2" fill="#121214" />
+                            <circle class="pulse" cx="50" cy="60" r="2" fill="#C5A880" />
+                        </svg>
+                    </div>
+                    <h3 class="ph-card-title">Идеальная геометрия</h3>
+                    <p class="ph-card-text">Лазерная точность выравнивания стен, скрытые плинтусы и двери-невидимки высотой до потолка. Добиваемся идеальных стыков разных покрытий с точностью до доли миллиметра.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="ph-card" id="ph-card-2">
+                    <div class="ph-card-icon">
+                        <!-- Custom SVG 2: Stylized glowing diamond / premium material -->
+                        <svg class="svg-anim" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="draw-path" d="M50 15 L80 40 L50 85 L20 40 Z" stroke="#C5A880" stroke-width="2" stroke-linejoin="round" />
+                            <path class="draw-path" d="M20 40 L80 40 M50 15 L50 85" stroke="#C5A880" stroke-width="1.5" stroke-dasharray="2 2" />
+                            <path class="draw-path" d="M35 30 L50 40 L65 30" stroke="#C5A880" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                    <h3 class="ph-card-title">Материалы от-кутюр</h3>
+                    <p class="ph-card-text">Прямые поставки редкого камня из Италии, паркета из Германии и красок премиум-класса. Каждая партия материалов проходит жесткий входной контроль качества.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ph-card" id="ph-card-3">
+                    <div class="ph-card-icon">
+                        <!-- Custom SVG 3: Eye/View finder for precise design supervision -->
+                        <svg class="svg-anim" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="draw-path" d="M15 50 C30 25 70 25 85 50 C70 75 30 75 15 50 Z" stroke="#C5A880" stroke-width="2" stroke-linejoin="round" />
+                            <circle cx="50" cy="50" r="12" stroke="#C5A880" stroke-width="2" />
+                            <circle cx="50" cy="50" r="5" fill="#C5A880" />
+                            <path class="draw-path" d="M30 30 L20 20 M70 30 L80 20" stroke="#C5A880" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="ph-card-title">Авторский надзор</h3>
+                    <p class="ph-card-text">Каждый этап контролируется архитектором и техническим директором. Вы получаете еженедельные фото- и видеоотчеты с камер высокого разрешения, установленных на объекте.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">НАШИ ШЕДЕВРЫ</span>
+                <h2 class="section-title">Реализованные проекты</h2>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-project="0">
+                    <div class="project-img-container">
+                        <img src="./project_1.png" alt="Пентхаус Aura Grand" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-details">
+                                <span class="project-category">Пентхаус • Современная классика</span>
+                                <h3 class="project-name">Пентхаус «Aura Grand»</h3>
+                                <div class="project-meta">
+                                    <span><strong>Площадь:</strong> 180 м²</span>
+                                    <span><strong>Срок:</strong> 7 месяцев</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-project="1">
+                    <div class="project-img-container">
+                        <img src="./project_2.png" alt="Апартаменты Obsidian" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-details">
+                                <span class="project-category">Апартаменты • Минимализм</span>
+                                <h3 class="project-name">Апартаменты «Obsidian»</h3>
+                                <div class="project-meta">
+                                    <span><strong>Площадь:</strong> 145 м²</span>
+                                    <span><strong>Срок:</strong> 6 месяцев</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-project="2">
+                    <div class="project-img-container">
+                        <img src="./project_3.png" alt="Резиденция Cote d'Azur" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-details">
+                                <span class="project-category">Резиденция • Неоклассика</span>
+                                <h3 class="project-name">Резиденция «Cote d'Azur»</h3>
+                                <div class="project-meta">
+                                    <span><strong>Площадь:</strong> 220 м²</span>
+                                    <span><strong>Срок:</strong> 9 месяцев</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-project="3">
+                    <div class="project-img-container">
+                        <img src="./project_4.png" alt="Вилла Symmetry" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-details">
+                                <span class="project-category">Вилла • High-Tech</span>
+                                <h3 class="project-name">Вилла «Symmetry»</h3>
+                                <div class="project-meta">
+                                    <span><strong>Площадь:</strong> 350 м²</span>
+                                    <span><strong>Срок:</strong> 12 месяцев</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-project="4">
+                    <div class="project-img-container">
+                        <img src="./project_5.png" alt="Лофт Industrial Chic" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-details">
+                                <span class="project-category">Лофт • Индустриальный</span>
+                                <h3 class="project-name">Лофт «Industrial Chic»</h3>
+                                <div class="project-meta">
+                                    <span><strong>Площадь:</strong> 160 м²</span>
+                                    <span><strong>Срок:</strong> 8 месяцев</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Project Detail Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content glass">
+            <button class="modal-close" id="modal-close-btn" aria-label="Закрыть">&times;</button>
+            <div class="modal-body-grid">
+                <div class="modal-slider-column">
+                    <div class="modal-slider">
+                        <div class="modal-slides" id="modal-slides-container">
+                            <!-- Injected dynamically by JavaScript -->
+                        </div>
+                        <div class="modal-controls">
+                            <button class="modal-arrow prev-btn" id="modal-prev-btn">&larr;</button>
+                            <span class="modal-counter" id="modal-slider-counter">1 / 4</span>
+                            <button class="modal-arrow next-btn" id="modal-next-btn">&rarr;</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-info-column">
+                    <div class="modal-info-header">
+                        <span class="modal-project-cat" id="modal-project-cat">КАТЕГОРИЯ</span>
+                        <h3 class="modal-project-title" id="modal-project-title">Название проекта</h3>
+                    </div>
+                    <div class="modal-meta-grid">
+                        <div class="modal-meta-item">
+                            <span class="meta-label">Площадь объекта</span>
+                            <span class="meta-value" id="modal-meta-area">0 м²</span>
+                        </div>
+                        <div class="modal-meta-item">
+                            <span class="meta-label">Срок реализации</span>
+                            <span class="meta-value" id="modal-meta-duration">0 месяцев</span>
+                        </div>
+                    </div>
+                    <p class="modal-project-desc" id="modal-project-desc">Подробное описание...</p>
+                    
+                    <div class="modal-blueprint-section">
+                        <span class="meta-label">Планировочное решение</span>
+                        <div class="blueprint-svg-wrap" id="modal-blueprint-svg">
+                            <!-- Custom inline blueprint SVG injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Process Timeline Section -->
+    <section class="section process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">КАК МЫ РАБОТАЕМ</span>
+                <h2 class="section-title">Путь к вашему идеалу</h2>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <!-- Step 1 -->
+                <div class="timeline-item" id="step-1">
+                    <div class="timeline-dot">01</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Аналитика и Проектирование</h3>
+                        <p class="timeline-text">Проводим лазерный 3D-обмер пространства. Разрабатываем подробный дизайн-проект, инженерные планы отопления, вентиляции и слаботочных систем умного дома.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-item" id="step-2">
+                    <div class="timeline-dot">02</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Черновой этап и Инженерия</h3>
+                        <p class="timeline-text">Возведение перегородок с соблюдением идеальной геометрии. Разводка всех коммуникаций, укладка премиальной шумоизоляции и монтаж скрытых систем.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-item" id="step-3">
+                    <div class="timeline-dot">03</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Чистовая отделка</h3>
+                        <p class="timeline-text">Высокоточная укладка широкоформатного керамогранита, нанесение декоративных покрытий, монтаж гипсового декора и скрытого освещения.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-item" id="step-4">
+                    <div class="timeline-dot">04</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Декорирование и Сдача</h3>
+                        <p class="timeline-text">Установка мебели, сантехники и светильников. Генеральный клининг премиум-уровня и торжественная передача ключей от вашего произведения искусства.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Consultation Form Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-box glass">
+                <div class="contact-info">
+                    <span class="section-subtitle">СВЯЗАТЬСЯ С НАМИ</span>
+                    <h2 class="contact-title">Начнем создание шедевра</h2>
+                    <p class="contact-text">Заполните форму, и наш ведущий архитектор свяжется с вами для обсуждения концепции вашего будущего интерьера.</p>
+                    
+                    <div class="contact-details-list">
+                        <div class="contact-item-detail">
+                            <span class="contact-label">Телефон</span>
+                            <a href="tel:+74950000000" class="contact-val">+7 (495) 000-00-00</a>
+                        </div>
+                        <div class="contact-item-detail">
+                            <span class="contact-label">Офис</span>
+                            <span class="contact-val">Москва, Пречистенская набережная, 17</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" id="luxury-form" onsubmit="event.preventDefault(); alert('Спасибо! Наш ведущий архитектор свяжется с вами в течение 15 минут.'); this.reset();">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" class="form-input" required placeholder=" ">
+                            <label for="name" class="form-label">Ваше имя</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" class="form-input" required placeholder=" ">
+                            <label for="phone" class="form-label">Номер телефона</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="area" name="area" class="form-input" placeholder=" ">
+                            <label for="area" class="form-label">Площадь объекта (м²)</label>
+                        </div>
+                        <button type="submit" class="btn btn-fill btn-submit" id="submit-btn">
+                            <span class="btn-text">Отправить заявку</span>
+                            <span class="btn-shine"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-text">AURA</span>
+                <p class="footer-tagline">Безупречность в каждой линии, комфорт в каждой детали.</p>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 AURA Interiors. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Modules -->
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

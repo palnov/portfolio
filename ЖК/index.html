@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖК «Солнечный Парк Premium» — Элитный жилой комплекс</title>
+    <meta name="description" content="Элитный жилой комплекс «Солнечный Парк Premium». Современная архитектура, закрытая территория, подземный паркинг и квартиры с террасами. Узнайте цены и планировки.">
+    <!-- Google Fonts: Manrope & Playfair Display for premium headlines -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to styles -->
+    <link rel="stylesheet" href="style.css?rev=20260713">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-title">СОЛНЕЧНЫЙ ПАРК</span>
+                <span class="logo-subtitle">PREMIUM RESIDENCE</span>
+            </a>
+            
+            <nav class="nav">
+                <a href="#about" class="nav-link">О проекте</a>
+                <a href="#advantages" class="nav-link">Преимущества</a>
+                <a href="#plans" class="nav-link">Планировки</a>
+                <a href="#construction" class="nav-link">Ход строительства</a>
+                <a href="#builder" class="nav-link">Застройщик</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+            </nav>
+
+            <div class="header-contacts">
+                <a href="tel:+78005553535" class="phone-link"><i class="fa-solid fa-phone"></i> +7 (800) 555-35-35</a>
+                <button class="btn btn-outline call-modal-btn">Заказать звонок</button>
+            </div>
+
+            <!-- Hamburger Button for Mobile -->
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <div class="logo">
+                <span class="logo-title">СОЛНЕЧНЫЙ ПАРК</span>
+                <span class="logo-subtitle">PREMIUM RESIDENCE</span>
+            </div>
+            <button class="drawer-close" id="drawer-close-btn">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#about" class="drawer-link">О проекте</a>
+            <a href="#advantages" class="drawer-link">Преимущества</a>
+            <a href="#plans" class="drawer-link">Планировки</a>
+            <a href="#construction" class="drawer-link">Ход строительства</a>
+            <a href="#builder" class="drawer-link">Застройщик</a>
+            <a href="#contacts" class="drawer-link">Контакты</a>
+        </nav>
+        <div class="drawer-footer">
+            <a href="tel:+78005553535" class="drawer-phone"><i class="fa-solid fa-phone"></i> +7 (800) 555-35-35</a>
+            <button class="btn btn-primary call-modal-btn w-full">Заказать звонок</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge-premium"><i class="fa-solid fa-gem"></i> Элитный класс</div>
+                <h1 class="hero-title">ЖК «Солнечный Парк» <br><span class="highlight-text">— комфорт вашей жизни уже сегодня</span></h1>
+                <p class="hero-description">
+                    В 10 минутах от метро, сдача — III квартал 2027 года. Ипотека от 6% годовых, рассрочка от застройщика, готовые кладовые и двухуровневый подземный паркинг.
+                </p>
+                <div class="hero-badges">
+                    <div class="hero-badge-item">
+                        <span class="badge-num">6%</span>
+                        <span class="badge-txt">ипотека от банков-партнеров</span>
+                    </div>
+                    <div class="hero-badge-item">
+                        <span class="badge-num">2027</span>
+                        <span class="badge-txt">сдача III квартал</span>
+                    </div>
+                    <div class="hero-badge-item">
+                        <span class="badge-num">0%</span>
+                        <span class="badge-txt">рассрочка на весь срок</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#plans" class="btn btn-primary btn-lg scroll-to-link">Выбрать квартиру</a>
+                    <a href="#about" class="btn btn-secondary btn-lg scroll-to-link">Узнать о проекте</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down-arrow">
+            <a href="#about" class="scroll-to-link"><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">О ПРОЕКТЕ</span>
+                <h2 class="section-title">Создан для тех, кто ценит лучшее</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text-content">
+                    <p class="lead-text">
+                        «Солнечный Парк Premium» — это гармоничное сочетание современной футуристичной архитектуры, высокого уровня безопасности и непревзойденного комфорта для жителей.
+                    </p>
+                    <p class="body-text">
+                        Архитектурная концепция проекта вдохновлена лучшими европейскими примерами эко-урбанизма. Фасады зданий, облицованные долговечным керамогранитом, натуральным деревом и композитными панелями класса А, создают неповторимый эстетический облик, который идеально вписывается в окружающий ландшафт. Закрытая приватная территория с ландшафтным дизайном обеспечивает тишину и безопасность.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h4>Безопасный закрытый двор</h4>
+                                <p>Охрана 24/7, видеонаблюдение без слепых зон и концепция «двор без машин» для ваших детей.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-tree"></i></div>
+                            <div>
+                                <h4>Ландшафтный дизайн</h4>
+                                <p>Собственный парк, зоны для йоги и медитации, прогулочные аллеи и современные детские площадки.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="image-wrapper shadow-premium">
+                        <img src="images/interior.png" alt="Интерьер элитного пентхауса в ЖК Солнечный Парк" class="img-responsive">
+                        <div class="floating-badge">
+                            <span class="number">100%</span>
+                            <span class="text">Комфорт премиум-класса</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Cards Section -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">ПРЕИМУЩЕСТВА</span>
+                <h2 class="section-title">Всё для безупречного стиля жизни</h2>
+                <div class="section-line mx-auto"></div>
+            </div>
+
+            <div class="advantages-grid">
+                <!-- Advantage 1 -->
+                <div class="adv-card">
+                    <div class="adv-card-img">
+                        <img src="images/parking.png" alt="Подземный паркинг">
+                    </div>
+                    <div class="adv-card-content">
+                        <div class="adv-icon"><i class="fa-solid fa-car-rear"></i></div>
+                        <h3>Подземный паркинг на 200 мест</h3>
+                        <p>Отапливаемый охраняемый паркинг с лифтом прямо до вашей квартиры и зарядными станциями для электромобилей.</p>
+                    </div>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="adv-card">
+                    <div class="adv-card-img">
+                        <img src="images/courtyard.png" alt="Приватный двор">
+                    </div>
+                    <div class="adv-card-content">
+                        <div class="adv-icon"><i class="fa-solid fa-tree-city"></i></div>
+                        <h3>Приватный двор с парком</h3>
+                        <p>Благоустроенная закрытая зона с многолетними деревьями, фонтаном, зонами барбекю и спортивными площадками.</p>
+                    </div>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="adv-card">
+                    <div class="adv-card-content no-img">
+                        <div class="adv-icon"><i class="fa-solid fa-house-laptop"></i></div>
+                        <h3>Система «Умный Дом»</h3>
+                        <p>Управление светом, климатом, безопасностью и доступом на территорию через фирменное приложение на смартфоне.</p>
+                        <ul class="adv-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Датчики протечки и дыма</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Умные терморегуляторы</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Видеодомофон на смартфоне</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Advantage 4 -->
+                <div class="adv-card">
+                    <div class="adv-card-content no-img">
+                        <div class="adv-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h3>Эко-архитектура класса А</h3>
+                        <p>Применение новейших энергосберегающих технологий. Очистка воды до уровня питьевой, приточная вентиляция с фильтрацией воздуха.</p>
+                        <ul class="adv-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Очистка и фильтрация воздуха</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Солнечные батареи на крыше</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Панорамное остекление Guardian Glass</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proximity Section -->
+            <div class="proximity-box">
+                <div class="proximity-header">
+                    <h3>Для тех, кому важен комфорт</h3>
+                    <p>Инфраструктура микрорайона в шаговой доступности</p>
+                </div>
+                <div class="proximity-items">
+                    <div class="proximity-item">
+                        <div class="prox-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <span class="prox-time">5 минут</span>
+                        <span class="prox-label">Школа и детский сад</span>
+                    </div>
+                    <div class="proximity-item">
+                        <div class="prox-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                        <span class="prox-time">7 минут</span>
+                        <span class="prox-label">Супермаркет и ТРЦ</span>
+                    </div>
+                    <div class="proximity-item">
+                        <div class="prox-icon"><i class="fa-solid fa-tree"></i></div>
+                        <span class="prox-time">3 минуты</span>
+                        <span class="prox-label">Благоустроенный парк</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apartment Planner Section -->
+    <section class="plans" id="plans">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">ПЛАНИРОВКИ</span>
+                <h2 class="section-title">Выберите вашу идеальную квартиру</h2>
+                <div class="section-line mx-auto"></div>
+            </div>
+
+            <!-- Custom Tabs for Apartments -->
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-type="all">Все квартиры</button>
+                    <button class="tab-btn" data-type="studio">Студии</button>
+                    <button class="tab-btn" data-type="1room">1-комнатные</button>
+                    <button class="tab-btn" data-type="2room">2-комнатные</button>
+                    <button class="tab-btn" data-type="3room">3-комнатные</button>
+                </div>
+
+                <div class="tab-content" id="plans-grid">
+                    <!-- Layout Card 1 (Studio) -->
+                    <div class="plan-card" data-category="studio">
+                        <div class="plan-img-wrapper">
+                            <!-- Custom SVG layout diagram for high fidelity -->
+                            <svg class="plan-svg" viewBox="0 0 200 200">
+                                <rect x="10" y="10" width="180" height="180" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <!-- Walls -->
+                                <line x1="10" y1="100" x2="110" y2="100" stroke="currentColor" stroke-width="2"/>
+                                <line x1="110" y1="10" x2="110" y2="100" stroke="currentColor" stroke-width="2"/>
+                                <!-- Bathroom -->
+                                <rect x="10" y="10" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3"/>
+                                <text x="40" y="45" font-size="10" text-anchor="middle" fill="currentColor">Санузел</text>
+                                <!-- Balcony -->
+                                <rect x="70" y="170" width="60" height="20" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                <text x="100" y="183" font-size="9" text-anchor="middle" fill="currentColor">Лоджия</text>
+                                <!-- Text labels -->
+                                <text x="60" y="130" font-size="12" font-weight="bold" fill="currentColor">Гостиная-кухня</text>
+                                <text x="150" y="60" font-size="10" fill="currentColor">Прихожая</text>
+                            </svg>
+                        </div>
+                        <div class="plan-info">
+                            <span class="plan-type">Студия</span>
+                            <h3>Студия с панорамной лоджией</h3>
+                            <div class="plan-specs">
+                                <div><span class="spec-label">Площадь:</span> <span class="spec-val">23.2 м²</span></div>
+                                <div><span class="spec-label">Этаж:</span> <span class="spec-val">4 из 16</span></div>
+                            </div>
+                            <div class="plan-price">от 7 467 155 ₽</div>
+                            <button class="btn btn-primary w-full open-booking-btn" data-apartment="Студия, 23.2 кв.м.">Узнать подробнее</button>
+                        </div>
+                    </div>
+
+                    <!-- Layout Card 2 (2-room) -->
+                    <div class="plan-card" data-category="2room">
+                        <div class="plan-img-wrapper">
+                            <svg class="plan-svg" viewBox="0 0 200 200">
+                                <rect x="10" y="10" width="180" height="180" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <!-- Rooms layout -->
+                                <line x1="80" y1="10" x2="80" y2="190" stroke="currentColor" stroke-width="2"/>
+                                <line x1="10" y1="90" x2="80" y2="90" stroke="currentColor" stroke-width="2"/>
+                                <line x1="80" y1="120" x2="190" y2="120" stroke="currentColor" stroke-width="2"/>
+                                <!-- Bathroom -->
+                                <rect x="80" y="10" width="50" height="50" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3"/>
+                                <!-- Text labels -->
+                                <text x="45" y="55" font-size="12" font-weight="bold" fill="currentColor">Спальня</text>
+                                <text x="45" y="145" font-size="12" font-weight="bold" fill="currentColor">Кухня</text>
+                                <text x="135" y="70" font-size="12" font-weight="bold" fill="currentColor">Гостиная</text>
+                                <text x="105" y="40" font-size="9" fill="currentColor">С/У</text>
+                            </svg>
+                        </div>
+                        <div class="plan-info">
+                            <span class="plan-type">2-комнатная квартира</span>
+                            <h3>Евро-двушка с большой гостиной</h3>
+                            <div class="plan-specs">
+                                <div><span class="spec-label">Площадь:</span> <span class="spec-val">56.2 м²</span></div>
+                                <div><span class="spec-label">Этаж:</span> <span class="spec-val">8 из 16</span></div>
+                            </div>
+                            <div class="plan-price">от 15 210 637 ₽</div>
+                            <button class="btn btn-primary w-full open-booking-btn" data-apartment="2-комнатная квартира, 56.2 кв.м.">Узнать подробнее</button>
+                        </div>
+                    </div>
+
+                    <!-- Layout Card 3 (3-room) -->
+                    <div class="plan-card" data-category="3room">
+                        <div class="plan-img-wrapper">
+                            <svg class="plan-svg" viewBox="0 0 200 200">
+                                <rect x="10" y="10" width="180" height="180" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <!-- 3-room layout -->
+                                <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="2"/>
+                                <line x1="100" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="2"/>
+                                <line x1="10" y1="90" x2="100" y2="90" stroke="currentColor" stroke-width="2"/>
+                                <!-- Bathrooms -->
+                                <rect x="100" y="10" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3"/>
+                                <rect x="10" y="90" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3"/>
+                                <!-- Labels -->
+                                <text x="50" y="55" font-size="11" font-weight="bold" fill="currentColor">Спальня 1</text>
+                                <text x="50" y="150" font-size="11" font-weight="bold" fill="currentColor">Спальня 2</text>
+                                <text x="145" y="60" font-size="11" font-weight="bold" fill="currentColor">Гостиная</text>
+                                <text x="145" y="150" font-size="11" font-weight="bold" fill="currentColor">Кухня</text>
+                            </svg>
+                        </div>
+                        <div class="plan-info">
+                            <span class="plan-type">3-комнатная квартира</span>
+                            <h3>Семейная квартира с мастер-спальней</h3>
+                            <div class="plan-specs">
+                                <div><span class="spec-label">Площадь:</span> <span class="spec-val">73.2 м²</span></div>
+                                <div><span class="spec-label">Этаж:</span> <span class="spec-val">12 из 16</span></div>
+                            </div>
+                            <div class="plan-price">от 19 789 009 ₽</div>
+                            <button class="btn btn-primary w-full open-booking-btn" data-apartment="3-комнатная квартира, 73.2 кв.м.">Узнать подробнее</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plans-more-btn-wrapper text-center">
+                    <button class="btn btn-secondary btn-lg" id="more-plans-btn">Показать больше планировок</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Section (Form overlaying design) -->
+    <section class="consultation" id="consultation-section">
+        <div class="container">
+            <div class="consult-box">
+                <div class="consult-image">
+                    <div class="consult-img-overlay"></div>
+                    <div class="consult-txt">
+                        <h3>Подберем идеальную квартиру для вас</h3>
+                        <p>Оставьте заявку, мы поможем подобрать квартиру под ваши пожелания и бюджет, расскажем об актуальных акциях и персональных скидках.</p>
+                    </div>
+                </div>
+                <div class="consult-form-wrapper">
+                    <form class="consult-form" id="lead-form">
+                        <div class="form-group">
+                            <label for="lead-name">Ваше имя</label>
+                            <input type="text" id="lead-name" class="form-control" placeholder="Александр" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-phone">Номер телефона</label>
+                            <input type="tel" id="lead-phone" class="form-control" placeholder="+7 (999) 000-00-00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-budget">Планируемый бюджет (млн. ₽)</label>
+                            <div class="range-slider-container">
+                                <input type="range" id="lead-budget" class="range-slider" min="5" max="50" value="15">
+                                <span class="range-val" id="range-val-display">от 15 млн. ₽</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full btn-lg">Подобрать квартиру</button>
+                        <p class="form-privacy">
+                            Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.
+                        </p>
+                    </form>
+                    
+                    <!-- Form Success Message -->
+                    <div class="form-success-message" id="form-success">
+                        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <h3>Заявка успешно отправлена!</h3>
+                        <p>Наш премиум-консультант свяжется с вами в течение 10 минут.</p>
+                        <button class="btn btn-outline" id="reset-form-btn">Отправить еще раз</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Construction Progress Section -->
+    <section class="construction" id="construction">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">ХОД СТРОИТЕЛЬСТВА</span>
+                <h2 class="section-title">Следите за созданием проекта в реальном времени</h2>
+                <div class="section-line mx-auto"></div>
+            </div>
+
+            <div class="construction-grid">
+                <div class="construction-card">
+                    <div class="con-img">
+                        <!-- We reuse hero_bg because it represents our premium building facade, cropped differently -->
+                        <img src="images/hero_bg.png" alt="Ход строительства 1">
+                        <span class="con-date">Май 2026</span>
+                    </div>
+                    <div class="con-content">
+                        <h3>Фасадные работы и остекление</h3>
+                        <p>Монтаж светопрозрачных конструкций Guardian Glass завершен на 85%. Продолжается отделка вентилируемых фасадов керамогранитом и деревом.</p>
+                    </div>
+                </div>
+                <div class="construction-card">
+                    <div class="con-img">
+                        <img src="images/courtyard.png" alt="Ход строительства 2">
+                        <span class="con-date">Апрель 2026</span>
+                    </div>
+                    <div class="con-content">
+                        <h3>Благоустройство приватного двора</h3>
+                        <p>Начаты работы по ландшафтному дизайну внутренней территории. Ведется посадка крупномерных деревьев и подготовка зон отдыха.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section class="builder" id="builder">
+        <div class="container">
+            <div class="builder-box">
+                <div class="builder-content">
+                    <span class="section-subtitle">ЗАСТРОЙЩИК</span>
+                    <h2>Девелопер «СтройГрад»</h2>
+                    <div class="section-line"></div>
+                    <p class="body-text">
+                        Компания «СтройГрад» успешно работает на рынке девелопмента с 2008 года. За это время мы сдали более 15 жилых комплексов комфорт- и премиум-класса в Москве и Московской области, построив более 12 000 современных квартир.
+                    </p>
+                    <p class="body-text">
+                        Наша главная цель — создавать не просто квадратные метры, а комфортную среду для жизни. Все наши объекты имеют безупречную репутацию, положительные отзывы и необходимые государственные сертификаты качества.
+                    </p>
+                    <div class="builder-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">18+</span>
+                            <span class="stat-lbl">Лет на рынке недвижимости</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">15</span>
+                            <span class="stat-lbl">Успешно сданных проектов</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-lbl">Сдача домов точно в срок</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="builder-visual">
+                    <div class="visual-stack">
+                        <img src="images/hero_bg.png" alt="Сданный объект СтройГрад" class="builder-img shadow-premium">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <div class="contacts-box">
+                <div class="contacts-info">
+                    <span class="section-subtitle">СВЯЗАТЬСЯ С НАМИ</span>
+                    <h2>Офис продаж ЖК «Солнечный Парк»</h2>
+                    <div class="section-line"></div>
+                    
+                    <ul class="contacts-list">
+                        <li>
+                            <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4>Адрес</h4>
+                                <p>г. Москва, ул. Ленина, д. 15, офис 203</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h4>Режим работы</h4>
+                                <p>Пн-Пт: 9:00 - 19:00 | Сб: 10:00 - 16:00 | Вс: Выходной</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h4>Телефон</h4>
+                                <p><a href="tel:+78005553535">+7 (800) 555-35-35</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <h4>E-mail</h4>
+                                <p><a href="mailto:info@solnechnypark.ru">info@solnechnypark.ru</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contacts-map-placeholder">
+                    <!-- Leaflet / Interactive Map Mockup or Real Interactive Map Frame -->
+                    <!-- We'll make a premium look interactive dark map component using Leaflet API in app.js! -->
+                    <div id="map" class="interactive-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-title">СОЛНЕЧНЫЙ ПАРК</span>
+                        <span class="logo-subtitle">PREMIUM RESIDENCE</span>
+                    </a>
+                    <p>Создаем жилые пространства премиум-класса, вдохновленные природой и современными технологиями.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Навигация</h4>
+                    <nav class="footer-nav">
+                        <a href="#about">О проекте</a>
+                        <a href="#advantages">Преимущества</a>
+                        <a href="#plans">Планировка</a>
+                        <a href="#construction">Ход строительства</a>
+                        <a href="#builder">О застройщике</a>
+                        <a href="#contacts">Контакты</a>
+                    </nav>
+                </div>
+                <div class="footer-legal-col">
+                    <h4>Документы</h4>
+                    <nav class="footer-nav">
+                        <a href="#">Проектная декларация</a>
+                        <a href="#">Разрешение на строительство</a>
+                        <a href="#">Политика конфиденциальности</a>
+                        <a href="#">Пользовательское соглашение</a>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ЖК «Солнечный Парк Premium». Все права защищены. Застройщик ООО «СтройГрад».</p>
+                <p>Любая информация на сайте носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями статьи 437 ГК РФ.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Modals -->
+    <div class="modal-overlay" id="callback-modal">
+        <div class="modal shadow-premium">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-body">
+                <h3>Заказать персональную консультацию</h3>
+                <p>Оставьте ваши контактные данные, и ведущий менеджер офиса продаж свяжется с вами для подбора идеальных условий покупки.</p>
+                
+                <form class="modal-form" id="modal-lead-form">
+                    <input type="hidden" id="modal-apartment-selected" value="Общая консультация">
+                    <div class="form-group">
+                        <label for="modal-name">Ваше имя</label>
+                        <input type="text" id="modal-name" class="form-control" placeholder="Константин" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-phone">Номер телефона</label>
+                        <input type="tel" id="modal-phone" class="form-control" placeholder="+7 (999) 000-00-00" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full btn-lg">Отправить запрос</button>
+                    <p class="form-privacy">Нажимая кнопку, вы соглашаетесь с условиями обработки персональных данных.</p>
+                </form>
+                
+                <div class="modal-success" id="modal-success-msg">
+                    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>Спасибо за обращение!</h3>
+                    <p>Менеджер уже готовит презентацию проекта для вас и позвонит в течение 10 минут.</p>
+                    <button class="btn btn-outline w-full" id="close-success-btn">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="back-to-top-btn" aria-label="Наверх">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Include Leaflet.js for beautiful interactive map with dark theme styling! -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Project Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>

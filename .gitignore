@@ -1,0 +1,20 @@
+# Dependencies and local build caches
+**/node_modules/
+**/.next/
+**/.turbo/
+**/.cache/
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and local tooling
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Preserved metadata from former empty nested repositories
+**/.git.portfolio-backup/

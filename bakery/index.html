@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f0e8">
+  <meta name="description" content="Тёплая корка — маленькая пекарня с большим вниманием к тесту, времени и вашим утрам.">
+  <title>Тёплая корка — хлеб, который пахнет утром</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement" role="status">
+    <span>Свежая выпечка каждый день · с 07:30</span>
+    <span class="announcement-divider"></span>
+    <span>Бесплатная доставка от 2 500 ₽</span>
+    <a href="#delivery">Как это работает <span aria-hidden="true">↗</span></a>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <a class="logo" href="#top" aria-label="Тёплая корка — на главную">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 42 42" fill="none"><path d="M21 36V7"/><path d="M21 14c-4.5-1-7-3.7-7.7-7.7 4.7.7 7.2 3.2 7.7 7.7Z"/><path d="M21 20c-5.2-1-8.2-4-8.8-8.8 5.2.7 8.1 3.6 8.8 8.8Z"/><path d="M21 26c-5.4-.9-8.5-3.9-9.1-9.1 5.3.8 8.3 3.8 9.1 9.1Z"/><path d="M21 14c4.5-1 7-3.7 7.7-7.7-4.7.7-7.2 3.2-7.7 7.7Z"/><path d="M21 20c5.2-1 8.2-4 8.8-8.8-5.2.7-8.1 3.6-8.8 8.8Z"/><path d="M21 26c5.4-.9 8.5-3.9 9.1-9.1-5.3.8-8.3 3.8-9.1 9.1Z"/><path d="M7 29c3 4.7 7.6 7 14 7s11-2.3 14-7"/></svg>
+      </span>
+      <span class="logo-copy"><strong>тёплая корка</strong><small>bakery · daily bread</small></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <a href="#shop">Витрина</a>
+      <a href="#rituals">Наш подход</a>
+      <a href="#story">О пекарне</a>
+      <a href="#delivery">Доставка</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button action-toast" type="button" aria-label="Открыть поиск" data-toast="Поиск скоро появится — пока просто загляните в витрину">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"/><path d="m16 16 5 5"/></svg>
+      </button>
+      <button class="icon-button action-toast desktop-only" type="button" aria-label="Открыть профиль" data-toast="Личный кабинет подключим совсем скоро">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c.5-4.4 2.7-6.6 6.5-6.6s6 2.2 6.5 6.6"/></svg>
+      </button>
+      <button class="cart-trigger" id="cart-open" type="button" aria-label="Открыть корзину">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 8.5h15l1 11h-17l1-11Z"/><path d="M8 9V6.5a4 4 0 0 1 8 0V9"/></svg>
+        <span>Корзина <b id="cart-count">0</b></span>
+      </button>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> маленькая пекарня в центре города</p>
+        <h1>Тепло,<br>которое <em>можно<br>съесть.</em></h1>
+        <p class="hero-description">Печём хлеб на закваске, хрустящие слойки и пироги с тем самым вкусом — будто кто-то очень ждал вас к завтраку.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#shop">Выбрать к завтраку <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#story"><span class="play-icon" aria-hidden="true">▶</span> Посмотреть, как мы печём</a>
+        </div>
+        <div class="hero-proof">
+          <div class="avatar-stack" aria-hidden="true"><span>А</span><span>М</span><span>Л</span></div>
+          <div><strong>4,9 <span>★★★★★</span></strong><small>любят больше 2 000 соседей</small></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="assets/hero-bakery.png" alt="Свежий хлеб и выпечка на утреннем столе" fetchpriority="high">
+        <div class="hero-sticker"><span>печём</span><strong>медленно</strong><span>и с любовью</span></div>
+        <div class="hero-order-card">
+          <span class="live-dot"></span>
+          <div><small>сегодня в печи</small><strong>Слойка с вишней</strong><span>забрать до 19:00</span></div>
+          <span class="hero-order-arrow" aria-hidden="true">↗</span>
+        </div>
+      </div>
+      <div class="hero-scroll"><span>листайте вниз</span><i></i></div>
+    </section>
+
+    <section class="proof-bar" aria-label="Почему нас выбирают">
+      <div class="proof-item"><span class="proof-icon">✦</span><div><strong>12–48 часов</strong><small>естественной ферментации</small></div></div>
+      <div class="proof-item"><span class="proof-icon">◌</span><div><strong>Только своё</strong><small>ничего лишнего в составе</small></div></div>
+      <div class="proof-item"><span class="proof-icon">⌁</span><div><strong>Каждое утро</strong><small>достаём из печи в 07:30</small></div></div>
+      <div class="proof-item"><span class="proof-icon">♡</span><div><strong>С заботой</strong><small>о вас и о наших соседях</small></div></div>
+    </section>
+
+    <section class="shop section-shell" id="shop">
+      <div class="section-heading shop-heading">
+        <div><p class="eyebrow">витрина на сегодня</p><h2>Печём понемногу,<br><em>чтобы было вкусно.</em></h2></div>
+        <div class="heading-side"><p>Выбирайте любимое — мы аккуратно упакуем и привезём к нужному времени. Или оставим на полке ждать вас.</p><a class="text-link" href="#delivery">Условия доставки <span aria-hidden="true">↗</span></a></div>
+      </div>
+
+      <div class="catalog-toolbar">
+        <div class="filter-tabs" role="tablist" aria-label="Фильтр каталога">
+          <button class="filter-tab is-active" type="button" data-filter="all" role="tab" aria-selected="true">Всё</button>
+          <button class="filter-tab" type="button" data-filter="bread" role="tab" aria-selected="false">Хлеб</button>
+          <button class="filter-tab" type="button" data-filter="pastry" role="tab" aria-selected="false">Слойка</button>
+          <button class="filter-tab" type="button" data-filter="sweet" role="tab" aria-selected="false">Сладкое</button>
+        </div>
+        <span class="catalog-count" id="catalog-count">04 позиции · доступны сегодня</span>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <article class="product-card" data-category="bread" data-product-id="sourdough" data-name="Хлеб на закваске" data-price="490" data-image="assets/sourdough.png">
+          <div class="product-media"><img src="assets/sourdough.png" alt="Хлеб на закваске" loading="lazy"><span class="product-tag">Бестселлер</span><button class="wish-button action-toast" type="button" aria-label="Добавить хлеб в избранное" data-toast="Сохранили — избранное появится в профиле"><span>♡</span></button></div>
+          <div class="product-info"><div class="product-meta"><span>хлеб</span><span>650 г</span></div><h3>Хлеб на закваске</h3><p>Хрустящая корочка, влажный мякиш и лёгкая кислинка долгого теста.</p><div class="product-bottom"><strong>490 ₽</strong><button class="add-to-cart" type="button">В корзину <span aria-hidden="true">+</span></button></div></div>
+        </article>
+        <article class="product-card" data-category="pastry" data-product-id="croissant" data-name="Круассан классический" data-price="240" data-image="assets/croissant.png">
+          <div class="product-media"><img src="assets/croissant.png" alt="Классический сливочный круассан" loading="lazy"><span class="product-tag tag-blue">Утренний хит</span><button class="wish-button action-toast" type="button" aria-label="Добавить круассан в избранное" data-toast="Сохранили — избранное появится в профиле"><span>♡</span></button></div>
+          <div class="product-info"><div class="product-meta"><span>слойка</span><span>90 г</span></div><h3>Круассан классический</h3><p>Сливочный, звонко-хрустящий и такой, который лучше есть руками.</p><div class="product-bottom"><strong>240 ₽</strong><button class="add-to-cart" type="button">В корзину <span aria-hidden="true">+</span></button></div></div>
+        </article>
+        <article class="product-card" data-category="sweet" data-product-id="cinnamon" data-name="Булочка с корицей" data-price="290" data-image="assets/cinnamon-roll.png">
+          <div class="product-media"><img src="assets/cinnamon-roll.png" alt="Булочка с корицей и глазурью" loading="lazy"><span class="product-tag tag-green">Новинка</span><button class="wish-button action-toast" type="button" aria-label="Добавить булочку в избранное" data-toast="Сохранили — избранное появится в профиле"><span>♡</span></button></div>
+          <div class="product-info"><div class="product-meta"><span>сладкое</span><span>180 г</span></div><h3>Булочка с корицей</h3><p>Мягкое тесто, корица, карамель и немного глазури — для паузы.</p><div class="product-bottom"><strong>290 ₽</strong><button class="add-to-cart" type="button">В корзину <span aria-hidden="true">+</span></button></div></div>
+        </article>
+        <article class="product-card" data-category="sweet" data-product-id="galette" data-name="Ягодная галета" data-price="390" data-image="assets/berry-galette.png">
+          <div class="product-media"><img src="assets/berry-galette.png" alt="Ягодная галета с малиной и голубикой" loading="lazy"><span class="product-tag tag-yellow">Сезонное</span><button class="wish-button action-toast" type="button" aria-label="Добавить галету в избранное" data-toast="Сохранили — избранное появится в профиле"><span>♡</span></button></div>
+          <div class="product-info"><div class="product-meta"><span>пирог</span><span>500 г</span></div><h3>Ягодная галета</h3><p>Рассыпчатое тесто и щедрая начинка из ягод, как в конце лета.</p><div class="product-bottom"><strong>390 ₽</strong><button class="add-to-cart" type="button">В корзину <span aria-hidden="true">+</span></button></div></div>
+        </article>
+      </div>
+
+      <div class="shop-footnote"><span class="mini-sparkle">✦</span><span>Меню меняется каждый день — следите за полкой в <a href="#contacts">Telegram</a></span><a class="text-link" href="#contacts">Весь ассортимент <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="rituals" id="rituals">
+      <div class="rituals-label"><span>our daily rhythm</span><i></i></div>
+      <div class="rituals-main section-shell">
+        <div class="section-heading narrow-heading"><div><p class="eyebrow">наш подход</p><h2>Вкус любит<br><em>время и тишину.</em></h2></div><p class="heading-side standalone">Мы не торопим тесто, не маскируем вкус и не печём «на всякий случай». Поэтому каждая вещь на полке — маленькая, свежая и очень настоящая.</p></div>
+        <div class="ritual-grid">
+          <article class="ritual-card ritual-card-rose"><span class="ritual-number">01</span><div class="ritual-icon">⌁</div><h3>Замешиваем</h3><p>Мука, вода, соль и живая закваска. Четыре честных ингредиента — и никаких компромиссов.</p><a href="#story" aria-label="Узнать больше о замешивании">↗</a></article>
+          <article class="ritual-card ritual-card-yellow"><span class="ritual-number">02</span><div class="ritual-icon">◷</div><h3>Выдерживаем</h3><p>Оставляем тесто наедине со временем, чтобы оно стало ароматным, лёгким и глубоким.</p><a href="#story" aria-label="Узнать больше о ферментации">↗</a></article>
+          <article class="ritual-card ritual-card-sage"><span class="ritual-number">03</span><div class="ritual-icon">✦</div><h3>Отдаём</h3><p>Достаём из печи и почти сразу передаём вам — чтобы лучший момент оказался у вас дома.</p><a href="#delivery" aria-label="Узнать больше о доставке">↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story section-shell" id="story">
+      <div class="story-visual"><img src="assets/bakery-interior.png" alt="Пекарь формует тесто в уютной мастерской" loading="lazy"><span class="image-caption"><span class="caption-dot"></span> наша кухня · малая бронная, 24</span></div>
+      <div class="story-copy"><p class="eyebrow">о пекарне</p><h2>Небольшая команда,<br><em>большая любовь к тесту.</em></h2><p>«Тёплая корка» началась с одной печи, двух друзей и желания вернуть в утро простой хороший хлеб. Сейчас нас чуть больше, а принцип тот же: делать руками и оставлять время для вкуса.</p><p>Мы знаем фермеров, у которых берём муку, здороваемся с соседями и каждый день учимся замечать маленькие детали.</p><div class="story-facts"><div><strong>05</strong><span>лет печём<br>для города</span></div><div><strong>18</strong><span>честных<br>ингредиентов</span></div><div><strong>07:30</strong><span>первая<br>партия</span></div></div><a class="button button-outline" href="#contacts">Заглянуть в гости <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="delivery section-shell" id="delivery">
+      <div class="delivery-top"><div><p class="eyebrow">доставка без суеты</p><h2>Ваше утро уже<br><em>в пути.</em></h2></div><div class="delivery-aside"><span class="delivery-badge">до двери</span><p>Заказы принимаем до 21:00, а утром привозим свежую выпечку в удобный двухчасовой интервал.</p><a class="text-link" href="#contacts">Смотреть зоны доставки <span aria-hidden="true">↗</span></a></div></div>
+      <div class="delivery-layout">
+        <div class="steps">
+          <article class="step"><span class="step-number">01</span><div><h3>Выберите своё</h3><p>Добавьте хлеб, слойки и сладкое в корзину — можно собрать завтрак на всю семью.</p></div><span class="step-arrow" aria-hidden="true">↗</span></article>
+          <article class="step"><span class="step-number">02</span><div><h3>Назначьте время</h3><p>Выберите доставку к завтраку или самовывоз из пекарни на Малой Бронной.</p></div><span class="step-arrow" aria-hidden="true">↗</span></article>
+          <article class="step"><span class="step-number">03</span><div><h3>Откройте дверь</h3><p>Мы привезём тёплый пакет и хорошее настроение. Оплата — онлайн или курьеру.</p></div><span class="step-arrow" aria-hidden="true">↗</span></article>
+        </div>
+        <div class="delivery-card"><div class="delivery-card-top"><span>собираем заказы</span><span class="status-pill"><i></i> сегодня</span></div><div class="delivery-bread-doodle" aria-hidden="true"><span></span><span></span><span></span></div><p>Заказ от 2 500 ₽ — доставим бесплатно. А если хочется прямо сейчас, загляните за свежей слойкой до 20:00.</p><a class="button button-light" href="#shop">Собрать заказ <span aria-hidden="true">↗</span></a><small>Минимальная сумма доставки · 900 ₽</small></div>
+      </div>
+    </section>
+
+    <section class="community section-shell" id="community">
+      <div class="community-heading"><div><p class="eyebrow">говорят соседи</p><h2>Когда хлеб —<br><em>это повод встретиться.</em></h2></div><div class="rating-big"><strong>4,9</strong><span>★★★★★</span><small>средняя оценка<br>на 680 заказов</small></div></div>
+      <div class="review-grid"><article class="review-card review-card-large"><div class="review-top"><span class="quote-mark">“</span><span class="review-stars">★★★★★</span></div><blockquote>Кажется, я наконец поняла, каким должен быть идеальный круассан. Хрустнул — и утро сразу стало лучше.</blockquote><div class="review-author"><span class="author-avatar avatar-pink">А</span><span><strong>Аня К.</strong><small>завтракает с нами по субботам</small></span></div></article><article class="review-card review-card-blue"><span class="quote-mark">“</span><blockquote>Заказала коробку в подарок — в итоге съели вместе по дороге. Очень уютное место и очень честный хлеб.</blockquote><div class="review-author"><span class="author-avatar avatar-blue">И</span><span><strong>Ира М.</strong><small>нашла нас прошлой осенью</small></span></div></article><article class="review-card review-card-photo"><img src="assets/berry-galette.png" alt="Ягодная галета из пекарни" loading="lazy"><div><span>маленькая радость дня</span><strong>галета с ягодами</strong></div></article></div>
+    </section>
+
+    <section class="newsletter section-shell" id="newsletter">
+      <div class="newsletter-copy"><span class="newsletter-spark">✦</span><p class="eyebrow">письма из печи</p><h2>Будем присылать<br><em>только вкусное.</em></h2><p>Раз в неделю рассказываем, что испекли, делимся рецептами и зовём на тёплые события.</p></div>
+      <form class="newsletter-form" id="newsletter-form"><label for="email">Ваш e-mail</label><div><input id="email" name="email" type="email" placeholder="hello@example.com" required><button class="button button-dark" type="submit">Подписаться <span aria-hidden="true">↗</span></button></div><small>Никакого спама. Только масло, мука и новости.</small></form>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="footer-main"><div class="footer-brand"><a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 42 42" fill="none"><path d="M21 36V7"/><path d="M21 14c-4.5-1-7-3.7-7.7-7.7 4.7.7 7.2 3.2 7.7 7.7Z"/><path d="M21 20c-5.2-1-8.2-4-8.8-8.8 5.2.7 8.1 3.6 8.8 8.8Z"/><path d="M21 26c-5.4-.9-8.5-3.9-9.1-9.1 5.3.8 8.3 3.8 9.1 9.1Z"/><path d="M21 14c4.5-1 7-3.7 7.7-7.7-4.7.7-7.2 3.2-7.7 7.7Z"/><path d="M21 20c5.2-1 8.2-4 8.8-8.8-5.2.7-8.1 3.6-8.8 8.8Z"/><path d="M21 26c5.4-.9 8.5-3.9 9.1-9.1-5.3.8-8.3 3.8-9.1 9.1Z"/><path d="M7 29c3 4.7 7.6 7 14 7s11-2.3 14-7"/></svg></span><span class="logo-copy"><strong>тёплая корка</strong><small>bakery · daily bread</small></span></a><p>Маленькая пекарня<br>для больших утр.</p></div><div class="footer-column"><h3>Заглянуть</h3><a href="#shop">Витрина</a><a href="#rituals">Наш подход</a><a href="#story">О пекарне</a><a href="#community">Отзывы</a></div><div class="footer-column"><h3>Поможем</h3><a href="#delivery">Доставка и оплата</a><a href="#contacts">Контакты</a><button class="footer-link action-toast" type="button" data-toast="Напишите нам в Telegram — ответим в течение дня">Задать вопрос</button></div><div class="footer-column footer-contact"><h3>Мы здесь</h3><p>Москва, Малая Бронная, 24<br>Каждый день · 07:30–20:00</p><a href="tel:+74951234567">+7 495 123-45-67</a><div class="social-links"><a href="#contacts" aria-label="Telegram">tg</a><a href="#contacts" aria-label="ВКонтакте">vk</a><a href="#contacts" aria-label="Pinterest">p</a></div></div></div><div class="footer-bottom"><span>© 2025 тёплая корка</span><span>сделано с тестом и терпением</span><a href="#top">наверх ↑</a></div>
+  </footer>
+
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Корзина" aria-hidden="true">
+    <div class="cart-header"><div><p class="eyebrow">ваш заказ</p><h2>Корзина <span id="cart-title-count">(0)</span></h2></div><button class="close-button" id="cart-close" type="button" aria-label="Закрыть корзину">×</button></div>
+    <div class="cart-body" id="cart-body"><div class="cart-empty" id="cart-empty"><span class="empty-icon">✦</span><h3>Пока здесь пусто</h3><p>Добавьте что-нибудь вкусное — мы уже разогреваем печь.</p><a class="button button-dark" href="#shop" id="cart-empty-link">Перейти к витрине <span aria-hidden="true">↗</span></a></div><div class="cart-items" id="cart-items"></div></div>
+    <div class="cart-footer" id="cart-footer"><div class="cart-total"><span>Итого</span><strong id="cart-total">0 ₽</strong></div><button class="button button-dark checkout-button" id="checkout" type="button">Оформить заказ <span aria-hidden="true">↗</span></button><small>Можно оплатить онлайн или при получении</small></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

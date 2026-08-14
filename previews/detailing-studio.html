@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Концепт лендинга премиальной студии детейлинга: результат, процесс и запись на сервис.">
+  <title>Detailing Studio — precision care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0b0f0d;
+      --black-soft: #121714;
+      --paper: #edf0e8;
+      --paper-warm: #e3e7dd;
+      --lime: #d9ef55;
+      --mint: #9fcf9e;
+      --muted: #8f9990;
+      --dark-muted: #5f6a61;
+      --ink: #172019;
+      --line: rgba(237, 240, 232, .17);
+      --line-dark: rgba(23, 32, 25, .14);
+      --mono: 'DM Mono', monospace;
+      --sans: 'Manrope', Arial, sans-serif;
+      font-family: var(--sans);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--black); color: var(--paper); overflow-x: hidden; }
+    body, button, input, textarea { font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+
+    .detail-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      min-height: 72px;
+      padding: 0 clamp(20px, 5vw, 76px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(11, 15, 13, .72);
+      backdrop-filter: blur(20px);
+      font: 10px var(--mono);
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .logo { flex: 0 0 auto; font-weight: 700; letter-spacing: .08em; }
+    .logo i { display: inline-block; width: 7px; height: 7px; margin-left: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 15px rgba(217, 239, 85, .9); }
+    .nav-links { display: flex; align-items: center; gap: clamp(12px, 2.2vw, 30px); color: var(--muted); }
+    .nav-links a { transition: color .25s ease; }
+    .nav-links a:hover { color: var(--lime); }
+    .nav-status { flex: 0 0 auto; color: var(--muted); white-space: nowrap; }
+    .nav-toggle { display: none; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--paper); cursor: pointer; }
+    .nav-toggle span { display: block; width: 15px; height: 1px; margin: 4px auto; background: currentColor; transition: transform .25s ease, opacity .25s ease; }
+
+    .detail-hero {
+      position: relative;
+      min-height: min(880px, 92vh);
+      display: grid;
+      align-items: end;
+      padding: clamp(110px, 16vh, 180px) clamp(20px, 8vw, 130px) clamp(46px, 7vw, 84px);
+      isolation: isolate;
+      overflow: hidden;
+      background: #101511;
+    }
+
+    .detail-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: linear-gradient(90deg, rgba(11,15,13,.96) 0%, rgba(11,15,13,.69) 37%, rgba(11,15,13,.14) 72%), url('assets/detailing/detailing-hero.png') center / cover no-repeat;
+      transform: scale(1.02);
+    }
+
+    .detail-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(0deg, var(--black) 0%, transparent 31%, rgba(11,15,13,.08) 100%);
+    }
+
+    .hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 360px); align-items: end; gap: 40px; width: 100%; max-width: 1320px; margin: 0 auto; }
+    .hero-copy { max-width: 770px; }
+    .eyebrow, .section-label { color: var(--lime); font: 10px var(--mono); letter-spacing: .18em; text-transform: uppercase; }
+    .hero-copy h1 { max-width: 840px; margin: 24px 0 28px; font-size: clamp(54px, 9vw, 132px); line-height: .83; letter-spacing: -.1em; }
+    .hero-copy h1 em { color: var(--lime); font-style: normal; }
+    .hero-copy > p:not(.eyebrow) { max-width: 450px; margin: 0; color: #c1c9bf; font-size: 15px; line-height: 1.7; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 22px; min-height: 48px; padding: 0 18px; border: 1px solid transparent; font-size: 11px; letter-spacing: .04em; transition: transform .3s ease, background .3s ease, color .3s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .button--lime { background: var(--lime); color: var(--black); }
+    .button--ghost { border-color: var(--line); color: var(--paper); }
+    .button--ghost:hover { border-color: var(--lime); color: var(--lime); }
+    .hero-index { justify-self: end; color: var(--muted); font: 10px var(--mono); letter-spacing: .14em; }
+
+    .hero-note { padding: 22px; border: 1px solid rgba(217,239,85,.26); background: rgba(11,15,13,.54); backdrop-filter: blur(12px); }
+    .hero-note__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 52px; color: var(--lime); font: 10px var(--mono); letter-spacing: .12em; }
+    .hero-note__top span:last-child { color: var(--muted); }
+    .hero-note h2 { max-width: 220px; margin: 0 0 14px; font-size: 21px; line-height: 1.05; letter-spacing: -.06em; }
+    .hero-note p { margin: 0; color: #a9b2a9; font-size: 12px; line-height: 1.6; }
+
+    .proof-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border-bottom: 1px solid var(--line); background: var(--line); }
+    .proof-item { min-height: 132px; padding: 28px clamp(18px, 4vw, 60px); background: var(--black-soft); }
+    .proof-item strong { display: block; margin-bottom: 7px; color: var(--lime); font-size: clamp(25px, 3vw, 42px); letter-spacing: -.08em; }
+    .proof-item span { color: var(--muted); font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+
+    .section { padding: clamp(84px, 11vw, 155px) clamp(20px, 8vw, 130px); }
+    .section--light { background: var(--paper); color: var(--ink); }
+    .section--dark { background: var(--black-soft); }
+    .section__inner { width: 100%; max-width: 1320px; margin: 0 auto; }
+    .section__heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 58px; }
+    .section__heading h2 { max-width: 760px; margin: 18px 0 0; font-size: clamp(38px, 6vw, 82px); line-height: .88; letter-spacing: -.1em; }
+    .section__heading h2 em { color: #7f9d47; font-style: normal; }
+    .section__heading p { max-width: 340px; margin: 0; color: var(--dark-muted); font-size: 13px; line-height: 1.7; }
+    .section--dark .section__heading p { color: var(--muted); }
+
+    .compare-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 26px; align-items: end; }
+    .compare { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #292d2a; box-shadow: 0 24px 70px rgba(9, 20, 12, .14); }
+    .compare > img, .compare .before img { width: 100%; height: 100%; object-fit: cover; }
+    .compare .before { position: absolute; inset: 0; width: 50%; overflow: hidden; border-right: 2px solid var(--lime); }
+    .compare .before img { width: 200%; max-width: none; object-position: left center; }
+    .compare-caption { position: absolute; z-index: 2; inset: 16px 18px auto; display: flex; justify-content: space-between; color: #fff; font: 9px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .compare-caption span:last-child { color: var(--lime); }
+    .compare-range { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; }
+    .compare-hint { margin: 16px 0 0; color: var(--dark-muted); font: 9px var(--mono); letter-spacing: .08em; }
+    .result-note { padding: 22px; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); }
+    .result-note strong { display: block; margin-bottom: 16px; color: var(--ink); font-size: 31px; line-height: .9; letter-spacing: -.08em; }
+    .result-note p { margin: 0; color: var(--dark-muted); font-size: 12px; line-height: 1.65; }
+
+    .treatment-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(28px, 6vw, 92px); align-items: center; }
+    .treatment-image { position: relative; min-height: 520px; overflow: hidden; background: #080a09; }
+    .treatment-image img { width: 100%; height: 100%; min-height: 520px; object-fit: cover; }
+    .treatment-image::after { content: "ceramic / 04"; position: absolute; right: 18px; bottom: 18px; color: var(--lime); font: 9px var(--mono); letter-spacing: .12em; }
+    .treatment-copy h2 { max-width: 650px; margin: 18px 0 22px; font-size: clamp(38px, 5vw, 70px); line-height: .9; letter-spacing: -.09em; }
+    .treatment-copy > p { max-width: 500px; color: #aab3aa; font-size: 14px; line-height: 1.75; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 52px; background: var(--line); }
+    .service-card { position: relative; min-height: 290px; padding: 24px; overflow: hidden; background: #161d18; transition: background .35s ease, transform .35s ease; }
+    .service-card:hover { z-index: 1; transform: translateY(-6px); background: #1d281f; }
+    .service-card::after { content: ""; position: absolute; right: -18px; bottom: -36px; width: 140px; height: 140px; border: 1px solid rgba(217,239,85,.25); border-radius: 50%; }
+    .service-card__number { color: var(--lime); font: 10px var(--mono); }
+    .service-card h3 { max-width: 220px; margin: 70px 0 12px; font-size: 19px; letter-spacing: -.06em; }
+    .service-card p { max-width: 260px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+    .gallery-grid { display: grid; grid-template-columns: 1.25fr .75fr .75fr; grid-template-rows: 270px 270px; gap: 12px; }
+    .gallery-card { position: relative; min-height: 200px; overflow: hidden; background: #c2c6bf; }
+    .gallery-card:first-child { grid-row: span 2; }
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.16,1,.3,1); }
+    .gallery-card:hover img { transform: scale(1.06); }
+    .gallery-card::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.62)); pointer-events: none; }
+    .gallery-card figcaption { position: absolute; z-index: 1; right: 16px; bottom: 14px; left: 16px; display: flex; justify-content: space-between; gap: 12px; color: #fff; font: 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .gallery-card figcaption span:last-child { color: var(--lime); }
+
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 55px; background: var(--line-dark); }
+    .process-step { min-height: 230px; padding: 24px; background: var(--paper); border-top: 2px solid transparent; transition: border-color .3s ease, transform .3s ease; }
+    .process-step:hover { border-color: #86a64f; transform: translateY(-5px); }
+    .process-step__num { color: #7f9d47; font: 10px var(--mono); }
+    .process-step h3 { margin: 56px 0 10px; font-size: 18px; letter-spacing: -.06em; }
+    .process-step p { margin: 0; color: var(--dark-muted); font-size: 12px; line-height: 1.6; }
+
+    .contact-section { background: var(--lime); color: var(--black); }
+    .contact-grid { display: grid; grid-template-columns: 1fr .75fr; gap: 70px; align-items: end; }
+    .contact-grid h2 { max-width: 760px; margin: 18px 0 0; font-size: clamp(42px, 6.8vw, 95px); line-height: .84; letter-spacing: -.11em; }
+    .contact-grid .eyebrow { color: #4c6721; }
+    .contact-form { display: grid; gap: 12px; padding: 24px; background: rgba(255,255,255,.28); border: 1px solid rgba(11,15,13,.18); }
+    .contact-form input, .contact-form textarea { width: 100%; border: 0; border-bottom: 1px solid rgba(11,15,13,.26); outline: none; padding: 13px 0; background: transparent; color: var(--black); font-size: 13px; }
+    .contact-form textarea { min-height: 70px; resize: vertical; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(11,15,13,.62); }
+    .contact-form .button { justify-self: start; margin-top: 8px; background: var(--black); color: var(--lime); cursor: pointer; }
+    .form-status { min-height: 17px; margin: 0; font: 9px var(--mono); letter-spacing: .04em; }
+
+    .detail-footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px clamp(20px, 8vw, 130px); border-top: 1px solid var(--line); color: var(--muted); font: 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .detail-footer b { color: var(--lime); font-weight: 400; }
+
+    @media (max-width: 980px) {
+      .detail-nav { gap: 12px; padding-left: 20px; padding-right: 20px; }
+      .nav-links { gap: 12px; font-size: 9px; }
+      .nav-status { display: none; }
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-note { max-width: 430px; justify-self: start; }
+      .hero-index { display: none; }
+      .proof-strip { grid-template-columns: repeat(2, 1fr); }
+      .compare-wrap, .treatment-layout, .contact-grid { grid-template-columns: 1fr; }
+      .result-note { max-width: 520px; }
+      .treatment-image { min-height: 400px; max-width: 620px; }
+      .treatment-image img { min-height: 400px; }
+      .process { grid-template-columns: repeat(2, 1fr); }
+      .contact-form { max-width: 560px; }
+    }
+
+    @media (max-width: 700px) {
+      .detail-nav { min-height: 64px; }
+      .nav-links { position: absolute; top: 64px; right: 12px; left: 12px; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 18px; border: 1px solid var(--line); background: rgba(11,15,13,.97); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; border-bottom: 1px solid rgba(237,240,232,.1); }
+      .nav-links a:last-child { border-bottom: 0; }
+      .nav-toggle { display: block; }
+      .nav-toggle.active span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+      .nav-toggle.active span:nth-child(2) { opacity: 0; }
+      .nav-toggle.active span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+      .detail-hero { min-height: 760px; padding: 110px 20px 42px; }
+      .detail-hero::before { background-position: 62% center; }
+      .hero-copy h1 { font-size: clamp(52px, 15vw, 82px); }
+      .hero-copy > p:not(.eyebrow) { font-size: 13px; }
+      .hero-actions { align-items: stretch; flex-direction: column; max-width: 300px; }
+      .hero-actions .button { width: 100%; }
+      .proof-strip { grid-template-columns: 1fr 1fr; }
+      .proof-item { min-height: 110px; padding: 20px 16px; }
+      .section { padding: 84px 20px; }
+      .section__heading { display: block; margin-bottom: 36px; }
+      .section__heading h2 { font-size: 44px; }
+      .section__heading p { margin-top: 20px; }
+      .compare { aspect-ratio: 4 / 5; }
+      .compare .before img { width: 200%; }
+      .service-grid, .process { grid-template-columns: 1fr; }
+      .service-card { min-height: 230px; }
+      .service-card h3 { margin-top: 48px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 180px 180px; }
+      .gallery-card:first-child { grid-column: span 2; grid-row: span 1; }
+      .gallery-card figcaption { font-size: 8px; }
+      .contact-grid h2 { font-size: 52px; }
+      .detail-footer { display: block; padding: 20px; line-height: 1.7; }
+      .detail-footer span { display: block; margin-top: 7px; }
+    }
+
+    @media (max-width: 390px) {
+      .hero-copy h1 { font-size: 49px; }
+      .proof-strip { grid-template-columns: 1fr; }
+      .proof-item { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="detail-nav">
+    <a class="logo" href="#top">DETAILING / STUDIO <i></i></a>
+    <nav class="nav-links" id="detail-nav-links" aria-label="Навигация по странице">
+      <a href="#result">Результат</a>
+      <a href="#services">Сервис</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#process">Процесс</a>
+      <a href="#contact">Запись</a>
+    </nav>
+    <span class="nav-status">live preview / 09</span>
+    <button class="nav-toggle" id="detail-nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="detail-hero" id="top">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">детейлинг, в котором видна разница</p>
+          <h1>Сохраняем<br>идеальный <em>вид.</em></h1>
+          <p>Премиальный уход за автомобилем в Саратове: от деликатной полировки до керамической защиты, которую хочется рассматривать.</p>
+          <div class="hero-actions">
+            <a class="button button--lime" href="#contact">Записать автомобиль <span>↗</span></a>
+            <a class="button button--ghost" href="#result">Увидеть разницу <span>↘</span></a>
+          </div>
+        </div>
+        <aside class="hero-note">
+          <div class="hero-note__top"><span>01 / precision care</span><span>06:40</span></div>
+          <h2>Результат начинается с правильного света.</h2>
+          <p>Каждый автомобиль проходит осмотр под рабочими лампами — так мы видим то, что обычно скрывается в тени.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Факты о студии">
+      <div class="proof-item"><strong>12</strong><span>лет в детейлинге</span></div>
+      <div class="proof-item"><strong>487</strong><span>автомобилей в сезоне</span></div>
+      <div class="proof-item"><strong>3 года</strong><span>гарантия на покрытие</span></div>
+      <div class="proof-item"><strong>1:1</strong><span>персональный мастер</span></div>
+    </section>
+
+    <section class="section section--light" id="result">
+      <div class="section__inner">
+        <div class="section__heading">
+          <div><p class="section-label">02 / before → after</p><h2>Когда качество<br>не нужно <em>объяснять.</em></h2></div>
+          <p>Потяните ползунок и сравните поверхность до работы и после комплексного восстановления.</p>
+        </div>
+        <div class="compare-wrap">
+          <div>
+            <div class="compare" id="compare">
+              <div class="compare-caption"><span>до</span><span>после</span></div>
+              <img src="../detailing-studio/public/paint_after.png" alt="Автомобиль после детейлинга">
+              <div class="before" id="before"><img src="../detailing-studio/public/paint_before.png" alt="Автомобиль до детейлинга"></div>
+              <input class="compare-range" id="compare-range" type="range" min="0" max="100" value="50" aria-label="Сравнить результат до и после">
+            </div>
+            <p class="compare-hint">двигайте влево / вправо, чтобы сравнить</p>
+          </div>
+          <aside class="result-note"><strong>+ глубина<br>+ блеск<br>+ защита</strong><p>Мы не маскируем следы эксплуатации. Мы возвращаем покрытию правильную поверхность — и фиксируем результат защитой.</p></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="services">
+      <div class="section__inner">
+        <div class="treatment-layout">
+          <div class="treatment-image"><img src="assets/detailing/ceramic-coating.png" alt="Нанесение керамического покрытия на автомобиль"></div>
+          <div class="treatment-copy">
+            <p class="section-label">03 / service menu</p>
+            <h2>Уход, который<br>возвращает <em>уверенность.</em></h2>
+            <p>Собираем программу под задачу автомобиля: освежить внешний вид, сохранить новый кузов или подготовить машину к важному событию.</p>
+            <div class="service-grid">
+              <article class="service-card"><span class="service-card__number">01 / exterior</span><h3>Полировка и восстановление</h3><p>Убираем следы эксплуатации и возвращаем лакокрасочному покрытию глубину.</p></article>
+              <article class="service-card"><span class="service-card__number">02 / protection</span><h3>Керамика и защитная плёнка</h3><p>Сохраняем результат дольше: гладкость, гидрофобность и спокойствие за каждый выезд.</p></article>
+              <article class="service-card"><span class="service-card__number">03 / inside</span><h3>Интерьер и деликатная химчистка</h3><p>Очищаем поверхности, восстанавливаем тактильность кожи и свежесть салона.</p></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="gallery">
+      <div class="section__inner">
+        <div class="section__heading">
+          <div><p class="section-label">04 / studio notes</p><h2>Детали, которые<br>видно <em>вблизи.</em></h2></div>
+          <p>Глянцевый кузов — только часть работы. Нам важно, как ощущается автомобиль, когда вы садитесь за руль.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-card"><img src="assets/detailing/interior.png" alt="Чистый интерьер автомобиля"><figcaption><span>interior / calm</span><span>01</span></figcaption></figure>
+          <figure class="gallery-card"><img src="../detailing-studio/public/detailing_process.png" alt="Процесс детейлинга автомобиля"><figcaption><span>process / focus</span><span>02</span></figcaption></figure>
+          <figure class="gallery-card"><img src="../detailing-studio/public/car_headlight.png" alt="Деталь фары после ухода"><figcaption><span>light / detail</span><span>03</span></figcaption></figure>
+          <figure class="gallery-card"><img src="../detailing-studio/public/paint_after.png" alt="Глянцевый кузов автомобиля"><figcaption><span>surface / gloss</span><span>04</span></figcaption></figure>
+          <figure class="gallery-card"><img src="assets/detailing/ceramic-coating.png" alt="Аппликатор и защитное покрытие"><figcaption><span>coating / craft</span><span>05</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="process">
+      <div class="section__inner">
+        <div class="section__heading">
+          <div><p class="section-label">05 / the ritual</p><h2>Четыре шага<br>до ощущения <em>нового.</em></h2></div>
+          <p>Прозрачный процесс без сюрпризов: показываем, что делаем, зачем и какой эффект вы получите.</p>
+        </div>
+        <div class="process">
+          <article class="process-step"><span class="process-step__num">01 / осмотр</span><h3>Смотрим под светом</h3><p>Фиксируем состояние кузова, салона и оптики, согласовываем желаемый результат.</p></article>
+          <article class="process-step"><span class="process-step__num">02 / подготовка</span><h3>Готовим поверхность</h3><p>Моем, деконтаминируем и выравниваем поверхность перед основной работой.</p></article>
+          <article class="process-step"><span class="process-step__num">03 / работа</span><h3>Работаем в деталях</h3><p>Полируем, защищаем и восстанавливаем каждый элемент по отдельному протоколу.</p></article>
+          <article class="process-step"><span class="process-step__num">04 / выдача</span><h3>Передаём с инструкцией</h3><p>Показываем результат, рассказываем об уходе и остаёмся на связи после визита.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section__inner contact-grid">
+        <div><p class="eyebrow">06 / book a slot</p><h2>Пусть автомобиль снова говорит за себя.</h2></div>
+        <form class="contact-form" id="detail-contact-form">
+          <input name="name" type="text" placeholder="Ваше имя" aria-label="Ваше имя" required>
+          <input name="contact" type="text" placeholder="Телефон или Telegram" aria-label="Телефон или Telegram" required>
+          <textarea name="service" placeholder="Что нужно сделать? Например: керамика + салон" aria-label="Что нужно сделать?"></textarea>
+          <button class="button" type="submit">Запросить слот <span>↗</span></button>
+          <p class="form-status" id="detail-form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="detail-footer"><span>DETAILING / STUDIO</span><span>care is a visible decision <b>↗</b></span></footer>
+
+  <script>
+    const range = document.querySelector('#compare-range');
+    const before = document.querySelector('#before');
+    if (range && before) {
+      const updateCompare = () => { before.style.width = range.value + '%'; };
+      range.addEventListener('input', updateCompare);
+      updateCompare();
+    }
+
+    const navToggle = document.querySelector('#detail-nav-toggle');
+    const navLinks = document.querySelector('#detail-nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('active', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+      navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }));
+    }
+
+    const contactForm = document.querySelector('#detail-contact-form');
+    const formStatus = document.querySelector('#detail-form-status');
+    if (contactForm && formStatus) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        formStatus.textContent = 'Заявка собрана локально — подключите Telegram или CRM перед публикацией.';
+        contactForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>

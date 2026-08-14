@@ -1,0 +1,18 @@
+{
+  "name": "renovation-luxury",
+  "version": "1.0.0",
+  "description": "Luxury apartment renovation landing page",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}

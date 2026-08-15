@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA — Элитный ремонт и отделка квартир под ключ</title>
-    <meta name="description" content="AURA — премиальный ремонт и дизайнерская отделка квартир в Москве. Бескомпромиссное качество, авторский надзор и внимание к каждой детали.">
+    <title>MATERIA — Элитный ремонт и отделка квартир под ключ</title>
+    <meta name="description" content="MATERIA — премиальный ремонт и дизайнерская отделка квартир в Москве. Бескомпромиссное качество, авторский надзор и внимание к каждой детали.">
     <!-- Google Fonts: Cormorant Garamond (Serif) & Manrope (Sans-serif) with Cyrillic support -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <header class="header" id="header">
         <div class="header-container">
             <a href="#" class="logo" id="logo">
-                <span class="logo-text">AURA</span>
+                <span class="logo-text">MATERIA</span>
                 <span class="logo-sub">INTERIORS</span>
             </a>
             <nav class="nav" id="nav-menu">
@@ -152,11 +152,11 @@
                 <!-- Project 1 -->
                 <div class="project-card" data-project="0">
                     <div class="project-img-container">
-                        <img src="./project_1.png" alt="Пентхаус Aura Grand" class="project-img">
+                        <img src="./project_1.png" alt="Пентхаус Materia Grand" class="project-img">
                         <div class="project-overlay">
                             <div class="project-details">
                                 <span class="project-category">Пентхаус • Современная классика</span>
-                                <h3 class="project-name">Пентхаус «Aura Grand»</h3>
+                                <h3 class="project-name">Пентхаус «Materia Grand»</h3>
                                 <div class="project-meta">
                                     <span><strong>Площадь:</strong> 180 м²</span>
                                     <span><strong>Срок:</strong> 7 месяцев</span>
@@ -383,16 +383,44 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-brand">
-                <span class="logo-text">AURA</span>
+                <span class="logo-text">MATERIA</span>
                 <p class="footer-tagline">Безупречность в каждой линии, комфорт в каждой детали.</p>
             </div>
             <div class="footer-copy">
-                &copy; 2026 AURA Interiors. Все права защищены.
+                &copy; 2026 MATERIA Interiors. Все права защищены.
             </div>
         </div>
     </footer>
 
-    <!-- Main JavaScript Modules -->
-    <script type="module" src="./main.js"></script>
+    <!-- Classic scripts also work when this file is opened directly via file://. -->
+    <script>
+        if (window.location.protocol === "file:") {
+            document.querySelectorAll('.project-img[src^="./project_"]').forEach((image) => {
+                image.src = `./public/${image.getAttribute("src").replace(/^\.\//, "")}`;
+            });
+        }
+    </script>
+    <script>
+        const vendorRoot = window.location.protocol === "file:" ? "./public/vendor/" : "./vendor/";
+        const loadScript = (src) => new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = src;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+
+        window.renovationLibrariesReady = loadScript(`${vendorRoot}gsap.min.js`)
+            .then(() => loadScript(`${vendorRoot}ScrollTrigger.min.js`));
+
+        if (window.location.protocol === "file:") {
+            window.renovationLibrariesReady.then(() => loadScript("./main.js"));
+        }
+    </script>
+    <script type="module">
+        if (window.location.protocol !== "file:") {
+            window.renovationLibrariesReady.then(() => import("./main.js"));
+        }
+    </script>
 </body>
 </html>

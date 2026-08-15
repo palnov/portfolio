@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     const header = document.querySelector('.header');
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section[id]');
 
     const handleHeaderScroll = () => {
         if (window.scrollY > 50) {
@@ -56,14 +56,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawerCloseBtn = document.getElementById('drawer-close-btn');
     const drawerLinks = document.querySelectorAll('.drawer-link');
 
+    let lastDrawerFocus = null;
+
     const openDrawer = () => {
+        lastDrawerFocus = document.activeElement;
         mobileDrawer.classList.add('open');
+        mobileDrawer.setAttribute('aria-hidden', 'false');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden'; // Prevent body scroll
+        drawerCloseBtn.focus();
     };
 
     const closeDrawer = () => {
         mobileDrawer.classList.remove('open');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = ''; // Restore body scroll
+        if (lastDrawerFocus) lastDrawerFocus.focus();
     };
 
     hamburgerBtn.addEventListener('click', openDrawer);
@@ -71,6 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     drawerLinks.forEach(link => {
         link.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+            closeDrawer();
+        }
     });
 
 
@@ -83,9 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             // Remove active class from all tabs
-            tabBtns.forEach(t => t.classList.remove('active'));
+            tabBtns.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
             // Add active class to clicked tab
             btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
 
             const filterType = btn.getAttribute('data-type');
 
@@ -142,31 +161,19 @@ document.addEventListener('DOMContentLoaded', () => {
             html: `<div style="
                 width: 24px; 
                 height: 24px; 
-                background: #F3F988; 
-                border: 4px solid #210D36; 
+                background: #D6A45E;
+                border: 4px solid #20352D;
                 border-radius: 50%;
-                box-shadow: 0 0 15px rgba(243, 249, 136, 0.6);
-                animation: pulse-marker 2s infinite;
+                box-shadow: 0 0 15px rgba(214, 164, 94, 0.6);
             "></div>`,
             iconSize: [24, 24],
             iconAnchor: [12, 12]
         });
 
-        // Add CSS keyframes dynamically for marker pulsing
-        const styleSheet = document.createElement('style');
-        styleSheet.innerText = `
-            @keyframes pulse-marker {
-                0% { box-shadow: 0 0 0 0 rgba(243, 249, 136, 0.7); }
-                70% { box-shadow: 0 0 0 12px rgba(243, 249, 136, 0); }
-                100% { box-shadow: 0 0 0 0 rgba(243, 249, 136, 0); }
-            }
-        `;
-        document.head.appendChild(styleSheet);
-
         // Place marker and popup
         const marker = L.marker(premiumCoords, { icon: goldIcon }).addTo(map);
         marker.bindPopup(`
-            <div style="font-family: 'Manrope', sans-serif; color: #210D36; padding: 6px;">
+            <div style="font-family: 'Manrope', sans-serif; color: #20352D; padding: 6px;">
                 <h4 style="margin: 0 0 4px 0; font-weight: 800; font-size: 1rem;">Солнечный Парк Premium</h4>
                 <p style="margin: 0; font-size: 0.85rem; color: #555;">Офис продаж и стройплощадка</p>
             </div>
@@ -185,24 +192,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeSuccessBtn = document.getElementById('close-success-btn');
     const modalLeadForm = document.getElementById('modal-lead-form');
     const modalSuccessMsg = document.getElementById('modal-success-msg');
+    const modalDialog = callbackModal.querySelector('.modal');
+    let lastModalFocus = null;
+
+    const modalFields = [
+        { input: document.getElementById('modal-name'), error: document.getElementById('modal-name-error'), message: 'Введите имя.' },
+        { input: document.getElementById('modal-phone'), error: document.getElementById('modal-phone-error'), message: 'Введите телефон в формате +7 (999) 000-00-00.' }
+    ];
+
+    const validateField = ({ input, error, message }) => {
+        if (!input || !error) return true;
+        const valid = input.checkValidity();
+        input.classList.toggle('invalid', !valid);
+        error.textContent = valid ? '' : message;
+        return valid;
+    };
+
+    const validateForm = (fields) => fields.map(validateField).every(Boolean);
 
     const openModal = (apartmentText = 'Общая консультация') => {
+        lastModalFocus = document.activeElement;
         if (modalApartmentSelected) {
             modalApartmentSelected.value = apartmentText;
         }
         callbackModal.classList.add('open');
+        callbackModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        window.setTimeout(() => document.getElementById('modal-name').focus(), 120);
     };
 
     const closeModal = () => {
         callbackModal.classList.remove('open');
+        callbackModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        if (lastModalFocus) lastModalFocus.focus();
         
         // Reset modal state after transition
         setTimeout(() => {
             modalLeadForm.style.display = 'flex';
             modalSuccessMsg.classList.remove('active');
             modalLeadForm.reset();
+            modalFields.forEach(({ input, error }) => {
+                if (input) input.classList.remove('invalid');
+                if (error) error.textContent = '';
+            });
         }, 400);
     };
 
@@ -227,6 +260,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    modalFields.forEach(field => {
+        if (field.input) field.input.addEventListener('input', () => validateField(field));
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (!callbackModal.classList.contains('open')) return;
+        if (event.key === 'Escape') {
+            closeModal();
+            return;
+        }
+        if (event.key !== 'Tab') return;
+        const focusable = [...modalDialog.querySelectorAll('button, input, a, [tabindex]:not([tabindex="-1"])')]
+            .filter(element => !element.disabled && element.offsetParent !== null);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    });
+
 
     // ==========================================
     // 7. Lead Forms Processing (Mock Action)
@@ -238,8 +295,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetFormBtn = document.getElementById('reset-form-btn');
 
     if (leadForm && formSuccess) {
+        const leadFields = [
+            { input: document.getElementById('lead-name'), error: document.getElementById('lead-name-error'), message: 'Введите имя.' },
+            { input: document.getElementById('lead-phone'), error: document.getElementById('lead-phone-error'), message: 'Введите телефон в формате +7 (999) 000-00-00.' }
+        ];
+        leadFields.forEach(field => {
+            if (field.input) field.input.addEventListener('input', () => validateField(field));
+        });
         leadForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            if (!validateForm(leadFields)) {
+                const firstInvalid = leadFields.find(field => field.input && !field.input.checkValidity());
+                if (firstInvalid) firstInvalid.input.focus();
+                return;
+            }
             
             // Gather lead info factually
             const name = document.getElementById('lead-name').value;
@@ -264,6 +333,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalLeadForm && modalSuccessMsg) {
         modalLeadForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            if (!validateForm(modalFields)) {
+                const firstInvalid = modalFields.find(field => field.input && !field.input.checkValidity());
+                if (firstInvalid) firstInvalid.input.focus();
+                return;
+            }
 
             const name = document.getElementById('modal-name').value;
             const phone = document.getElementById('modal-phone').value;
@@ -301,111 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ==========================================
-    // 9. Extra Plans Loader Mock-up
-    // ==========================================
-    const morePlansBtn = document.getElementById('more-plans-btn');
-    const plansGrid = document.getElementById('plans-grid');
-
-    if (morePlansBtn && plansGrid) {
-        morePlansBtn.addEventListener('click', () => {
-            // Let's dynamically add a few premium apartments to wow the user!
-            const extraApartments = [
-                {
-                    category: 'studio',
-                    type: 'Студия',
-                    title: 'Студия с дизайнерской мебелью',
-                    area: '26.8 м²',
-                    floor: '11 из 16',
-                    price: 'от 8 610 400 ₽'
-                },
-                {
-                    category: '1room',
-                    type: '1-комнатная квартира',
-                    title: 'Просторная однушка с гардеробной',
-                    area: '42.5 м²',
-                    floor: '5 из 16',
-                    price: 'от 11 900 000 ₽'
-                },
-                {
-                    category: '3room',
-                    type: '3-комнатная квартира',
-                    title: 'Пентхаус с видовой террасой на реку',
-                    area: '112.4 м²',
-                    floor: '16 из 16',
-                    price: 'от 38 450 000 ₽'
-                }
-            ];
-
-            extraApartments.forEach(apt => {
-                const card = document.createElement('div');
-                card.className = 'plan-card';
-                card.setAttribute('data-category', apt.category);
-                
-                // SVG according to type
-                let svgContent = '';
-                if (apt.category === 'studio') {
-                    svgContent = `
-                        <rect x="10" y="10" width="180" height="180" fill="none" stroke="currentColor" stroke-width="2"/>
-                        <line x1="10" y1="100" x2="110" y2="100" stroke="currentColor" stroke-width="2"/>
-                        <line x1="110" y1="10" x2="110" y2="100" stroke="currentColor" stroke-width="2"/>
-                        <rect x="10" y="10" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3"/>
-                        <text x="40" y="45" font-size="10" text-anchor="middle" fill="currentColor">Санузел</text>
-                        <text x="60" y="140" font-size="12" font-weight="bold" fill="currentColor">Студия-люкс</text>
-                    `;
-                } else if (apt.category === '1room') {
-                    svgContent = `
-                        <rect x="10" y="10" width="180" height="180" fill="none" stroke="currentColor" stroke-width="2"/>
-                        <line x1="90" y1="10" x2="90" y2="190" stroke="currentColor" stroke-width="2"/>
-                        <line x1="90" y1="90" x2="190" y2="90" stroke="currentColor" stroke-width="2"/>
-                        <rect x="10" y="10" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3"/>
-                        <text x="50" y="100" font-size="12" font-weight="bold" fill="currentColor">Спальня</text>
-                        <text x="140" y="50" font-size="12" font-weight="bold" fill="currentColor">Кухня</text>
-                    `;
-                } else {
-                    svgContent = `
-                        <rect x="10" y="10" width="180" height="180" fill="none" stroke="currentColor" stroke-width="2"/>
-                        <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="2"/>
-                        <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="2"/>
-                        <text x="50" y="50" font-size="11" font-weight="bold" fill="currentColor">Спальня</text>
-                        <text x="150" y="50" font-size="11" font-weight="bold" fill="currentColor">Терраса</text>
-                        <text x="50" y="150" font-size="11" font-weight="bold" fill="currentColor">Гостиная</text>
-                        <text x="150" y="150" font-size="11" font-weight="bold" fill="currentColor">Кухня</text>
-                    `;
-                }
-
-                card.innerHTML = `
-                    <div class="plan-img-wrapper">
-                        <svg class="plan-svg" viewBox="0 0 200 200">
-                            ${svgContent}
-                        </svg>
-                    </div>
-                    <div class="plan-info">
-                        <span class="plan-type">${apt.type}</span>
-                        <h3>${apt.title}</h3>
-                        <div class="plan-specs">
-                            <div><span class="spec-label">Площадь:</span> <span class="spec-val">${apt.area}</span></div>
-                            <div><span class="spec-label">Этаж:</span> <span class="spec-val">${apt.floor}</span></div>
-                        </div>
-                        <div class="plan-price">${apt.price}</div>
-                        <button class="btn btn-primary w-full open-booking-btn" data-apartment="${apt.title}">Узнать подробнее</button>
-                    </div>
-                `;
-
-                plansGrid.appendChild(card);
-                
-                // Attach event listener to new booking button!
-                card.querySelector('.open-booking-btn').addEventListener('click', (e) => {
-                    openModal(`Запрос планировки: ${apt.title}`);
-                });
-            });
-
-            // Hide the load button or disable it
-            morePlansBtn.textContent = 'Все планировки загружены';
-            morePlansBtn.disabled = true;
-            morePlansBtn.style.opacity = '0.6';
-            morePlansBtn.style.cursor = 'default';
-        });
-    }
+    // The catalogue CTA intentionally opens the same consultation flow instead of
+    // injecting placeholder apartments that could be mistaken for inventory.
 
 });

@@ -29,7 +29,7 @@
     </nav>
 
     <a class="header-cta" href="#contact">Есть задача <span>↗</span></a>
-    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
       <i></i><i></i>
     </button>
   </header>
@@ -46,7 +46,7 @@
         <div class="hero-copy reveal">
           <p class="eyebrow"><span class="eyebrow-dot"></span> Александр · сайты и digital-системы</p>
           <h1>Сайты,<br><em>которые</em><br>двигают бизнес<span class="hero-dot">.</span></h1>
-          <p class="hero-lead">Собираю сильную подачу, понятный путь к заявке и нужные инструменты вокруг неё — чтобы сайт был не витриной, а частью продаж.</p>
+          <p class="hero-lead">Собираю сильную подачу, понятный путь к заявке и нужные инструменты вокруг неё, чтобы сайт был не витриной, а частью продаж.</p>
           <div class="hero-actions">
             <a class="button button-dark" href="#projects">Смотреть проекты <span>↘</span></a>
             <a class="text-link" href="#contact">Обсудить задачу <span>↗</span></a>
@@ -93,59 +93,59 @@
           <h2>Проекты, которые<br><em>уже работают.</em></h2>
         </div>
         <div class="heading-side">
-          <p>Здесь можно не только посмотреть на картинку. Откройте любой кейс — каждый сайт загружается прямо внутри портфолио.</p>
+          <p>Здесь можно не только посмотреть на картинку. Откройте любой кейс: каждый сайт загружается прямо внутри портфолио.</p>
           <span class="live-label"><i></i> live previews</span>
         </div>
       </div>
 
-      <div class="filter-bar" role="tablist" aria-label="Фильтр проектов">
-        <button class="filter-button is-active" type="button" data-filter="all" role="tab" aria-selected="true">Все <span>10</span></button>
-        <button class="filter-button" type="button" data-filter="business" role="tab" aria-selected="false">Бизнес <span>3</span></button>
-        <button class="filter-button" type="button" data-filter="services" role="tab" aria-selected="false">Сервисы <span>3</span></button>
-        <button class="filter-button" type="button" data-filter="lifestyle" role="tab" aria-selected="false">Lifestyle <span>3</span></button>
-        <button class="filter-button" type="button" data-filter="concept" role="tab" aria-selected="false">Эксперименты <span>1</span></button>
+      <div class="filter-bar" role="group" aria-label="Фильтр проектов">
+        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Все <span>12</span></button>
+        <button class="filter-button" type="button" data-filter="business" aria-pressed="false">Бизнес <span>4</span></button>
+        <button class="filter-button" type="button" data-filter="services" aria-pressed="false">Сервисы <span>4</span></button>
+        <button class="filter-button" type="button" data-filter="lifestyle" aria-pressed="false">Lifestyle <span>3</span></button>
+        <button class="filter-button" type="button" data-filter="concept" aria-pressed="false">Эксперименты <span>1</span></button>
       </div>
 
       <div class="projects-grid" id="projects-grid">
         <article class="project-card project-card--wide project-residence reveal" data-segment="business" data-title="ЖК «Солнечный Парк»" data-kind="real estate / landing" data-url="ЖК/index.html?rev=20260713" data-tags="Позиционирование · заявки · презентация">
           <button class="project-open" type="button" aria-label="Открыть проект ЖК «Солнечный Парк»"></button>
-          <div class="project-visual project-image-residence"><span class="project-number">01</span><span class="project-signal">↗</span><div class="project-overlay-label">premium<br>real estate</div></div>
+          <div class="project-visual"><img class="project-cover" src="ЖК/images/hero_bg.png" alt="" loading="lazy" decoding="async"><span class="project-number">01</span><span class="project-signal">↗</span><div class="project-overlay-label">premium<br>real estate</div></div>
           <div class="project-meta"><div><span class="project-category">real estate / landing</span><h3>ЖК «Солнечный Парк»</h3></div><span class="project-arrow">↗</span></div>
         </article>
 
         <article class="project-card project-aura reveal" data-segment="business" data-title="AURA Furniture" data-kind="e-commerce / catalog" data-url="aura-furniture/index.html" data-tags="Каталог · визуальный язык · корзина">
           <button class="project-open" type="button" aria-label="Открыть проект AURA Furniture"></button>
-          <div class="project-visual project-image-aura"><span class="project-number">02</span><span class="project-signal">↗</span><div class="project-overlay-label">objects<br>with soul</div></div>
+          <div class="project-visual"><img class="project-cover project-cover--aura" src="aura-furniture/images/hero.png" alt="" loading="lazy" decoding="async"><span class="project-number">02</span><span class="project-signal">↗</span><div class="project-overlay-label">objects<br>with soul</div></div>
           <div class="project-meta"><div><span class="project-category">e-commerce / catalog</span><h3>AURA Furniture</h3></div><span class="project-arrow">↗</span></div>
         </article>
 
         <article class="project-card project-buro reveal" data-segment="lifestyle" data-title="BURO Coffee" data-kind="brand site / shop" data-url="caffe/index.html" data-tags="Бренд · магазин · атмосфера">
           <button class="project-open" type="button" aria-label="Открыть проект BURO Coffee"></button>
-          <div class="project-visual project-image-buro"><span class="project-number">03</span><span class="project-signal">↗</span><div class="project-overlay-label">specialty<br>coffee</div></div>
+          <div class="project-visual"><img class="project-cover" src="caffe/assets/hero-coffee.png" alt="" loading="lazy" decoding="async"><span class="project-number">03</span><span class="project-signal">↗</span><div class="project-overlay-label">specialty<br>coffee</div></div>
           <div class="project-meta"><div><span class="project-category">brand site / shop</span><h3>BURO Coffee</h3></div><span class="project-arrow">↗</span></div>
         </article>
 
         <article class="project-card project-bakery reveal" data-segment="lifestyle" data-title="Тёплая корка" data-kind="bakery / e-commerce" data-url="bakery/index.html" data-tags="Каталог · заказ · локальный бренд">
           <button class="project-open" type="button" aria-label="Открыть проект Тёплая корка"></button>
-          <div class="project-visual project-image-bakery"><span class="project-number">04</span><span class="project-signal">↗</span><div class="project-overlay-label">daily<br>bread</div></div>
+          <div class="project-visual"><img class="project-cover" src="bakery/assets/hero-bakery.png" alt="" loading="lazy" decoding="async"><span class="project-number">04</span><span class="project-signal">↗</span><div class="project-overlay-label">daily<br>bread</div></div>
           <div class="project-meta"><div><span class="project-category">bakery / e-commerce</span><h3>Тёплая корка</h3></div><span class="project-arrow">↗</span></div>
         </article>
 
         <article class="project-card project-brewdom reveal" data-segment="business" data-title="БРЕВДОМ" data-kind="construction / catalog" data-url="brewdom/index.html?rev=20260713" data-tags="Доверие · каталог · лидогенерация">
           <button class="project-open" type="button" aria-label="Открыть проект БРЕВДОМ"></button>
-          <div class="project-visual project-image-brewdom"><span class="project-number">05</span><span class="project-signal">↗</span><div class="project-overlay-label">built<br>to last</div></div>
+          <div class="project-visual"><img class="project-cover" src="brewdom/images/hero_bg.jpg" alt="" loading="lazy" decoding="async"><span class="project-number">05</span><span class="project-signal">↗</span><div class="project-overlay-label">built<br>to last</div></div>
           <div class="project-meta"><div><span class="project-category">construction / catalog</span><h3>БРЕВДОМ</h3></div><span class="project-arrow">↗</span></div>
         </article>
 
         <article class="project-card project-glamping reveal" data-segment="lifestyle" data-title="ВЕРЕСК Glamping" data-kind="hospitality / booking" data-url="glamping/index.html" data-tags="Бронирование · контент · премиум">
           <button class="project-open" type="button" aria-label="Открыть проект ВЕРЕСК Glamping"></button>
-          <div class="project-visual project-image-glamping"><span class="project-number">06</span><span class="project-signal">↗</span><div class="project-overlay-label">slow<br>escape</div></div>
+          <div class="project-visual"><img class="project-cover" src="glamping/assets/hero.png" alt="" loading="lazy" decoding="async"><span class="project-number">06</span><span class="project-signal">↗</span><div class="project-overlay-label">slow<br>escape</div></div>
           <div class="project-meta"><div><span class="project-category">hospitality / booking</span><h3>ВЕРЕСК Glamping</h3></div><span class="project-arrow">↗</span></div>
         </article>
 
         <article class="project-card project-dentist reveal" data-segment="services" data-title="Dental Clinic" data-kind="medical / service" data-url="dentist/index.html?rev=20260713" data-tags="Сервис · доверие · запись">
           <button class="project-open" type="button" aria-label="Открыть проект Dental Clinic"></button>
-          <div class="project-visual project-image-dentist"><span class="project-number">07</span><span class="project-signal">↗</span><div class="project-overlay-label">care<br>in detail</div></div>
+          <div class="project-visual"><img class="project-cover" src="dentist/images/reference.png" alt="" loading="lazy" decoding="async"><span class="project-number">07</span><span class="project-signal">↗</span><div class="project-overlay-label">care<br>in detail</div></div>
           <div class="project-meta"><div><span class="project-category">medical / service</span><h3>Dental Clinic</h3></div><span class="project-arrow">↗</span></div>
         </article>
 
@@ -157,18 +157,30 @@
 
         <article class="project-card project-detailing reveal" data-segment="services" data-title="Detailing Studio" data-kind="automotive / service" data-url="previews/detailing-studio.html" data-tags="Сервис · до/после · запись">
           <button class="project-open" type="button" aria-label="Открыть проект Detailing Studio"></button>
-          <div class="project-visual project-image-detailing"><span class="project-number">09</span><span class="project-signal">↗</span><div class="project-overlay-label">care<br>for motion</div></div>
+          <div class="project-visual"><img class="project-cover" src="detailing-studio/public/paint_after.png" alt="" loading="lazy" decoding="async"><span class="project-number">09</span><span class="project-signal">↗</span><div class="project-overlay-label">care<br>for motion</div></div>
           <div class="project-meta"><div><span class="project-category">automotive / service</span><h3>Detailing Studio</h3></div><span class="project-arrow">↗</span></div>
         </article>
 
-        <article class="project-card project-adventure reveal" data-segment="concept" data-title="Adventure Concept" data-kind="visual concept / landing" data-url="previews/adventure.html" data-tags="Концепт · арт-дирекшн · mood">
-          <button class="project-open" type="button" aria-label="Открыть проект Adventure Concept"></button>
-          <div class="project-visual project-image-adventure"><span class="project-number">10</span><span class="project-signal">↗</span><div class="project-overlay-label">find<br>the edge</div></div>
-          <div class="project-meta"><div><span class="project-category">visual concept / landing</span><h3>Adventure Concept</h3></div><span class="project-arrow">↗</span></div>
+        <article class="project-card project-adventure reveal" data-segment="concept" data-title="WILDLINE — выйти за карту" data-kind="visual concept / landing" data-url="previews/adventure.html" data-tags="Концепт · арт-дирекшн · mood">
+          <button class="project-open" type="button" aria-label="Открыть проект WILDLINE"></button>
+          <div class="project-visual"><img class="project-cover" src="previews/assets/adventure/mountain-ridge.png" alt="" loading="lazy" decoding="async"><span class="project-number">10</span><span class="project-signal">↗</span><div class="project-overlay-label">find<br>the edge</div></div>
+          <div class="project-meta"><div><span class="project-category">visual concept / landing</span><h3>WILDLINE — выйти за карту</h3></div><span class="project-arrow">↗</span></div>
+        </article>
+
+        <article class="project-card project-renovation reveal" data-segment="business" data-title="MATERIA Interiors" data-kind="interiors / landing" data-url="renavation/index.html" data-tags="Премиум · scrollytelling · заявка">
+          <button class="project-open" type="button" aria-label="Открыть проект MATERIA Interiors"></button>
+          <div class="project-visual"><img class="project-cover" src="renavation/public/scrollytelling/hero_frame_070.webp" alt="" loading="lazy" decoding="async"><span class="project-number">11</span><span class="project-signal">↗</span><div class="project-overlay-label">crafted<br>interiors</div></div>
+          <div class="project-meta"><div><span class="project-category">interiors / landing</span><h3>MATERIA Interiors</h3></div><span class="project-arrow">↗</span></div>
+        </article>
+
+        <article class="project-card project-bfl reveal" data-segment="services" data-title="Право на новый этап" data-kind="legal / lead generation" data-url="bfl/index.html" data-tags="Маршрутизация · доверие · заявка">
+          <button class="project-open" type="button" aria-label="Открыть проект Право на новый этап"></button>
+          <div class="project-visual"><img class="project-cover" src="bfl/assets/hero-lawyer.png" alt="" loading="lazy" decoding="async"><span class="project-number">12</span><span class="project-signal">↗</span><div class="project-overlay-label">clarity<br>before contract</div></div>
+          <div class="project-meta"><div><span class="project-category">legal / lead generation</span><h3>Право на новый этап</h3></div><span class="project-arrow">↗</span></div>
         </article>
       </div>
       <p class="projects-empty" id="projects-empty">В этой категории пока нет проектов.</p>
-      <div class="projects-foot"><span>10 проектов · 8 индустрий · один подход</span><a class="text-link" href="#contact">Нужен сайт под вашу нишу? <span>↗</span></a></div>
+      <div class="projects-foot"><span>12 проектов · 12 направлений · один подход</span><a class="text-link" href="#contact">Нужен сайт под вашу нишу? <span>↗</span></a></div>
     </section>
 
     <section class="services" id="services">
@@ -181,21 +193,21 @@
         </div>
 
         <div class="service-list reveal reveal-delay">
-          <button class="service-row is-open" type="button" aria-expanded="true">
-            <span class="service-index">01</span><span class="service-copy"><strong>Сайт, который продаёт</strong><small>Лендинг, сайт услуг или каталог — с правильной драматургией и понятным CTA.</small></span><span class="service-toggle">↗</span>
+          <button class="service-row is-open" type="button" aria-expanded="true" aria-controls="service-detail-1">
+            <span class="service-index">01</span><span class="service-copy"><strong>Сайт, который продаёт</strong><small id="service-detail-1" aria-hidden="false">Лендинг, сайт услуг или каталог с правильной драматургией и понятным CTA.</small></span><span class="service-toggle">↗</span>
           </button>
-          <button class="service-row" type="button" aria-expanded="false">
-            <span class="service-index">02</span><span class="service-copy"><strong>AI-консультант для сайта</strong><small>Обученный на материалах вашего бизнеса ассистент, который отвечает, квалифицирует и ведёт к заявке.</small></span><span class="service-toggle">↗</span>
+          <button class="service-row" type="button" aria-expanded="false" aria-controls="service-detail-2">
+            <span class="service-index">02</span><span class="service-copy"><strong>AI-консультант для сайта</strong><small id="service-detail-2" aria-hidden="true">Обученный на материалах вашего бизнеса ассистент, который отвечает, квалифицирует и ведёт к заявке.</small></span><span class="service-toggle">↗</span>
           </button>
-          <button class="service-row" type="button" aria-expanded="false">
-            <span class="service-index">03</span><span class="service-copy"><strong>Telegram-боты и автоматизации</strong><small>Бот для продаж, записи, поддержки или внутренних процессов — с логикой именно под вас.</small></span><span class="service-toggle">↗</span>
+          <button class="service-row" type="button" aria-expanded="false" aria-controls="service-detail-3">
+            <span class="service-index">03</span><span class="service-copy"><strong>Telegram-боты и автоматизации</strong><small id="service-detail-3" aria-hidden="true">Бот для продаж, записи, поддержки или внутренних процессов с логикой именно под вас.</small></span><span class="service-toggle">↗</span>
           </button>
-          <button class="service-row" type="button" aria-expanded="false">
-            <span class="service-index">04</span><span class="service-copy"><strong>CRM, CMS и лиды</strong><small>Подключаю формы к CRM, собираю простую админку или персональную систему, которую легко обновлять.</small></span><span class="service-toggle">↗</span>
+          <button class="service-row" type="button" aria-expanded="false" aria-controls="service-detail-4">
+            <span class="service-index">04</span><span class="service-copy"><strong>CRM, CMS и лиды</strong><small id="service-detail-4" aria-hidden="true">Подключаю формы к CRM, собираю простую админку или персональную систему, которую легко обновлять.</small></span><span class="service-toggle">↗</span>
           </button>
         </div>
       </div>
-      <div class="services-note"><span>если можно убрать два ручных шага — уберём</span><b>↓</b></div>
+      <div class="services-note"><span>если можно убрать два ручных шага, уберём</span><b>↓</b></div>
     </section>
 
     <section class="process section-shell" id="process">
@@ -213,7 +225,7 @@
         <div class="process-copy reveal reveal-delay">
           <p class="about-kicker">лично веду проект от первой идеи до запуска</p>
           <h3>Собираю не просто страницу.<br><em>Собираю следующий шаг.</em></h3>
-          <p class="about-text">Использую AI-инструменты как ускоритель: быстро перебираю направления, тестирую гипотезы и собираю рабочие интерфейсы. Решения, тон и ответственность остаются человеческими — моими и вашими.</p>
+          <p class="about-text">Использую AI-инструменты как ускоритель: быстро перебираю направления, тестирую гипотезы и собираю рабочие интерфейсы. Решения, тон и ответственность остаются человеческими, моими и вашими.</p>
           <div class="process-steps">
             <div><span>01</span><strong>Разобраться</strong><small>цели, аудитория, характер бренда</small></div>
             <div><span>02</span><strong>Собрать</strong><small>структура, тексты, дизайн, код</small></div>
@@ -229,7 +241,7 @@
         <div class="contact-copy reveal">
           <p class="section-no section-no-light">04 / СТАРТ</p>
           <h2>Расскажите,<br>что нужно<br><em>сдвинуть.</em></h2>
-          <p>Опишите задачу в двух словах — я вернусь с вопросами, идеей первого шага и честной оценкой сроков.</p>
+          <p>Опишите задачу в двух словах. Я вернусь с вопросами, идеей первого шага и честной оценкой сроков.</p>
           <div class="contact-aside"><span>ответ в течение 1 рабочего дня</span><i>↘</i></div>
         </div>
         <form class="contact-form reveal reveal-delay" id="contact-form">
@@ -238,7 +250,7 @@
           <label><span>что собираем</span><select name="type"><option>Новый сайт</option><option>Редизайн существующего</option><option>AI-консультант</option><option>Бот или автоматизация</option><option>CRM / CMS / интеграция</option><option>Пока хочу обсудить</option></select></label>
           <label><span>коротко о задаче</span><textarea name="message" rows="4" placeholder="Что должно измениться после запуска?"></textarea></label>
           <button class="button button-light form-submit" type="submit">Отправить задачу <span>↗</span></button>
-          <p class="form-status" id="form-status" role="status">Спасибо! Форма работает локально — перед публикацией подключу её к вашей почте, Telegram или CRM.</p>
+          <p class="form-status" id="form-status" role="status">Спасибо! Форма работает локально; перед публикацией подключу её к вашей почте, Telegram или CRM.</p>
         </form>
       </div>
       <footer class="site-footer section-shell">
@@ -251,7 +263,7 @@
 
   <div class="preview-modal" id="preview-modal" aria-hidden="true">
     <div class="preview-backdrop" data-close-preview></div>
-    <div class="preview-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+    <div class="preview-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-title" tabindex="-1">
       <div class="preview-header">
         <div><span class="preview-kicker" id="preview-kind">live preview</span><h2 id="preview-title">Проект</h2><p id="preview-tags">—</p></div>
         <div class="preview-actions"><a class="preview-external" id="preview-external" href="#" target="_blank" rel="noopener">открыть отдельно ↗</a><button class="preview-close" type="button" data-close-preview aria-label="Закрыть превью">×</button></div>

@@ -14,7 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initCommonFeatures();
+  refreshIconLibrary();
 });
+
+function refreshIconLibrary() {
+  if (window.lucide && typeof window.lucide.createIcons === "function") {
+    window.lucide.createIcons({
+      attrs: {
+        "stroke-width": 1.6,
+        "aria-hidden": "true"
+      }
+    });
+  }
+}
 
 // Common UI Elements & Interactions
 function initCommonFeatures() {
@@ -214,11 +226,13 @@ function showHotspotInfo(id) {
   if (title && text && panel) {
     title.innerText = HOTSPOTS_DATA[id].title;
     text.innerText = HOTSPOTS_DATA[id].text;
-    panel.style.borderLeftColor = "var(--color-primary)";
-    panel.style.backgroundColor = "var(--color-primary-light)";
-    setTimeout(() => {
-      panel.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
-    }, 400);
+    panel.animate(
+      [
+        { opacity: 0.55, transform: "translateY(5px)" },
+        { opacity: 1, transform: "translateY(0)" }
+      ],
+      { duration: 280, easing: "cubic-bezier(0.16, 1, 0.3, 1)" }
+    );
   }
 }
 

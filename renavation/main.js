@@ -1,8 +1,14 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
+
+// Vite exposes files from /public at the site root, while a page opened with a
+// double click must address that directory explicitly.
+const assetPath = path => {
+    const cleanPath = path.replace(/^\.\//, "");
+    return window.location.protocol === "file:"
+        ? `./public/${cleanPath}`
+        : `./${cleanPath}`;
+};
 
 // -------------------------------------------------------------
 // 1. Scrollytelling Setup (102 Frames Canvas Player)
@@ -12,9 +18,8 @@ const canvas = document.getElementById("scrollytelling-canvas");
 const context = canvas.getContext("2d");
 
 const frameCount = 102;
-// Use relative paths to be fully compatible with local file loading and dev servers
 const currentFrame = index => (
-    `./scrollytelling/hero_frame_${(index + 1).toString().padStart(3, '0')}.webp`
+    assetPath(`scrollytelling/hero_frame_${(index + 1).toString().padStart(3, '0')}.webp`)
 );
 
 // Preload Images
@@ -241,7 +246,7 @@ document.head.appendChild(styleEl);
 
 const projectsData = [
     {
-        title: "Пентхаус «Aura Grand»",
+        title: "Пентхаус «Materia Grand»",
         category: "Пентхаус • Современная классика",
         area: "180 м²",
         duration: "7 месяцев",
@@ -380,7 +385,7 @@ function openModal(index) {
 
     currentProjectIndex = index;
     currentSlideIndex = 0;
-    projectImages = data.images;
+    projectImages = data.images.map(assetPath);
 
     // Set text elements
     mTitle.textContent = data.title;

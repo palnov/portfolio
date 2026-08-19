@@ -19,6 +19,15 @@
   transform: translateY(-100%);
 }
 
+/* Keep the homepage header from being stamped into every tile of a full-page capture. */
+.home-page .header {
+  position: absolute;
+}
+
+.home-page .header.header-hidden {
+  transform: none;
+}
+
 .header.header-scrolled {
   background-color: rgba(13, 13, 14, 0.95);
   border-bottom: 1px solid rgba(212, 163, 115, 0.15);

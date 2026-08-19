@@ -36,7 +36,8 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
+  /* Keep programmatic scrolling deterministic for full-page screenshot tools. */
+  scroll-behavior: auto;
 }
 
 body {

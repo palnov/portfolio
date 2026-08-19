@@ -407,90 +407,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- GSAP PRESET WEB ANIMATIONS WORKFLOW ---
-  if (typeof gsap !== 'undefined') {
-    // 1. Initial Hero Entrance Loader
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    
-    // Set transparent triggers
-    gsap.set('header', { y: -50, opacity: 0 });
-    gsap.set('.hero-tag', { y: 20, opacity: 0 });
-    gsap.set('.hero h1', { y: 30, opacity: 0 });
-    gsap.set('.hero-subtitle', { y: 15, opacity: 0 });
-    gsap.set('.hero-description', { opacity: 0, y: 20 });
-    gsap.set('.hero .btn-primary, .hero .btn-secondary', { scale: 0.8, opacity: 0 });
-    gsap.set('.hero-badges .badge-item', { y: 40, opacity: 0 });
-
-    tl.to('header', { y: 0, opacity: 1, duration: 0.8 })
-      .to('.hero-tag', { y: 0, opacity: 1, duration: 0.6 }, '-=0.4')
-      .to('.hero h1', { y: 0, opacity: 1, duration: 0.8 }, '-=0.4')
-      .to('.hero-subtitle', { y: 0, opacity: 1, duration: 0.7 }, '-=0.6')
-      .to('.hero-description', { y: 0, opacity: 1, duration: 0.8 }, '-=0.5')
-      .to('.hero .btn-primary, .hero .btn-secondary', { scale: 1, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'back.out(1.5)' }, '-=0.5')
-      .to('.hero-badges .badge-item', { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power2.out' }, '-=0.4');
-
-    // 2. About Us reveals
-    gsap.from('#about .about-text > *', {
-      scrollTrigger: {
-        trigger: '#about',
-        start: 'top 75%'
-      },
-      opacity: 0,
-      y: 30,
-      duration: 0.7,
-      stagger: 0.15,
-      ease: 'power2.out'
-    });
-
-    gsap.from('#about .about-visual', {
-      scrollTrigger: {
-        trigger: '#about',
-        start: 'top 75%'
-      },
-      opacity: 0,
-      scale: 0.95,
-      duration: 1,
-      ease: 'power2.out'
-    });
-
-    // 3. Cabin Showcase reveal
-    gsap.from('#cabins .cabin-card', {
-      scrollTrigger: {
-        trigger: '#cabins',
-        start: 'top 75%'
-      },
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: 'power3.out'
-    });
-
-    // 4. Inclusions Stagger cards
-    gsap.fromTo('#inclusions .inclusion-card', 
-      { opacity: 0, y: 40 },
-      {
-        scrollTrigger: {
-          trigger: '#inclusions',
-          start: 'top 75%'
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: 'power2.out'
-      }
-    );
-
-    // 5. Contacts slide reveal
-    gsap.from('.footer-map-container', {
-      scrollTrigger: {
-        trigger: '#contacts',
-        start: 'top 85%'
-      },
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: 'power3.out'
-    });
-  }
+  // Deliberately avoid scroll-triggered opacity/transform reveals here. A
+  // full-page screenshot extension scrolls and stitches the document in
+  // several quick passes, so animation state would otherwise be captured in
+  // the middle of a transition. The page stays fully rendered while the
+  // interactive GSAP effects above continue to work.
 });

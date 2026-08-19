@@ -29,7 +29,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Keep programmatic scrolling deterministic for full-page screenshot tools. */
+  scroll-behavior: auto;
 }
 
 body {
@@ -141,7 +142,11 @@ a {
 
 /* Header & Nav Wrap fixes */
 header {
-  position: fixed;
+  /*
+   * An absolute header is captured once by tiled full-page screenshot tools.
+   * A fixed header is composited into every viewport tile and appears repeated.
+   */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -1499,6 +1504,38 @@ footer {
   .header-actions .btn-primary {
     padding: 10px 16px;
     font-size: 0.7rem;
+  }
+}
+
+/* Keep the desktop header inside the viewport before switching to mobile nav. */
+@media (max-width: 1300px) and (min-width: 1021px) {
+  .header-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 12px;
+  }
+
+  .nav-menu {
+    gap: 14px;
+  }
+
+  .nav-menu a {
+    font-size: 0.75rem;
+    letter-spacing: 0.6px;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .phone-link {
+    font-size: 0.76rem;
+  }
+
+  .header-actions .btn-primary {
+    padding: 10px 15px;
+    font-size: 0.7rem;
+    letter-spacing: 0.7px;
   }
 }
 

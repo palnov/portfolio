@@ -62,6 +62,6 @@ npm run seed
 
 ## Граница миграции
 
-Корневой статический сайт и его ассеты не удаляются и не переписываются. CMS-версия живёт в отдельной папке `cms/`; при проблеме с PostgreSQL она автоматически отдаёт текущий контент из fallback-файлов. Поэтому перенос можно проверить на отдельном домене и переключить DNS только после визуальной сверки.
+Миграция завершена: корневой статический entrypoint (`index.html`, `styles.css`, `app.js` и его портрет) архивирован локально и удалён из репозитория. Рабочей главной страницей остаётся CMS-версия в `cms/`; её fallback хранится в `src/lib/portfolioDefaults.ts`, поэтому при проблеме с PostgreSQL контент и внешний вид сохраняются.
 
 Полезные официальные разделы: [Payload — deployment](https://payloadcms.com/docs/production/deployment), [Payload — collections](https://payloadcms.com/docs/configuration/collections), [Coolify — applications](https://coolify.io/docs/applications/index), [Coolify — persistent storage](https://coolify.io/docs/knowledge-base/persistent-storage).

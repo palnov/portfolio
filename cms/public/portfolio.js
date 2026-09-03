@@ -112,7 +112,66 @@ if (marquee && marqueeTrack && marqueeSeed) {
 
 const filterButtons = qsa('.filter-button');
 const projectCards = qsa('.project-card');
+const projectGrid = qs('#projects-grid');
 const emptyState = qs('#projects-empty');
+const projectDesktopQuery = window.matchMedia('(min-width: 941px)');
+
+// The original bento used nth-child spans. Once a filter hid a card, those
+// spans still belonged to the old positions and left holes in the grid. Build
+// a fresh, packed layout from the visible set instead.
+const legacyPortfolioLayout = [
+  { columns: 2, rows: 2 },
+  { columns: 1, rows: 1 },
+  { columns: 1, rows: 1 },
+  { columns: 2, rows: 1 },
+  { columns: 2, rows: 2 },
+  { columns: 1, rows: 1 },
+  { columns: 1, rows: 1 },
+  { columns: 2, rows: 1 },
+  { columns: 1, rows: 1 },
+  { columns: 1, rows: 1 },
+  { columns: 2, rows: 2 },
+  { columns: 2, rows: 1 },
+];
+
+const getDesktopProjectLayout = count => {
+  if (count === 12) return legacyPortfolioLayout;
+  if (count === 0) return [];
+  if (count === 1) return [{ columns: 4, rows: 2 }];
+  if (count === 2) return [{ columns: 2, rows: 2 }, { columns: 2, rows: 2 }];
+  if (count === 3) return [{ columns: 2, rows: 2 }, { columns: 2, rows: 1 }, { columns: 2, rows: 1 }];
+
+  const layout = [{ columns: 2, rows: 2 }];
+  const lastCardIsFullWidth = count % 2 === 0;
+  for (let index = 1; index < count; index += 1) {
+    const isLast = index === count - 1;
+    layout.push({ columns: lastCardIsFullWidth && isLast ? 4 : 2, rows: 1 });
+  }
+  return layout;
+};
+
+const syncProjectLayout = () => {
+  if (!projectGrid) return;
+
+  const visibleCards = projectCards.filter(card => !card.classList.contains('is-hidden'));
+  const layout = projectDesktopQuery.matches
+    ? getDesktopProjectLayout(visibleCards.length)
+    : visibleCards.map(() => ({ columns: 1, rows: 1 }));
+
+  projectGrid.classList.add('is-layout-managed');
+  projectGrid.dataset.visibleCount = String(visibleCards.length);
+
+  projectCards.forEach(card => {
+    card.style.removeProperty('--project-col-span');
+    card.style.removeProperty('--project-row-span');
+  });
+
+  visibleCards.forEach((card, index) => {
+    const cardLayout = layout[index] || { columns: 1, rows: 1 };
+    card.style.setProperty('--project-col-span', String(cardLayout.columns));
+    card.style.setProperty('--project-row-span', String(cardLayout.rows));
+  });
+};
 
 filterButtons.forEach(button => button.addEventListener('click', () => {
   const filter = button.dataset.filter;
@@ -128,8 +187,13 @@ filterButtons.forEach(button => button.addEventListener('click', () => {
     card.classList.toggle('is-hidden', !visible);
     if (visible) visibleCount += 1;
   });
+  syncProjectLayout();
   emptyState?.classList.toggle('is-visible', visibleCount === 0);
 }));
+
+syncProjectLayout();
+if (projectDesktopQuery.addEventListener) projectDesktopQuery.addEventListener('change', syncProjectLayout);
+else projectDesktopQuery.addListener(syncProjectLayout);
 
 const serviceRows = qsa('.service-row');
 serviceRows.forEach(row => row.addEventListener('click', () => {

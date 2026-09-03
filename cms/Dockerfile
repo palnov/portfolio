@@ -62,12 +62,13 @@ RUN chown nextjs:nodejs media
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Keep the small one-time seed runner available in the Coolify terminal.
-# The frontend itself still runs from the standalone Next.js output.
+# Keep the one-time seed runner available in the Coolify terminal.
+# The frontend itself still runs from the standalone Next.js output. Copying
+# the full dependency tree here makes `npm run seed` work after deployment,
+# while the server still starts from the standalone bundle below.
 COPY --from=builder --chown=nextjs:nodejs /app/src ./src
 COPY --from=builder --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
-COPY --from=deps /app/node_modules/tsx ./node_modules/tsx
-COPY --from=deps /app/node_modules/esbuild ./node_modules/esbuild
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules ./node_modules
 RUN mkdir -p node_modules/.bin && ln -sf ../tsx/dist/cli.mjs node_modules/.bin/tsx
 
 # Never ship a developer machine's local .env inside the image. Coolify

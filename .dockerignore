@@ -1,0 +1,19 @@
+.git
+.git/**
+
+**/node_modules/
+**/.next/
+**/.cache/
+**/.turbo/
+**/playwright-report/
+**/test-results/
+
+# The cases image only needs the static project folders listed in cases/Dockerfile.
+cms/
+detailing-studio/src/
+renavation/*
+!renavation/dist/
+!renavation/dist/**
+
+*.mp4
+*.mov

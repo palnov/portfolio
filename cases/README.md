@@ -41,5 +41,5 @@ rewritten by this image.
 | `aion` | `/cases/aion/` | `awesomesite/` |
 | `detailing` | `/cases/detailing/` | `previews/detailing-studio.html` |
 | `adventure` | `/cases/adventure/` | `previews/adventure.html` |
-| `renovation` | `/cases/materia/` | `renavation/dist/` |
+| `renovation` | `/cases/renovation/` | `renavation/dist/` |
 | `bfl` | `/cases/bfl/` | `bfl/` |

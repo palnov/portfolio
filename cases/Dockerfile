@@ -31,10 +31,10 @@ COPY ["detailing-studio/public/", "/usr/share/nginx/html/detailing-studio/public
 # MATERIA is a built Vite preview.  Its HTML used root-absolute /assets URLs,
 # which would escape the /cases/materia/ prefix, so make only those two entry
 # point references relative at image build time.
-COPY ["renavation/dist/", "/usr/share/nginx/html/materia/"]
+COPY ["renavation/dist/", "/usr/share/nginx/html/renovation/"]
 RUN sed -i \
     -e 's#src="/assets/#src="assets/#g' \
     -e 's#href="/assets/#href="assets/#g' \
-    /usr/share/nginx/html/materia/index.html
+    /usr/share/nginx/html/renovation/index.html
 
 EXPOSE 80

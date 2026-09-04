@@ -7,8 +7,8 @@ const validatePreviewUrl = (value: unknown) => {
 
   const trimmed = value.trim()
 
-  // During the migration the existing local previews remain valid. Once a
-  // project is deployed separately, replace this with its https subdomain.
+  // Keep relative URLs valid for local work; production cases use the shared
+  // cases server under palnov.ru/cases/<slug>/.
   if (/^(?:\/|\.\.?\/|[\w\u0400-\u04ff.-]+\/)/u.test(trimmed)) return true
 
   try {

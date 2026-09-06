@@ -9,6 +9,9 @@
 .env.*
 !.env.example
 
+# Local server credentials. Keep this file on the deployment machine only.
+.server-access.local.md
+
 # Logs and local tooling
 *.log
 .DS_Store

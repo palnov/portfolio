@@ -74,7 +74,7 @@ function renderQuiz() {
   stage.innerHTML = `<h3>${q.title}</h3><div class="options">${q.options.map((o, i) => `<div class="option"><input type="radio" id="${q.name}-${i}" name="${q.name}" value="${o}" ${answers[q.name] === o ? "checked" : ""}><label for="${q.name}-${i}">${o}</label></div>`).join("")}</div>`;
   back.disabled = step === 0;
   next.textContent =
-    step === questions.length - 1 ? "Показать ориентир" : "Продолжить";
+    step === questions.length - 1 ? "Подготовить разбор" : "Продолжить";
   status.textContent = "";
 }
 next.addEventListener("click", () => {
@@ -105,13 +105,14 @@ function showResult() {
     answers.property &&
     !["Нет имущества", "Нужно уточнить"].includes(answers.property);
   const title = mfc
-    ? "Ваш стартовый маршрут — проверка условий МФЦ"
+    ? "Разберём возможность обращения в МФЦ"
     : property
-      ? "Начните с защиты имущества и оценки рисков"
-      : "Ваш следующий шаг — выбрать юридическую стратегию";
+      ? "Разберём долги и ваше имущество"
+      : "Вводные собраны. Обсудим списание долгов";
   stage.innerHTML = `<div class="quiz-result"><p class="eyebrow light">Ваш результат</p><h3>${title}</h3><p>Юрист проверит долги, доходы, исполнительные производства, имущество и сделки и соберёт для вас пошаговый план.</p><a class="button button-gold" href="#contact">Получить план действий</a></div>`;
   $(".quiz-controls").hidden = true;
-  label.textContent = "Диагностика завершена";
+  label.textContent = "Вводные для разбора готовы";
+  $("#contact-form").elements.message.value = questions.map(q => `${q.title}: ${answers[q.name]}`).join("\n");
   progress.style.transform = "scaleX(1)";
 }
 renderQuiz();
@@ -202,8 +203,7 @@ $("#contact-form").addEventListener("submit", (e) => {
     consent.focus();
     return;
   }
-  out.textContent = "Заявка принята. Юрист свяжется с вами в рабочее время.";
-  form.reset();
+  out.textContent = "Это демонстрационная форма портфолио. Заявка не отправлена.";
 });
 
 const heroActions = $(".hero-actions");

@@ -1,33 +1,17 @@
-# Design system — «Право на новый этап»
+# BFL — дизайн и подача
 
-## Direction
+Обновлено 6 сентября 2026 года.
 
-Quiet legal atelier: a calm, evidence-led legal practice. The visual reference is binding for tone, but the page's own signature is a route map that makes court, MFC, and alternatives equally legible before any sales conversation.
+Первый экран строится вокруг оффера юридического сопровождения списания долгов: «Долги растут. Пора поставить точку». Основной шаг — разбор долгов через короткий квиз, дополнительный — просмотр состава работы.
 
-## Tokens
+Визуальная система: тёмно-зелёный #192d28, светлая бумага #f6f5ef, акцент #d6ef72. Крупный гротеск, прямые углы, тонкие разделители, чёрно-белый портрет. Без декоративных теней и золотых рамок.
 
-- Ink — `#0A1B2D`
-- Deep teal — `#214A46`
-- Warm paper — `#F5F2EC`
-- Porcelain — `#FBFAF7`
-- Brass — `#B9914C`
-- Mist — `#DCE4E3`
-- Body — `#26313B`
+Контент объясняет действия юриста, расходы и результат первого разговора. Блок с декоративной заглушкой заменён перечнем конкретных результатов работы. Ответы квиза переносятся в текст обращения.
 
-Display typography uses a restrained editorial serif stack; body and utility text use a neutral Cyrillic-safe sans stack. Corners are modest and structural, not playful. Fine lines encode process and legal relationships.
+На мобильных оффер и кнопка предшествуют фотографии; блоки складываются в одну колонку. Учитывается prefers-reduced-motion.
 
-## Layout
+Статус: локальный портфолио-концепт. Форма не подключена к доставке заявок; контакты и ссылки на документы требуют реальных данных перед коммерческим запуском.
 
-The hero is a 12-column split with a human portrait on the right and a diagnostic CTA on the left. Subsequent sections alternate broad editorial statements with dense, useful controls. Content width is capped at 1320px and collapses to one column below 820px.
+Вторая визуальная итерация: цветной AI-портрет hero-adviser-v2.webp (оригинал PNG и промпт рядом в assets), SVG-иллюстрация документов, схема этапов, единый набор линейных иконок. Добавлены акцентные подчёркивания, графика сметы и вертикальные отметки результатов. Иллюстративный портрет не представляет реального сотрудника.
 
-## Signature
-
-The route map is a branching horizontal line with three destinations. Selection moves a brass marker and updates the explanatory panel without pretending to make a legal determination.
-
-## Motion
-
-One orchestrated reveal on entry, small state transitions on the route map and quiz, and no ambient movement. All motion is removed under `prefers-reduced-motion`.
-
-## Guardrails
-
-No guarantees, fake case results, fake reviews, state symbols, gavels, scales, money imagery, urgency timers, decorative gold fields, or hidden legal warnings. Demonstration company facts must remain visibly labeled until replaced.
+Иконки заменены на Lucide Static 1.41.0 (ISC), локальный спрайт vendor/lucide/sprite.svg. Исходные SVG и LICENSE сохранены рядом. Все 17 SVG-вставок используют библиотечные символы; самописная геометрия удалена из страницы. Крупная композиция документов собрана из Lucide и CSS. Логотип: геометрический CSS-знак из трёх восходящих плоскостей и двухстрочный вордмарк «Право на / новый этап» в шапке и футере.

@@ -290,6 +290,11 @@ export default async function HomePage() {
               <ProjectCard project={project} index={index} key={project.id || project.slug} />
             ))}
           </div>
+          <button className="projects-more" id="projects-more" type="button" hidden aria-expanded="false">
+            <span id="projects-more-label">Показать ещё</span>
+            <span className="projects-more-count" id="projects-more-count" aria-hidden="true" />
+            <span aria-hidden="true">↓</span>
+          </button>
           <p className="projects-empty" id="projects-empty">
             {portfolio.emptyText}
           </p>

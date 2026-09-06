@@ -114,66 +114,118 @@ const filterButtons = qsa('.filter-button');
 const projectCards = qsa('.project-card');
 const projectGrid = qs('#projects-grid');
 const emptyState = qs('#projects-empty');
+const projectsMore = qs('#projects-more');
+const projectsMoreLabel = qs('#projects-more-label');
+const projectsMoreCount = qs('#projects-more-count');
 const projectDesktopQuery = window.matchMedia('(min-width: 941px)');
+const projectMobileQuery = window.matchMedia('(max-width: 720px)');
+const mobileProjectLimit = 6;
+let mobileProjectsExpanded = false;
+const isDesktopProjectView = () => window.innerWidth >= 941;
+const isMobileProjectView = () => window.innerWidth <= 720;
 
-// The original bento used nth-child spans. Once a filter hid a card, those
-// spans still belonged to the old positions and left holes in the grid. Build
-// a fresh, packed layout from the visible set instead.
-const legacyPortfolioLayout = [
-  { columns: 2, rows: 2 },
-  { columns: 1, rows: 1 },
-  { columns: 1, rows: 1 },
-  { columns: 2, rows: 1 },
-  { columns: 2, rows: 2 },
-  { columns: 1, rows: 1 },
-  { columns: 1, rows: 1 },
-  { columns: 2, rows: 1 },
-  { columns: 1, rows: 1 },
-  { columns: 1, rows: 1 },
-  { columns: 2, rows: 2 },
-  { columns: 2, rows: 1 },
-];
-
+// Pack complete editorial groups; four remaining cards form two pairs.
 const getDesktopProjectLayout = count => {
-  if (count === 12) return legacyPortfolioLayout;
-  if (count === 0) return [];
-  if (count === 1) return [{ columns: 4, rows: 2 }];
-  if (count === 2) return [{ columns: 2, rows: 2 }, { columns: 2, rows: 2 }];
-  if (count === 3) return [{ columns: 2, rows: 2 }, { columns: 2, rows: 1 }, { columns: 2, rows: 1 }];
-
-  const layout = [{ columns: 2, rows: 2 }];
-  const lastCardIsFullWidth = count % 2 === 0;
-  for (let index = 1; index < count; index += 1) {
-    const isLast = index === count - 1;
-    layout.push({ columns: lastCardIsFullWidth && isLast ? 4 : 2, rows: 1 });
+  const layout = [];
+  let row = 1;
+  let mirrored = false;
+  while (layout.length < count) {
+    const remaining = count - layout.length;
+    if (remaining === 1) {
+      layout.push({ columns: 12, rows: 2, column: 1, row });
+    } else if (remaining === 2 || remaining === 4) {
+      layout.push({ columns: 6, rows: 2, column: 1, row }, { columns: 6, rows: 2, column: 7, row });
+    } else {
+      layout.push(
+        { columns: 7, rows: 2, column: mirrored ? 6 : 1, row },
+        { columns: 5, rows: 1, column: mirrored ? 1 : 8, row },
+        { columns: 5, rows: 1, column: mirrored ? 1 : 8, row: row + 1 },
+      );
+      mirrored = !mirrored;
+    }
+    row += 2;
   }
   return layout;
+};
+
+const getFilteredProjectCards = () => projectCards.filter(card => !card.classList.contains('is-hidden'));
+const getDisplayedProjectCards = () => projectCards.filter(card => (
+  !card.classList.contains('is-hidden') && !card.classList.contains('is-mobile-hidden')
+));
+
+const syncMobileProjectVisibility = () => {
+  const filteredCards = getFilteredProjectCards();
+  const shouldCollapse = isMobileProjectView() && !mobileProjectsExpanded;
+
+  projectCards.forEach(card => {
+    const index = filteredCards.indexOf(card);
+    const isMobileHidden = shouldCollapse && index >= mobileProjectLimit;
+    card.classList.toggle('is-mobile-hidden', isMobileHidden);
+    if (!isMobileHidden && index >= 0) {
+      card.classList.add('visible');
+      revealObserver?.unobserve(card);
+    }
+  });
+
+  const remaining = Math.max(0, filteredCards.length - mobileProjectLimit);
+  if (!projectsMore) return;
+  const canExpand = isMobileProjectView() && remaining > 0;
+  projectsMore.hidden = !canExpand;
+  projectsMore.setAttribute('aria-expanded', String(isMobileProjectView() && mobileProjectsExpanded));
+  if (projectsMoreLabel) projectsMoreLabel.textContent = mobileProjectsExpanded ? 'Свернуть проекты' : 'Показать ещё';
+  if (projectsMoreCount) projectsMoreCount.textContent = mobileProjectsExpanded ? '' : `+${remaining}`;
 };
 
 const syncProjectLayout = () => {
   if (!projectGrid) return;
 
-  const visibleCards = projectCards.filter(card => !card.classList.contains('is-hidden'));
-  const layout = projectDesktopQuery.matches
+  const visibleCards = getDisplayedProjectCards();
+  const layout = isDesktopProjectView()
     ? getDesktopProjectLayout(visibleCards.length)
     : visibleCards.map(() => ({ columns: 1, rows: 1 }));
 
   projectGrid.classList.add('is-layout-managed');
   projectGrid.dataset.visibleCount = String(visibleCards.length);
+  projectGrid.dataset.unpaired = String(visibleCards.length % 2 === 1);
 
   projectCards.forEach(card => {
+    card.classList.toggle('is-last-visible', card === visibleCards[visibleCards.length - 1]);
     card.style.removeProperty('--project-col-span');
     card.style.removeProperty('--project-row-span');
+    card.style.removeProperty('--project-column');
+    card.style.removeProperty('--project-row');
   });
 
   visibleCards.forEach((card, index) => {
     const cardLayout = layout[index] || { columns: 1, rows: 1 };
     card.style.setProperty('--project-col-span', String(cardLayout.columns));
     card.style.setProperty('--project-row-span', String(cardLayout.rows));
+    card.style.setProperty('--project-column', String(cardLayout.column || 'auto'));
+    card.style.setProperty('--project-row', String(cardLayout.row || 'auto'));
   });
 };
 
+const projectMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const projectAnimations = new Set();
+const stopProjectAnimations = () => {
+  projectAnimations.forEach(animation => animation.cancel());
+  projectAnimations.clear();
+};
+const animateProject = (element, frames, options) => {
+  const animation = element.animate(frames, options);
+  projectAnimations.add(animation);
+  animation.finished.then(() => projectAnimations.delete(animation), () => projectAnimations.delete(animation));
+};
+
 filterButtons.forEach(button => button.addEventListener('click', () => {
+  if (button.classList.contains('is-active')) return;
+  const animate = !projectMotionQuery.matches && typeof projectGrid?.animate === 'function';
+  // Read current on-screen positions before cancelling an interrupted transition.
+  const before = new Map(getDisplayedProjectCards()
+    .map(card => [card, card.getBoundingClientRect()]));
+  const oldHeight = projectGrid?.getBoundingClientRect().height || 0;
+  stopProjectAnimations();
+
   const filter = button.dataset.filter;
   filterButtons.forEach(item => {
     const active = item === button;
@@ -181,16 +233,54 @@ filterButtons.forEach(button => button.addEventListener('click', () => {
     item.setAttribute('aria-pressed', String(active));
   });
 
-  let visibleCount = 0;
   projectCards.forEach(card => {
     const visible = filter === 'all' || card.dataset.segment === filter;
     card.classList.toggle('is-hidden', !visible);
-    if (visible) visibleCount += 1;
   });
+  mobileProjectsExpanded = false;
+  syncMobileProjectVisibility();
   syncProjectLayout();
-  emptyState?.classList.toggle('is-visible', visibleCount === 0);
+  const filteredCards = getFilteredProjectCards();
+  const visibleCards = getDisplayedProjectCards();
+  emptyState?.classList.toggle('is-visible', filteredCards.length === 0);
+  if (!animate) return;
+
+  const after = visibleCards.map(card => [card, card.getBoundingClientRect()]);
+  const timing = { duration: 480, easing: 'cubic-bezier(.22, 1, .36, 1)' };
+  after.forEach(([card, rect], index) => {
+    const previous = before.get(card);
+    const from = previous
+      ? { transform: `translate(${previous.left - rect.left}px, ${previous.top - rect.top}px) scale(${previous.width / rect.width}, ${previous.height / rect.height})`, opacity: 1 }
+      : { transform: 'translateY(24px) scale(.97)', opacity: 0 };
+    animateProject(card, [
+      { ...from, transformOrigin: '0 0' },
+      { transform: 'none', opacity: 1, transformOrigin: '0 0' },
+    ], { ...timing, delay: previous ? 0 : Math.min(index * 35, 140), fill: 'backwards' });
+  });
+  animateProject(projectGrid, [
+    { height: `${oldHeight}px` },
+    { height: `${projectGrid.getBoundingClientRect().height}px` },
+  ], timing);
 }));
 
+projectMotionQuery.addEventListener('change', stopProjectAnimations);
+projectMobileQuery.addEventListener('change', () => {
+  mobileProjectsExpanded = false;
+  syncMobileProjectVisibility();
+  syncProjectLayout();
+});
+window.addEventListener('resize', stopProjectAnimations, { passive: true });
+
+projectsMore?.addEventListener('click', () => {
+  mobileProjectsExpanded = !mobileProjectsExpanded;
+  syncMobileProjectVisibility();
+  syncProjectLayout();
+  if (mobileProjectsExpanded) {
+    projectsMore?.scrollIntoView({ block: 'nearest', behavior: projectMotionQuery.matches ? 'auto' : 'smooth' });
+  }
+});
+
+syncMobileProjectVisibility();
 syncProjectLayout();
 if (projectDesktopQuery.addEventListener) projectDesktopQuery.addEventListener('change', syncProjectLayout);
 else projectDesktopQuery.addListener(syncProjectLayout);
